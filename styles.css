@@ -1,0 +1,38 @@
+/* Modified: 2026-07-13 */
+.np-rf-analysis {
+    margin-block: var(--size-4-3);
+    overflow-x: auto;
+    color: var(--text-normal);
+}
+
+.np-rf-analysis > div {
+    max-width: 100%;
+}
+
+.np-rf-analysis svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.np-rf-analysis button {
+    color: var(--text-normal);
+    font-family: var(--font-interface);
+}
+
+.np-rf-analysis .tooltip {
+    color: var(--text-normal);
+    background-color: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+    box-shadow: var(--shadow-s);
+}
+
+.np-rf-analysis-error {
+    margin-block: var(--size-4-3);
+    padding: var(--size-4-3);
+    color: var(--text-error);
+    background-color: var(--background-modifier-error);
+    border-radius: var(--radius-s);
+    white-space: pre-wrap;
+}
