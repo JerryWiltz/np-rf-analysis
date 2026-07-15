@@ -1,4 +1,4 @@
-// Modified: 2026-07-13
+// Modified: 2026-07-15
 import { MarkdownRenderChild } from 'obsidian';
 import * as nP from '../vendor/nP.esm.js';
 import { runAnalysis } from './analysis';
@@ -50,7 +50,7 @@ export class NpRenderChild extends MarkdownRenderChild {
             const message = error instanceof Error ? error.message : String(error);
             this.containerEl.createEl('pre', {
                 cls: 'np-rf-analysis-error',
-                text: `nP RF Analysis\n${message}`
+                text: `nPort RF Analysis\n${message}`
             });
         }
     }

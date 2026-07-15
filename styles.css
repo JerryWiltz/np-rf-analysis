@@ -1,4 +1,4 @@
-/* Modified: 2026-07-13 */
+/* Modified: 2026-07-15 */
 .np-rf-analysis {
     margin-block: var(--size-4-3);
     overflow-x: auto;
@@ -35,4 +35,94 @@
     background-color: var(--background-modifier-error);
     border-radius: var(--radius-s);
     white-space: pre-wrap;
+}
+
+.np-rf-analysis-warning {
+    margin-block: var(--size-4-2);
+    padding: var(--size-4-2) var(--size-4-3);
+    color: var(--text-warning);
+    background-color: var(--background-modifier-warning);
+    border-radius: var(--radius-s);
+}
+
+.np-rf-analysis-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--size-4-2);
+    margin-block: var(--size-4-2);
+}
+
+.np-rf-analysis-toolbar button {
+    padding: var(--size-2-2) var(--size-4-3);
+}
+
+.np-rf-analysis-run {
+    color: var(--text-on-accent);
+    background-color: var(--interactive-accent);
+}
+
+.np-rf-analysis-status {
+    color: var(--text-muted);
+    font-family: var(--font-interface);
+}
+
+.np-rf-analysis-source {
+    margin-block: var(--size-4-2);
+}
+
+.np-rf-analysis-source,
+.np-rf-analysis-console {
+    overflow-x: auto;
+    white-space: pre;
+}
+
+.np-rf-analysis-text-output {
+    overflow-x: auto;
+    padding: var(--size-4-3);
+    color: var(--text-normal);
+    background-color: var(--background-secondary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: var(--radius-s);
+    white-space: pre-wrap;
+}
+
+.np-rf-analysis-console {
+    padding: var(--size-4-3);
+    color: var(--text-normal);
+    background-color: var(--background-secondary);
+    border-radius: var(--radius-s);
+}
+
+.np-rf-analysis-output {
+    display: grid;
+    gap: var(--size-4-4);
+}
+
+.np-rf-analysis-render {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.np-rf-analysis-runner {
+    display: none;
+}
+
+@media print {
+    .np-rf-analysis-warning,
+    .np-rf-analysis-toolbar,
+    .np-rf-analysis-runner {
+        display: none;
+    }
+
+    .np-rf-analysis,
+    .np-rf-analysis-render {
+        overflow: visible;
+    }
+
+    .np-rf-analysis-render,
+    .np-rf-analysis-text-output,
+    .np-rf-analysis-console {
+        break-inside: avoid;
+    }
 }

@@ -1,6 +1,6 @@
 {
   "name": "np-rf-analysis",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "RF and microwave network analysis in Obsidian Markdown notes",
   "private": true,
   "scripts": {
@@ -10,6 +10,8 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@codemirror/state": "6.5.0",
+    "@codemirror/view": "6.38.6",
     "@types/node": "^22.0.0",
     "esbuild": "^0.25.0",
     "obsidian": "latest",
