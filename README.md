@@ -41,6 +41,19 @@ Each block provides **Run**, **Stop**, and **Reset** controls:
 
 Successful results are saved as validated render instructions and restored when the note is rendered again. This lets Obsidian include charts, tables, and text results in **Export to PDF** without automatically rerunning JavaScript. Changing the JavaScript invalidates the saved result; run the updated block once to create a new snapshot. During PDF export, interactive controls and the security warning are hidden.
 
+Saved results have a bounded cache lifecycle:
+
+- Editing or deleting an `npjs` block removes its previous saved result.
+- Deleting a note removes results owned by that note; renaming a note transfers their ownership to the new path.
+- Results older than 30 days are removed by default.
+- Saved-result storage is limited to 25 MB by default, with the oldest results removed first.
+- Both limits are configurable under **Settings → Community plugins → nPort RF Analysis**.
+- The settings page shows the current result count and approximate storage size and provides **Clear saved results**.
+- The command palette also provides **nPort RF Analysis: Clear saved results**.
+- Optional session-only mode clears saved results during a normal Obsidian quit. This is best-effort cleanup and cannot run after a crash or forced shutdown.
+
+The cache is stored in the plugin's `data.json`; result data is not inserted into the Markdown note.
+
 Inside an `npjs` fence, ordinary paste uses the clipboard's plain-text representation. JavaScript copied from editors such as VS Code therefore keeps its intended spaces, tabs, and line breaks without importing rich-text paragraph formatting.
 
 In Reading view, the controls and `Status: Ready` appear above the complete, always-visible JavaScript source. Charts, tables, messages, and errors appear below the source.
