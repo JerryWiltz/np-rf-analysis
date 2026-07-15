@@ -3,7 +3,23 @@
 
 nPort RF Analysis embeds RF and microwave network analysis in Obsidian Markdown notes. It runs verbatim nP JavaScript on demand and retains declarative JSON blocks for safe automatic rendering. Results appear as inline SVG line charts, Smith charts, or tables.
 
-This repository is an early local prototype and has not been submitted to the Obsidian Community Plugin directory.
+The initial public release supports the Obsidian desktop application. Mobile support will be declared only after it has been tested on Obsidian Mobile.
+
+## Installation
+
+After the plugin is published in the Obsidian Community Plugin directory:
+
+1. Open **Settings → Community plugins** in the vault where you want to use it.
+2. Select **Browse**, search for **nPort RF Analysis**, and select **Install**.
+3. Select **Enable**.
+
+For a manual installation, download `main.js`, `manifest.json`, and `styles.css` from the GitHub release whose tag matches the version in `manifest.json`. Place the three files in:
+
+```text
+<vault>/.obsidian/plugins/np-rf-analysis/
+```
+
+Restart Obsidian, then enable **nPort RF Analysis** under **Settings → Community plugins**. Plugins are installed and enabled separately for each vault.
 
 ## Verbatim JavaScript
 
@@ -106,6 +122,8 @@ Switch to Reading View to render the analysis.
 - The plugin contains no telemetry, remote code loading, self-update mechanism, or access to files outside the vault.
 
 The safe `np` JSON format remains available and never executes JavaScript.
+
+Security reports may be submitted through the repository's GitHub issues. Do not include private vault contents in a report. See `SECURITY.md` for the supported-version and reporting policy.
 
 ## Supported features
 

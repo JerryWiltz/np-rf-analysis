@@ -45,7 +45,6 @@ export default class NPortRfAnalysisPlugin extends Plugin {
 
     async onload(): Promise<void> {
         this.pluginData = parsePluginData(await this.loadData());
-        await this.cleanupStoredSnapshots();
 
         this.registerEditorExtension(npJsPlainTextPasteExtension);
         this.addSettingTab(new NPortRfAnalysisSettingTab(this.app, this));
@@ -101,6 +100,9 @@ export default class NPortRfAnalysisPlugin extends Plugin {
         this.registerInterval(window.setInterval(() => {
             void this.enforceSnapshotLimits();
         }, LIMIT_CHECK_INTERVAL_MS));
+        this.app.workspace.onLayoutReady(() => {
+            void this.cleanupStoredSnapshots();
+        });
         this.register(() => {
             for (const timer of this.pruneTimers.values()) window.clearTimeout(timer);
             this.pruneTimers.clear();

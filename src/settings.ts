@@ -22,7 +22,6 @@ export class NPortRfAnalysisSettingTab extends PluginSettingTab {
     display(): void {
         const { containerEl } = this;
         containerEl.empty();
-        containerEl.createEl('h2', { text: 'nPort RF Analysis' });
 
         new Setting(containerEl)
             .setName('Saved-result maximum age')

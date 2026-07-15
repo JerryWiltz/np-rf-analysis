@@ -20,7 +20,10 @@ interface NpJsWorkerScope {
 }
 
 const workerScope = self as unknown as NpJsWorkerScope;
-const AsyncFunction = Object.getPrototypeOf(async function () { return undefined; }).constructor as AsyncFunctionConstructor;
+const asyncFunctionPrototype = Object.getPrototypeOf(
+    async function () { return undefined; }
+) as { constructor: AsyncFunctionConstructor };
+const AsyncFunction = asyncFunctionPrototype.constructor;
 
 function send(message: NpJsWorkerMessage): void {
     workerScope.postMessage(message);
@@ -55,7 +58,7 @@ function blockNetworkAndStorageApis(): void {
 
     for (const name of blockedNames) {
         try {
-            Object.defineProperty(globalThis, name, {
+            Object.defineProperty(workerScope, name, {
                 configurable: false,
                 enumerable: false,
                 value: blocked,

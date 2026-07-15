@@ -19,6 +19,12 @@ interface RunnerEnvelope {
     payload: unknown;
 }
 
+type RenderApiMethod = (...args: unknown[]) => unknown;
+
+function isRenderApiMethod(value: unknown): value is RenderApiMethod {
+    return typeof value === 'function';
+}
+
 function isRunnerEnvelope(value: unknown): value is RunnerEnvelope {
     return typeof value === 'object'
         && value !== null
@@ -105,10 +111,9 @@ export class NpJsRenderChild extends MarkdownRenderChild {
         this.setStatus('Starting…');
         this.setRunning(true);
 
-        const frame = document.createElement('iframe');
-        frame.className = 'np-rf-analysis-runner';
+        const frame = this.containerEl.createEl('iframe', { cls: 'np-rf-analysis-runner' });
         frame.setAttribute('sandbox', 'allow-scripts');
-        frame.setAttribute('title', 'Isolated nP JavaScript runner');
+        frame.setAttribute('title', 'Isolated JavaScript runner');
         frame.srcdoc = createRunnerDocument(workerSource);
         frame.addEventListener('load', () => {
             if (this.runnerFrame !== frame || !this.token) return;
@@ -120,7 +125,6 @@ export class NpJsRenderChild extends MarkdownRenderChild {
             }, '*');
         }, { once: true });
         this.runnerFrame = frame;
-        this.containerEl.appendChild(frame);
     }
 
     private stop(): void {
@@ -215,7 +219,7 @@ export class NpJsRenderChild extends MarkdownRenderChild {
         if (message.type === 'style') {
             const api = this.renderApis.get(message.mount);
             const method = api?.[message.method];
-            if (typeof method === 'function') method(...message.args);
+            if (isRenderApiMethod(method)) method(...message.args);
             return;
         }
 
