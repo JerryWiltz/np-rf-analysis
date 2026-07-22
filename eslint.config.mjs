@@ -1,4 +1,4 @@
-// Modified: 2026-07-15
+// Modified: 2026-07-22
 import obsidianmd from 'eslint-plugin-obsidianmd';
 import globals from 'globals';
 import { defineConfig, globalIgnores } from 'eslint/config';
@@ -22,7 +22,7 @@ export default defineConfig(
             },
             parserOptions: {
                 projectService: {
-                    allowDefaultProject: ['eslint.config.mjs', 'manifest.json']
+                    allowDefaultProject: ['eslint.config.mjs', 'scripts/verify-release.mjs', 'manifest.json']
                 },
                 tsconfigRootDir: import.meta.dirname,
                 extraFileExtensions: ['.json']

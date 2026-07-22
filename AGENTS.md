@@ -100,6 +100,8 @@ The Obsidian ESLint plugin may introduce new recommendations. Treat warnings as 
 - `test/`: Node tests for analysis, sandbox protocol, editor behavior, and snapshot lifecycle.
 - `.github/workflows/ci.yml`: continuous lint, type, test, and build verification.
 - `.github/workflows/release.yml`: tagged production build and release-asset publication.
+- `developmentDocs/release-and-community-directory.md`: acceptance history, security safeguards, automated checks, and the release checklist.
+- `scripts/verify-release.mjs`: production-bundle, version-alignment, and `npjs` security-boundary regression checks.
 - `main.js`: ignored generated production bundle; never commit it.
 
 ## Working Rules
@@ -123,6 +125,7 @@ npm run lint
 npm run typecheck
 npm test
 npm run build
+npm run verify:release
 ```
 
 Requirements:
@@ -141,3 +144,4 @@ Before a release, additionally verify:
 4. The production `main.js`, root `manifest.json`, and `styles.css` are the release attachments.
 5. The default branch contains the manifest and reviewable source but not `main.js`.
 6. CI succeeds from a clean checkout.
+7. `npm run verify:release` passes against the production bundle.
