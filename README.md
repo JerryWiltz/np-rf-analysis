@@ -1,4 +1,4 @@
-<!-- Modified: 2026-07-15 -->
+<!-- Modified: 2026-07-22 -->
 # nPort RF Analysis
 
 nPort RF Analysis embeds RF and microwave network analysis in Obsidian Markdown notes. It runs verbatim nP JavaScript on demand and retains declarative JSON blocks for safe automatic rendering. Results appear as inline SVG line charts, Smith charts, or tables.
@@ -146,7 +146,7 @@ For a Smith chart, request paired real and imaginary outputs and set `view.type`
 
 ## Local development
 
-The prototype includes a pinned, generated nP ESM bundle under `vendor/` so releases and CI are self-contained. The vendored bundle is generated from nP `0.0.47` and remains covered by nP's MIT license. The worker is bundled into `main.js`; the plugin does not download executable code at runtime.
+The prototype includes a pinned, generated nP ESM bundle under `vendor/` so releases and CI are self-contained. The vendored bundle is generated from the nP `0.0.47` plugin entry and remains covered by nP's MIT license. That entry contains the complete RF, math, component, diode, chart, and table APIs, but intentionally excludes nP's obsolete browser-development helpers. The worker is bundled into `main.js`; the plugin does not download executable code at runtime.
 
 During coordinated nP development, the repositories can still be kept as siblings:
 

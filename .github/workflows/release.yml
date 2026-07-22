@@ -1,4 +1,4 @@
-# Modified: 2026-07-15
+# Modified: 2026-07-22
 name: Release Obsidian plugin
 
 on:
@@ -42,5 +42,5 @@ jobs:
           gh release create "$GITHUB_REF_NAME" \
             --verify-tag \
             --title "$GITHUB_REF_NAME" \
-            --notes "Initial public release of nPort RF Analysis for Obsidian desktop. Run nP JavaScript or declarative RF analyses from Markdown and render SVG charts, Smith charts, and tables." \
+            --notes "nPort RF Analysis for Obsidian desktop. Run nP JavaScript or declarative RF analyses from Markdown and render SVG charts, Smith charts, and tables." \
             main.js manifest.json styles.css

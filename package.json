@@ -1,6 +1,6 @@
 {
   "name": "np-rf-analysis",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "RF and microwave network analysis in Obsidian Markdown notes",
   "private": true,
   "scripts": {

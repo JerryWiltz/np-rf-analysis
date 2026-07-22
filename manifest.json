@@ -1,7 +1,7 @@
 {
   "id": "np-rf-analysis",
   "name": "nPort RF Analysis",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "minAppVersion": "1.5.0",
   "description": "Analyze RF and microwave networks from Markdown and render SVG charts, tables, and Smith plots.",
   "author": "Jerry Wiltz",

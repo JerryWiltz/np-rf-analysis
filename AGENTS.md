@@ -1,5 +1,5 @@
 # AGENTS.md
-<!-- Modified: 2026-07-19 -->
+<!-- Modified: 2026-07-22 -->
 
 Repository guide for agents working in the `np-rf-analysis` Obsidian plugin repository.
 
@@ -42,7 +42,7 @@ Preserve these submission rules:
 - Clearly disclose any future payments, account requirements, network use, external-vault access, server-side telemetry, advertisements, or closed-source portions in `README.md` before release.
 - Preserve license notices and attribution for vendored nP code and any other incorporated code.
 
-The initial 0.3.0 release has been submitted for Obsidian Community directory review. Do not bump its version, replace its release, publish another release, push commits, or change submission metadata unless the user explicitly requests it or review feedback requires it.
+The initial 0.3.0 release was submitted for Obsidian Community directory review. The automated review reported an unused legacy nP helper that dynamically created a script element. Obsidian clarified that the sandboxed `npjs` execution is not currently a blocking reported error, although a future user-gated API or disclosure system may require another update. Version 0.3.1 removes the reported legacy helper from the plugin's generated nP bundle while preserving the sandboxed `npjs` workflow. Do not publish a release, create a tag, or push without explicit user approval.
 
 ## Security Model
 
@@ -81,7 +81,7 @@ The plugin is currently declared desktop-only. Do not declare mobile compatibili
 - Keep initial user-interface work out of plugin construction. Use `workspace.onLayoutReady()` for startup work that requires the completed layout.
 - Keep accessibility, keyboard use, focus visibility, and theme compatibility in mind for every interactive control.
 
-The Obsidian ESLint plugin may introduce new recommendations. Treat warnings as items to evaluate and report, not as silent successes. As of 0.3.0, the settings tab uses the imperative API; migration to the declarative settings API is a future compatibility improvement for settings search in Obsidian 1.13 and later.
+The Obsidian ESLint plugin may introduce new recommendations. Treat warnings as items to evaluate and report, not as silent successes. As of 0.3.x, the settings tab uses the imperative API; migration to the declarative settings API is a future compatibility improvement for settings search in Obsidian 1.13 and later.
 
 ## Repository Layout
 
@@ -141,4 +141,3 @@ Before a release, additionally verify:
 4. The production `main.js`, root `manifest.json`, and `styles.css` are the release attachments.
 5. The default branch contains the manifest and reviewable source but not `main.js`.
 6. CI succeeds from a clean checkout.
-

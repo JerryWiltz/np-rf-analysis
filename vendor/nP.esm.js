@@ -42,6 +42,8 @@ function complex(real, imaginary) {
 	return complexNumber;
 }
 
+// Modified: 2026-07-14
+
 function Matrix () {}
 
 function dim(rows, cols, initial) { // used by nodal()
@@ -222,7 +224,7 @@ Matrix.prototype = {
 			a = 0, numRows = A.length, numCols = A[0].length, constRow = 0,
 			row = 0, col = 0, accum = 0;
 
-		for(constRow = 0; constRow < numRows; constRow++) { // FORWARD ELIMINAION - this row stays the same
+		for(constRow = 0; constRow < numRows; constRow++) { // FORWARD ELIMINATION - this row stays the same
 			pivotSort(A, constRow);
 			for(row = constRow+1; row < numRows; row++) { // this row moves down
 				a = -A[row][constRow]/A[constRow][constRow]; // this computes "a"
@@ -319,7 +321,7 @@ Matrix.prototype = {
 		//update numCols since Matrix, A is now wider;
 		numCols = A[0].length;
 
-		//add diagonal 1's to appened array, A
+		// add diagonal 1s to appended array, A
 		for(row = 0; row < numRows; row++) {
 			A[row][row + numRows] = complex(1, 0);
 		}
@@ -359,7 +361,8 @@ function matrix(mat) {
 	return matrixObject;
 }
 
-// Generates an array of chebyshev values based on number of section and ripple
+// Modified: 2026-07-14
+// Generates an array of Chebyshev values based on the number of sections and ripple
 function chebyLPgk (n = 3, ripple = 0.1) { // Returns gk's shown in formula 4.05-2 on page 99 of MYJ
 	var	chebyLPgkin = new Array(1 + 1 + n + 1),  // Table title row, go row, gk's (n rows), and g(k+1)
 		chebyLPgkout = [],
@@ -390,7 +393,8 @@ function chebyLPgk (n = 3, ripple = 0.1) { // Returns gk's shown in formula 4.05
 	return chebyLPgkout;
 }
 
-// Generates an array of parallel Capacitors and series Inductors based on chebyshev values
+// Modified: 2026-07-14
+// Generates an array of parallel capacitors and series inductors based on Chebyshev values
 function chebyLPLCs ( cheby = [1, 1.0315851425078764, 1.1474003299537219, 1.0315851425078761, 1], maxPassFrequency = 0.2e9, zo = 50) {
 	var	chebyLPLCsout = new Array(cheby.length),
 		i = 0;
@@ -405,7 +409,8 @@ function chebyLPLCs ( cheby = [1, 1.0315851425078764, 1.1474003299537219, 1.0315
 	return chebyLPLCsout;
 }
 
-// Computes the number sections in a chebyshev lowpass filter
+// Modified: 2026-07-14
+// Computes the number of sections in a Chebyshev low-pass filter
 function chebyLPNsec (passFreq = .2, rejFreq = 1.5, ripple = 0.1, rejection = 30) { // Formula 4.03-4 for n on page 86 of MYJ
 	var chebyLPNsecout = 0;
 	function normalizedBandwidth() { return rejFreq/passFreq; }// Computes the w/w1 in MYJ on page 86 of MYJ
@@ -2245,7 +2250,7 @@ function hsl2rgb(h, m1, m2) {
       : m1) * 255;
 }
 
-function basis$1(t1, v0, v1, v2, v3) {
+function basis(t1, v0, v1, v2, v3) {
   var t2 = t1 * t1, t3 = t2 * t1;
   return ((1 - 3 * t1 + 3 * t2 - t3) * v0
       + (4 - 6 * t2 + 3 * t3) * v1
@@ -2253,7 +2258,7 @@ function basis$1(t1, v0, v1, v2, v3) {
       + t3 * v3) / 6;
 }
 
-function basis(values) {
+function basis$1(values) {
   var n = values.length - 1;
   return function(t) {
     var i = t <= 0 ? (t = 0) : t >= 1 ? (t = 1, n - 1) : Math.floor(t * n),
@@ -2261,7 +2266,7 @@ function basis(values) {
         v2 = values[i + 1],
         v0 = i > 0 ? values[i - 1] : 2 * v1 - v2,
         v3 = i < n - 1 ? values[i + 2] : 2 * v2 - v1;
-    return basis$1((t - i / n) * n, v0, v1, v2, v3);
+    return basis((t - i / n) * n, v0, v1, v2, v3);
   };
 }
 
@@ -2338,7 +2343,7 @@ function rgbSpline(spline) {
   };
 }
 
-var rgbBasis = rgbSpline(basis);
+var rgbBasis = rgbSpline(basis$1);
 
 function numberArray(a, b) {
   if (!b) b = [];
@@ -6707,7 +6712,9 @@ function seSeRC(R = 75, C = 1e-12) { // series inductor nPort object
 	return seSeRC;
 }
 
-function paSeRC(R = 75, C = 1e-12) { // parallel capaSeRCitor nPort object
+// Modified: 2026-07-14
+
+function paSeRC(R = 75, C = 1e-12) { // parallel series-RC nPort object
 	var paSeRC = new nPort;
 	var frequencyList = global.fList, Ro = global.Ro;
 	var Zo = complex(Ro,0), Yo = Zo.inv(), two = complex(2,0), freqCount = 0, Z = [], Y = [], s11, s12, s21, s22, sparsArray = [];
@@ -8854,46 +8861,4 @@ function diode1N4148(options = {}) {
 	return diodePort;
 }
 
-function getCircuitTitle() {
-	var circuitTitle = document.getElementById('circuitTitle').innerHTML;
-document.getElementsByClassName('circuitTitle')[0].innerHTML = circuitTitle;
-
-}// check comment
-
-var editor;
-
-function callCodemirror (textAreaId) {
-	var myTextarea = document.getElementById(textAreaId);
-	editor = CodeMirror.fromTextArea(myTextarea, {
-		lineNumbers: true
-	});
-
-}
-function removeNodes (nodeClass) {
-	var removed = document.getElementsByClassName(nodeClass);
-	var i = 0;
-	var nodes = JSON.parse(JSON.stringify(removed.length));
-	for (i; i < nodes; i++) {
-		removed[0].remove();
-	}}
-function doIt () {
-	var headID = document.getElementsByTagName("head")[0];
-	var newScript = document.createElement("script");
-	newScript.setAttribute('id', 'circuit');
-	newScript.type = "text/javascript";
-	newScript.innerHTML = editor.getValue();
-	headID.appendChild(newScript);
-}
-function run() {
-		removeNodes('remove');
-		setTimeout(doIt, 100);
-}
-function runButton (button) {
-	document.getElementById(button).addEventListener('click', run);
-}
-function bodyWidth () {
-	var width = document.getElementsByTagName('body')[0].clientWidth;
-	return width;
-}
-
-export { C, L, Load, Open, R, Shift90, Short, Tclin, Tee, Tee4, Tee5, Tlin, bodyWidth, callCodemirror, cascade, chebyLPLCs, chebyLPNsec, chebyLPgk, complex, dim, diode1N4148, dup, editor, getCircuitTitle, global, lineChart, lineTable, log, lpfGen, matrix, mbend, mclin, mcross, mlin, mstep, mtee, mtfr, mvgnd, mvia, nodal, paC, paL, paPaLC, paPaRC, paPaRL, paPaRLC, paR, paSeLC, paSeRC, paSeRL, paSeRLC, run, runButton, seC, seL, sePaLC, sePaRC, sePaRL, sePaRLC, seR, seSeLC, seSeRC, seSeRL, seSeRLC, smithChart, trf, trf4Port, version };
+export { C, L, Load, Open, R, Shift90, Short, Tclin, Tee, Tee4, Tee5, Tlin, cascade, chebyLPLCs, chebyLPNsec, chebyLPgk, complex, dim, diode1N4148, dup, global, lineChart, lineTable, log, lpfGen, matrix, mbend, mclin, mcross, mlin, mstep, mtee, mtfr, mvgnd, mvia, nodal, paC, paL, paPaLC, paPaRC, paPaRL, paPaRLC, paR, paSeLC, paSeRC, paSeRL, paSeRLC, seC, seL, sePaLC, sePaRC, sePaRL, sePaRLC, seR, seSeLC, seSeRC, seSeRL, seSeRLC, smithChart, trf, trf4Port, version };
