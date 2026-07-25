@@ -1,10 +1,37 @@
-// Modified: 2026-07-15
+// Modified: 2026-07-25
 import * as esbuild from 'esbuild';
+import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const production = process.argv[2] === 'production';
 const root = path.dirname(fileURLToPath(import.meta.url));
+const learningGuideImageDirectory = path.join(root, 'learning-guide/Images');
+
+const learningGuideAssetsPlugin = {
+    name: 'learning-guide-assets',
+    setup(build) {
+        build.onResolve({ filter: /^learning-guide-assets$/ }, () => ({
+            path: 'learning-guide-assets',
+            namespace: 'learning-guide'
+        }));
+        build.onLoad({ filter: /.*/, namespace: 'learning-guide' }, async () => {
+            const filenames = (await readdir(learningGuideImageDirectory))
+                .filter((filename) => filename.endsWith('.svg'))
+                .sort();
+            const entries = await Promise.all(filenames.map(async (filename) => [
+                filename,
+                await readFile(path.join(learningGuideImageDirectory, filename), 'utf8')
+            ]));
+            return {
+                contents: `export default ${JSON.stringify(Object.fromEntries(entries))};`,
+                loader: 'js',
+                watchFiles: filenames.map((filename) =>
+                    path.join(learningGuideImageDirectory, filename))
+            };
+        });
+    }
+};
 
 const workerSourcePlugin = {
     name: 'npjs-worker-source',
@@ -53,10 +80,13 @@ const options = {
     target: 'es2018',
     platform: 'browser',
     outfile: 'main.js',
+    loader: {
+        '.md': 'text'
+    },
     minify: production,
     sourcemap: production ? false : 'inline',
     treeShaking: true,
-    plugins: [workerSourcePlugin],
+    plugins: [learningGuideAssetsPlugin, workerSourcePlugin],
     logLevel: 'info'
 };
 

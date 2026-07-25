@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title description">
+  <title id="title">nP mcross physical microstrip cross symbol</title>
+  <desc id="description">A four-port physical microstrip cross with ports ordered left, top, right, and bottom and an interior marker identifying port 1.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <rect x="53" y="53" width="14" height="14" fill="#b87333"/>
+  <rect x="47" y="53" width="6" height="14" fill="#b87333"/>
+  <rect x="53" y="47" width="14" height="6" fill="#b87333"/>
+  <rect x="67" y="53" width="6" height="14" fill="#b87333"/>
+  <rect x="53" y="67" width="14" height="6" fill="#b87333"/>
+  <g fill="#202020" font-family="Arial, Helvetica, sans-serif" font-size="8" text-anchor="middle">
+    <text x="60" y="15">mcross()</text><text x="29" y="63">Port 1</text><text x="60" y="42">Port 2</text><text x="91" y="63">Port 3</text><text x="60" y="88">Port 4</text>
+    <circle cx="47" cy="60" r="2"/><circle cx="60" cy="47" r="2"/><circle cx="73" cy="60" r="2"/><circle cx="60" cy="73" r="2"/><circle cx="56" cy="60" r="1.5"/>
+  </g>
+</svg>
