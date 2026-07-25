@@ -1,11 +1,11 @@
 # AGENTS.md
-<!-- Modified: 2026-07-22 -->
+<!-- Modified: 2026-07-24 -->
 
 Repository guide for agents working in the `np-rf-analysis` Obsidian plugin repository.
 
 ## Scope
 
-These instructions apply to the entire repository rooted at `/home/jerrywiltz/np-rf-analysis`.
+These instructions apply to the entire repository rooted at `/home/jerrywiltz/cad-development/np-rf-analysis`.
 
 ## Project Summary
 
@@ -14,7 +14,10 @@ These instructions apply to the entire repository rooted at `/home/jerrywiltz/np
 - `npjs` runs verbatim nP JavaScript only after the user selects **Run**.
 - `np` validates and automatically renders the plugin's optional declarative JSON format.
 
-The plugin bundles a pinned nP ESM build from the sibling `/home/jerrywiltz/nP` repository. Obsidian loads the generated `main.js`, `manifest.json`, and `styles.css` from a vault-specific plugin directory.
+The plugin bundles a pinned nP ESM build from the sibling
+`/home/jerrywiltz/cad-development/nP` repository. Obsidian loads the generated
+`main.js`, `manifest.json`, and `styles.css` from a vault-specific plugin
+directory.
 
 ## Obsidian Policies
 
@@ -112,7 +115,9 @@ The Obsidian ESLint plugin may introduce new recommendations. Treat warnings as 
 - Make small, reviewable changes and update tests with behavior changes.
 - Correct spelling and maintain consistent terminology in files being edited. Use `nPort RF Analysis`, `nP`, `npjs`, `Markdown`, `JavaScript`, `S-parameters`, and `Smith chart` consistently.
 - Add or update a `Modified: YYYY-MM-DD` comment in intentionally edited hand-maintained files, using the file's native comment syntax. Do not add dates to generated files.
-- Do not edit the vendored nP bundle by hand. Make library changes in `/home/jerrywiltz/nP`, verify them there, intentionally regenerate the ESM bundle, then rebuild and test the plugin.
+- Do not edit the vendored nP bundle by hand. Make library changes in
+  `/home/jerrywiltz/cad-development/nP`, verify them there, intentionally
+  regenerate the ESM bundle, then rebuild and test the plugin.
 - Do not assume a new nP source change is present in the plugin merely because the repositories are siblings; the plugin runs its pinned vendored bundle.
 - Do not run deployment, publish releases, create tags, or push without explicit user approval.
 
@@ -133,7 +138,7 @@ Requirements:
 - Report ESLint warnings as well as errors.
 - If `tsx` cannot create its local IPC socket in the sandbox, rerun `npm test` with the required permission rather than treating it as a test failure.
 - Confirm `git status --short` after building. `main.js` should remain ignored and untracked.
-- For rendering, iframe, CodeMirror, lifecycle, or CSS changes, also test the built plugin in the dedicated vault at `/home/jerrywiltz/np-rf-analysis-test-vault` using Obsidian Reading view and, where relevant, PDF export.
+- For rendering, iframe, CodeMirror, lifecycle, or CSS changes, also test the built plugin in the dedicated vault at `/home/jerrywiltz/cad-development/np-rf-analysis-test-vault` using Obsidian Reading view and, where relevant, PDF export.
 - Never develop or test against an important user vault.
 
 Before a release, additionally verify:
