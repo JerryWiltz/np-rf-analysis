@@ -1,4 +1,4 @@
-<!-- Modified: 2026-07-19 -->
+<!-- Modified: 2026-07-27 -->
 
 # Display Input Objects
 
@@ -223,4 +223,4 @@ nP.smithChart({
 - `smithChart` consumes adjacent real/imaginary column pairs.
 - Start with a minimal object, and add properties only when they improve the display.
 
-Return to [[5 The Basic Analysis Blocks|the basic analysis blocks]], continue to [[7 A 3 dB Attenuator|the π attenuator]], or open [[200 Complete List of nPort RF Constructors, Complex Numbers, and Matrixes|the complete API inventory]].
+Return to [[5 The Basic Analysis Blocks|the basic analysis blocks]], continue to [[7 A 3 dB Attenuator|the π attenuator]], or open [[200 Complete List of nPort RF Constructors, Complex Numbers, and Matrices|the complete API inventory]].

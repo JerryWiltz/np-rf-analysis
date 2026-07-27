@@ -1,4 +1,4 @@
-<!-- Modified: 2026-07-25 -->
+<!-- Modified: 2026-07-27 -->
 
 # Microstrip Tee Power Divider
 
@@ -181,4 +181,4 @@ The chart should show four traces: ideal and physical versions of `s11dB` and `s
 
 Because the circuit is symmetric, `s31dB` should equal `s21dB` apart from numerical roundoff. This example plots only `s21dB` to keep the comparison readable.
 
-Return to [[7 A 3 dB Attenuator|the 3 dB attenuator]], or open [[200 Complete List of nPort RF Constructors, Complex Numbers, and Matrixes|the complete API inventory]].
+Return to [[7 A 3 dB Attenuator|the 3 dB attenuator]], or open [[200 Complete List of nPort RF Constructors, Complex Numbers, and Matrices|the complete API inventory]].

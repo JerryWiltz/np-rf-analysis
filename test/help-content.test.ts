@@ -51,7 +51,7 @@ test('bundles the complete learning guide without its AGENTS file', async () => 
     assert.equal(files.length, 10);
     assert.equal(files.includes('AGENTS.md'), false);
     assert.equal(files.includes('1 "Hello, nPort".md'), true);
-    assert.equal(files.includes('200 Complete List of nPort RF Constructors, Complex Numbers, and Matrixes.md'), true);
+    assert.equal(files.includes('200 Complete List of nPort RF Constructors, Complex Numbers, and Matrices.md'), true);
 
     const start = await readFile(path.join(learningGuidePath, '1 "Hello, nPort".md'), 'utf8');
     assert.match(start, /^<!-- Modified: 2026-07-17 -->/);

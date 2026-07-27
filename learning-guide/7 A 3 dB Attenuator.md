@@ -1,4 +1,4 @@
-<!-- Modified: 2026-07-25 -->
+<!-- Modified: 2026-07-27 -->
 
 # A 3 dB Attenuator
 
@@ -92,4 +92,4 @@ The final array exposes only the input and output nodes:
 
 The completed π network is therefore returned as a two-port n-port object.
 
-Return to [[6 Display Input Objects|display input objects]], continue to [[8 Microstrip Tee Power Divider|the microstrip Tee power divider]], or open [[200 Complete List of nPort RF Constructors, Complex Numbers, and Matrixes|the complete API inventory]].
+Return to [[6 Display Input Objects|display input objects]], continue to [[8 Microstrip Tee Power Divider|the microstrip Tee power divider]], or open [[200 Complete List of nPort RF Constructors, Complex Numbers, and Matrices|the complete API inventory]].
