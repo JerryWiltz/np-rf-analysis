@@ -1,4 +1,4 @@
-// Modified: 2026-07-25
+// Modified: 2026-08-18
 import * as esbuild from 'esbuild';
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -6,28 +6,36 @@ import { fileURLToPath } from 'node:url';
 
 const production = process.argv[2] === 'production';
 const root = path.dirname(fileURLToPath(import.meta.url));
-const learningGuideImageDirectory = path.join(root, 'learning-guide/Images');
+const bundledContentDirectory = path.join(root, 'bundled-content');
 
-const learningGuideAssetsPlugin = {
-    name: 'learning-guide-assets',
+async function filesBelow(directory) {
+    const files = [];
+    for (const entry of await readdir(directory, { withFileTypes: true })) {
+        const absolute = path.join(directory, entry.name);
+        if (entry.isDirectory()) files.push(...await filesBelow(absolute));
+        else if (entry.isFile()) files.push(absolute);
+    }
+    return files.sort();
+}
+
+const bundledEducationalContentPlugin = {
+    name: 'bundled-educational-content',
     setup(build) {
-        build.onResolve({ filter: /^learning-guide-assets$/ }, () => ({
-            path: 'learning-guide-assets',
-            namespace: 'learning-guide'
+        build.onResolve({ filter: /^bundled-educational-content$/ }, () => ({
+            path: 'bundled-educational-content',
+            namespace: 'bundled-educational-content'
         }));
-        build.onLoad({ filter: /.*/, namespace: 'learning-guide' }, async () => {
-            const filenames = (await readdir(learningGuideImageDirectory))
-                .filter((filename) => filename.endsWith('.svg'))
-                .sort();
-            const entries = await Promise.all(filenames.map(async (filename) => [
-                filename,
-                await readFile(path.join(learningGuideImageDirectory, filename), 'utf8')
+        build.onLoad({ filter: /.*/, namespace: 'bundled-educational-content' }, async () => {
+            const files = (await filesBelow(bundledContentDirectory))
+                .filter((file) => path.basename(file) !== 'content-manifest.json');
+            const entries = await Promise.all(files.map(async (file) => [
+                path.relative(bundledContentDirectory, file).split(path.sep).join('/'),
+                await readFile(file, 'utf8')
             ]));
             return {
                 contents: `export default ${JSON.stringify(Object.fromEntries(entries))};`,
                 loader: 'js',
-                watchFiles: filenames.map((filename) =>
-                    path.join(learningGuideImageDirectory, filename))
+                watchFiles: files
             };
         });
     }
@@ -86,7 +94,7 @@ const options = {
     minify: production,
     sourcemap: production ? false : 'inline',
     treeShaking: true,
-    plugins: [learningGuideAssetsPlugin, workerSourcePlugin],
+    plugins: [bundledEducationalContentPlugin, workerSourcePlugin],
     logLevel: 'info'
 };
 

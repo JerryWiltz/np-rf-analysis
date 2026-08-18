@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="-18 0 440 240"
+     role="img"
+     aria-labelledby="title description">
+  <title id="title">Cascaded microstrip width step and bend</title>
+  <desc id="description">A compact 46 mil to 23 mil width-step discontinuity connects by a schematic wire to a compact unmitered right-turn microstrip bend between external ports 1 and 2.</desc>
+  <metadata id="layout-centering">{&quot;centerAxisX&quot;:202,&quot;centerReference&quot;:&quot;inter-discontinuity connection midpoint&quot;}</metadata>
+
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- External wires and the ideal zero-length connection between discontinuities. -->
+  <g fill="none"
+     stroke="#202020"
+     stroke-width="2"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+    <path d="M80 140 H120 M144 140 H260 M273 153 V180"/>
+  </g>
+
+  <!-- MS1: compact mstep() geometry, wide port 1 to narrow port 2. -->
+  <g fill="#b87333">
+    <rect x="120" y="133" width="12" height="14"/>
+    <rect x="132" y="137" width="12" height="6"/>
+  </g>
+
+  <!-- MB1: compact, unmitered mbend() right-turn geometry. -->
+  <path d="M260 133 H273 L280 140 V153 H266 V147 H260 Z"
+        fill="#b87333"/>
+
+  <!-- Public component terminals and external circuit terminals. -->
+  <g fill="#202020">
+    <circle cx="120" cy="140" r="4"/>
+    <circle cx="144" cy="140" r="4"/>
+    <circle cx="260" cy="140" r="4"/>
+    <circle cx="273" cy="153" r="4"/>
+    <circle cx="80" cy="140" r="4"/>
+    <circle cx="273" cy="180" r="4"/>
+  </g>
+
+  <!-- Component values and external ports. -->
+  <g fill="#202020"
+     font-family="Arial, Helvetica, sans-serif"
+     text-anchor="middle">
+    <g font-size="16" font-weight="bold">
+      <text x="132" y="70">MS1 = mstep()</text>
+      <text x="132" y="95">46 mil → 23 mil</text>
+      <text x="310" y="70">MB1 = mbend()</text>
+      <text x="310" y="95">unmitered right turn</text>
+    </g>
+    <g font-size="16">
+      <text x="80" y="180">Port 1</text>
+      <text x="325" y="185">Port 2</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="-80 0 700 440"
+     role="img" aria-labelledby="title description">
+  <title id="title">MCAP 430-10-430 ohm pi attenuator</title>
+  <desc id="description">Two 430 ohm shunt resistors surround a 10 ohm series resistor in the archived MCAP example.</desc>
+  <metadata id="circuit-description">{&quot;title&quot;:&quot;MCAP 430-10-430 ohm pi attenuator&quot;,&quot;description&quot;:&quot;Two 430 ohm shunt resistors surround a 10 ohm series resistor in the archived MCAP example.&quot;,&quot;viewBox&quot;:[-80,0,700,440],&quot;components&quot;:[{&quot;id&quot;:&quot;T1&quot;,&quot;symbol&quot;:&quot;tee.svg&quot;,&quot;at&quot;:[180,180],&quot;sourceAnchor&quot;:[120,140],&quot;rotation&quot;:0,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:2,&quot;at&quot;:[180,180],&quot;labelAt&quot;:[150,190]},{&quot;port&quot;:2,&quot;node&quot;:1,&quot;at&quot;:[140,140],&quot;labelAt&quot;:[140,110]},{&quot;port&quot;:3,&quot;node&quot;:3,&quot;at&quot;:[220,140],&quot;labelAt&quot;:[220,110]}]},{&quot;id&quot;:&quot;R1&quot;,&quot;symbol&quot;:&quot;resistor.svg&quot;,&quot;at&quot;:[180,180],&quot;sourceAnchor&quot;:[60,80],&quot;rotation&quot;:90,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:2,&quot;at&quot;:[180,180],&quot;labelAt&quot;:[150,190]},{&quot;port&quot;:2,&quot;node&quot;:4,&quot;at&quot;:[180,280],&quot;labelAt&quot;:[150,290]}]},{&quot;id&quot;:&quot;S1&quot;,&quot;symbol&quot;:&quot;short.svg&quot;,&quot;at&quot;:[180,280],&quot;sourceAnchor&quot;:[40,80],&quot;rotation&quot;:90,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:4,&quot;at&quot;:[180,280],&quot;labelAt&quot;:[150,290]}]},{&quot;id&quot;:&quot;R2&quot;,&quot;symbol&quot;:&quot;resistor.svg&quot;,&quot;at&quot;:[220,140],&quot;sourceAnchor&quot;:[60,80],&quot;rotation&quot;:0,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:3,&quot;at&quot;:[220,140],&quot;labelAt&quot;:[220,110]},{&quot;port&quot;:2,&quot;node&quot;:5,&quot;at&quot;:[320,140],&quot;labelAt&quot;:[320,110]}]},{&quot;id&quot;:&quot;T2&quot;,&quot;symbol&quot;:&quot;tee.svg&quot;,&quot;at&quot;:[360,180],&quot;sourceAnchor&quot;:[120,140],&quot;rotation&quot;:0,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:6,&quot;at&quot;:[360,180],&quot;labelAt&quot;:[330,190]},{&quot;port&quot;:2,&quot;node&quot;:5,&quot;at&quot;:[320,140],&quot;labelAt&quot;:[320,110]},{&quot;port&quot;:3,&quot;node&quot;:7,&quot;at&quot;:[400,140],&quot;labelAt&quot;:[400,110]}]},{&quot;id&quot;:&quot;R3&quot;,&quot;symbol&quot;:&quot;resistor.svg&quot;,&quot;at&quot;:[360,180],&quot;sourceAnchor&quot;:[60,80],&quot;rotation&quot;:90,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:6,&quot;at&quot;:[360,180],&quot;labelAt&quot;:[330,190]},{&quot;port&quot;:2,&quot;node&quot;:8,&quot;at&quot;:[360,280],&quot;labelAt&quot;:[330,290]}]},{&quot;id&quot;:&quot;S2&quot;,&quot;symbol&quot;:&quot;short.svg&quot;,&quot;at&quot;:[360,280],&quot;sourceAnchor&quot;:[40,80],&quot;rotation&quot;:90,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:8,&quot;at&quot;:[360,280],&quot;labelAt&quot;:[330,290]}]}],&quot;wires&quot;:[],&quot;labels&quot;:[{&quot;text&quot;:&quot;MCAP 430-10-430 Ω pi attenuator&quot;,&quot;at&quot;:[350,40],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;T1&quot;,&quot;at&quot;:[180,80],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;R1 = 430 Ω&quot;,&quot;at&quot;:[260,240],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Short&quot;,&quot;at&quot;:[240,370],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;R2 = 10 Ω&quot;,&quot;at&quot;:[270,90],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;T2&quot;,&quot;at&quot;:[360,80],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;R3 = 430 Ω&quot;,&quot;at&quot;:[440,240],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Short&quot;,&quot;at&quot;:[420,370],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 1&quot;,&quot;at&quot;:[80,150],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 2&quot;,&quot;at&quot;:[460,150],&quot;anchor&quot;:&quot;middle&quot;}],&quot;layout&quot;:{&quot;centerAxisX&quot;:270,&quot;centerReference&quot;:&quot;R2 midpoint&quot;}}</metadata>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- T1 from tee.svg -->
+    <g data-component-id="T1" data-symbol-source="tee.svg" data-symbol-sha256="fc34f38311259fb31bc0a792009ac45f21168b3587817822d0571ab4586f6031" data-symbol-geometry-sha256="cab2ff2d4707d7fcea2eb3d05be2892f8d2b68546834d8242b4b8f0a4ad13660" transform="translate(180 180) rotate(0) translate(-120 -140)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M80 100 H100 M140 100 H160 M120 120 V140"/><rect x="100" y="80" width="40" height="40"/><circle cx="120" cy="110" r="3" fill="#202020" stroke="none"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- R1 from resistor.svg -->
+    <g data-component-id="R1" data-symbol-source="resistor.svg" data-symbol-sha256="2bda48e1d36ff1a9deeaf74d4db28bdde04ff719e61e1c1735836b754734e792" data-symbol-geometry-sha256="03a4d1e2b62f5889e5e4879e43d361f7054157ab860b5a69ed6e786357844eaa" transform="translate(180 180) rotate(90) translate(-60 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 80 H80 L85 70 L95 90 L105 70 L115 90 L125 70 L135 90 L140 80 H160"/>
+  </g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- S1 from short.svg -->
+    <g data-component-id="S1" data-symbol-source="short.svg" data-symbol-sha256="62fcd7364173fb2cdcf17038aaf20da68ca0ce7f7de45ffd21bc72b846cf106e" data-symbol-geometry-sha256="4f26bdf7a787636ee75140bddfabcad396643897da924c284f5cac55c8da8a7f" transform="translate(180 280) rotate(90) translate(-40 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 80 H100"/><rect x="100" y="60" width="40" height="40"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- R2 from resistor.svg -->
+    <g data-component-id="R2" data-symbol-source="resistor.svg" data-symbol-sha256="2bda48e1d36ff1a9deeaf74d4db28bdde04ff719e61e1c1735836b754734e792" data-symbol-geometry-sha256="03a4d1e2b62f5889e5e4879e43d361f7054157ab860b5a69ed6e786357844eaa" transform="translate(220 140) rotate(0) translate(-60 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 80 H80 L85 70 L95 90 L105 70 L115 90 L125 70 L135 90 L140 80 H160"/>
+  </g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- T2 from tee.svg -->
+    <g data-component-id="T2" data-symbol-source="tee.svg" data-symbol-sha256="fc34f38311259fb31bc0a792009ac45f21168b3587817822d0571ab4586f6031" data-symbol-geometry-sha256="cab2ff2d4707d7fcea2eb3d05be2892f8d2b68546834d8242b4b8f0a4ad13660" transform="translate(360 180) rotate(0) translate(-120 -140)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M80 100 H100 M140 100 H160 M120 120 V140"/><rect x="100" y="80" width="40" height="40"/><circle cx="120" cy="110" r="3" fill="#202020" stroke="none"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- R3 from resistor.svg -->
+    <g data-component-id="R3" data-symbol-source="resistor.svg" data-symbol-sha256="2bda48e1d36ff1a9deeaf74d4db28bdde04ff719e61e1c1735836b754734e792" data-symbol-geometry-sha256="03a4d1e2b62f5889e5e4879e43d361f7054157ab860b5a69ed6e786357844eaa" transform="translate(360 180) rotate(90) translate(-60 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 80 H80 L85 70 L95 90 L105 70 L115 90 L125 70 L135 90 L140 80 H160"/>
+  </g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- S2 from short.svg -->
+    <g data-component-id="S2" data-symbol-source="short.svg" data-symbol-sha256="62fcd7364173fb2cdcf17038aaf20da68ca0ce7f7de45ffd21bc72b846cf106e" data-symbol-geometry-sha256="4f26bdf7a787636ee75140bddfabcad396643897da924c284f5cac55c8da8a7f" transform="translate(360 280) rotate(90) translate(-40 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 80 H100"/><rect x="100" y="60" width="40" height="40"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <circle data-node-dot="2" cx="180" cy="180" r="4" fill="#202020"/>
+    <circle data-node-circle="2" cx="150" cy="190" r="12" fill="#ffffff"/>
+    <circle data-node-dot="1" cx="140" cy="140" r="4" fill="#202020"/>
+    <circle data-node-circle="1" cx="140" cy="110" r="12" fill="#ffffff"/>
+    <circle data-node-dot="3" cx="220" cy="140" r="4" fill="#202020"/>
+    <circle data-node-circle="3" cx="220" cy="110" r="12" fill="#ffffff"/>
+    <circle data-node-dot="4" cx="180" cy="280" r="4" fill="#202020"/>
+    <circle data-node-circle="4" cx="150" cy="290" r="12" fill="#ffffff"/>
+    <circle data-node-dot="5" cx="320" cy="140" r="4" fill="#202020"/>
+    <circle data-node-circle="5" cx="320" cy="110" r="12" fill="#ffffff"/>
+    <circle data-node-dot="6" cx="360" cy="180" r="4" fill="#202020"/>
+    <circle data-node-circle="6" cx="330" cy="190" r="12" fill="#ffffff"/>
+    <circle data-node-dot="7" cx="400" cy="140" r="4" fill="#202020"/>
+    <circle data-node-circle="7" cx="400" cy="110" r="12" fill="#ffffff"/>
+    <circle data-node-dot="8" cx="360" cy="280" r="4" fill="#202020"/>
+    <circle data-node-circle="8" cx="330" cy="290" r="12" fill="#ffffff"/>
+  </g>
+  <g fill="#202020" font-family="Arial, Helvetica, sans-serif" font-size="14">
+    <text x="350" y="40" text-anchor="middle">MCAP 430-10-430 Ω pi attenuator</text>
+    <text x="180" y="80" text-anchor="middle">T1</text>
+    <text x="260" y="240" text-anchor="middle">R1 = 430 Ω</text>
+    <text x="240" y="370" text-anchor="middle">Short</text>
+    <text x="270" y="90" text-anchor="middle">R2 = 10 Ω</text>
+    <text x="360" y="80" text-anchor="middle">T2</text>
+    <text x="440" y="240" text-anchor="middle">R3 = 430 Ω</text>
+    <text x="420" y="370" text-anchor="middle">Short</text>
+    <text x="80" y="150" text-anchor="middle">Port 1</text>
+    <text x="460" y="150" text-anchor="middle">Port 2</text>
+    <text data-node-label="2" x="150" y="195" text-anchor="middle">2</text>
+    <text data-node-label="1" x="140" y="115" text-anchor="middle">1</text>
+    <text data-node-label="3" x="220" y="115" text-anchor="middle">3</text>
+    <text data-node-label="4" x="150" y="295" text-anchor="middle">4</text>
+    <text data-node-label="5" x="320" y="115" text-anchor="middle">5</text>
+    <text data-node-label="6" x="330" y="195" text-anchor="middle">6</text>
+    <text data-node-label="7" x="400" y="115" text-anchor="middle">7</text>
+    <text data-node-label="8" x="330" y="295" text-anchor="middle">8</text>
+  </g>
+</svg>

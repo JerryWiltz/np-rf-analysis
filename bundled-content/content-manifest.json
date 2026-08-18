@@ -1,0 +1,525 @@
+{
+  "version": 1,
+  "files": [
+    {
+      "path": "Examples/Examples Home.md",
+      "sha256": "95dac44e211cf0f1559f8b0d825b950f6fd55cecf793e12d8eab17fdb9990610"
+    },
+    {
+      "path": "Examples/Images/attenuator-with-parasitics.svg",
+      "sha256": "ffc02d697000d918c7dc9c03f5d384a640ccf54da491fd79f0035e321e5d569a"
+    },
+    {
+      "path": "Examples/Images/attenuator-without-parasitics.svg",
+      "sha256": "d56fa5b0eb501e221f9700dd3a965193fa45c40fc30633cd4589484062faae97"
+    },
+    {
+      "path": "Examples/Images/bare-transmission-line.svg",
+      "sha256": "8cd475294cef5bfd1c3b73f7e94de1d3fa2f3c34e617e653ed0764c576e1b395"
+    },
+    {
+      "path": "Examples/Images/branchline-coupler.svg",
+      "sha256": "8fdc750216306b7a68b299b5672f2a0dbbe9c99308c66313d80771f7258e9d38"
+    },
+    {
+      "path": "Examples/Images/diplexer-combined.svg",
+      "sha256": "d956bb51a9731fe77af0410b12aff1d064a0f9d7d99441c422ac9026867491cc"
+    },
+    {
+      "path": "Examples/Images/diplexer-high-pass-branch.svg",
+      "sha256": "7df3574cb1f88cef594998bbbe32a36134c1a35f551a7eaf43371e09403dc445"
+    },
+    {
+      "path": "Examples/Images/diplexer-low-pass-branch.svg",
+      "sha256": "2145f77a2201d686cfe81be50ed09caa8b9c1826308899f4b92b223b7d13f933"
+    },
+    {
+      "path": "Examples/Images/directional-coupler-comparison.svg",
+      "sha256": "8f4522cf9bb11bdc5dee0672cbca59b4039aa132a9c78597d78a85350980c2c9"
+    },
+    {
+      "path": "Examples/Images/edge-coupled-filter.svg",
+      "sha256": "45cde0033f291eacb713ceaa09b09f64628a9fca559d8bc4e15809c2ba967fc6"
+    },
+    {
+      "path": "Examples/Images/five-repeated-rlc-sections.svg",
+      "sha256": "0caf938b68e06864e1ce79b725f5d0e8002109362d706d090929d0db9efeba60"
+    },
+    {
+      "path": "Examples/Images/mcap-pi-attenuator.svg",
+      "sha256": "1d0835917fafef7f09b33fd80cdf05d16b8f9fbb1e60d7a7f2432733045f2794"
+    },
+    {
+      "path": "Examples/Images/open-circuited-series-stub.svg",
+      "sha256": "e76e473327fcd00c31ebf41a309074f5b48180ce513e7aa300af88a7239db068"
+    },
+    {
+      "path": "Examples/Images/open-circuited-shunt-stub.svg",
+      "sha256": "a30102c7a87db3f29b857ba02ffa65f1781669a58b54a1084df62ee8aa1dc3cb"
+    },
+    {
+      "path": "Examples/Images/pad-with-parasitics.svg",
+      "sha256": "ef9db5e4ffda9a5bf2676b9408de250fa9ffb321c2051573a1a8370358afce88"
+    },
+    {
+      "path": "Examples/Images/rat-race-divider.svg",
+      "sha256": "413685206555ee6bd19481c237f92ac7a8c87d50a17f3af8ad4675267345c2fb"
+    },
+    {
+      "path": "Examples/Images/short-circuited-series-stub.svg",
+      "sha256": "d7edb18d5b5fa794efac312d5250e91cd220ef00527c26cec05233864b36e6ba"
+    },
+    {
+      "path": "Examples/Images/short-circuited-shunt-stub.svg",
+      "sha256": "a1926f31d55082b572a03fcbc1eae995ead7ec36c841adf0b6c23bf405bcd3aa"
+    },
+    {
+      "path": "Examples/Images/tee-alternate-shunt-network.svg",
+      "sha256": "bd2180aeee9552e8c39e0054f22f5802ac5e469fc9e1b0b2c88c812e62ee5ab7"
+    },
+    {
+      "path": "Examples/Images/tee-parallel-network.svg",
+      "sha256": "a1dd3382893ac0c6475929568305616d92df7f0f85b788e971f3dd2015b16961"
+    },
+    {
+      "path": "Examples/Images/tee-shunt-branch-network.svg",
+      "sha256": "90c873562aaee2eaee830480ba11b872625f98ecea69ef548e4fe23b8cc52a28"
+    },
+    {
+      "path": "Examples/Images/tee-test-1-back-to-back.svg",
+      "sha256": "1a0a0f6ec0488add391129a356b74e072390fb9826ce490ab5c640f6dc3e0c2b"
+    },
+    {
+      "path": "Examples/Images/tee-test-2-parallel-resistors.svg",
+      "sha256": "71b2bfacfff0e0f10f5d2f38c6cc16585af8b944ecb941921e69728d9937db8b"
+    },
+    {
+      "path": "Examples/Images/tee-test-3-parallel-rl.svg",
+      "sha256": "87c4558d2d255113ed1ab59ad0bcbb402e7aa75307c93e7613550fe7e9fba905"
+    },
+    {
+      "path": "Examples/Images/transformer-comparison.svg",
+      "sha256": "940f47405e55ac0faeae66c592ff3c3e8d651c9801afe12681e59672c4efaa17"
+    },
+    {
+      "path": "Examples/examples/Compact/Diplexer Example.md",
+      "sha256": "367ff37d7494a6a481902c66f2536486d486d3379ed26c89e9bf998ef8775512"
+    },
+    {
+      "path": "Examples/examples/GistHTMLs/3 dB Attenuator with and without Parasitics.md",
+      "sha256": "eac9095a25f6663229103173f044d27805919ced47b87dca6354223ae40df6bb"
+    },
+    {
+      "path": "Examples/examples/GistHTMLs/Complex Numbers and Matrices.md",
+      "sha256": "5c026b49047d40e9c9cea6a59deab1322f598b0e7ffbed925d6164dadbd414ce"
+    },
+    {
+      "path": "Examples/examples/Gupta/3 GHz Rat-Race Divider.md",
+      "sha256": "1194b7751791a33f92f9c1315a089bb99fe1ba9dbbc6ca7f39c2d1fad1566fd2"
+    },
+    {
+      "path": "Examples/examples/Gupta/Cascaded and Nodal Repeated RLC Sections.md",
+      "sha256": "07ebaac6d25c3b9c2827c2f88e79e1a709ff98fbf8c7df612b908243420a583c"
+    },
+    {
+      "path": "Examples/examples/Huelsman/DC Resistor Analysis 1.md",
+      "sha256": "f967e78e4aeb0eae8ac86f9ce4cc390cb541293d93a9e380505b96bb9aaead91"
+    },
+    {
+      "path": "Examples/examples/Huelsman/DC Resistor Analysis Example 2.md",
+      "sha256": "483bab5176d0ef06c78b2c816b12072960fb957996c8f313c69f6355664da4d1"
+    },
+    {
+      "path": "Examples/examples/MWs101/Microwaves101 Branchline Coupler.md",
+      "sha256": "5ed2efe8a96f813960a985292b391d279f63db32267627f9e52f5b5b60a908fe"
+    },
+    {
+      "path": "Examples/examples/MWs101/Microwaves101 Directional Coupler.md",
+      "sha256": "f233194cf62d84c4df2e6f334e0c1d60ddb9afffaf6a24f99a4b1027d816e412"
+    },
+    {
+      "path": "Examples/examples/Medley/Edge-Coupled Filter Design.md",
+      "sha256": "e37deab4ccb4786c60efaf1ee3a07056d8d016691e2ca39e164f34b2e9f21674"
+    },
+    {
+      "path": "Examples/examples/Medley/RLC Elements Examples.md",
+      "sha256": "78b4d9b8e1ca726827ddd8a140613e4bce57b41d96496c329dc19c4ae2bfb89f"
+    },
+    {
+      "path": "Examples/examples/Medley/Transmission Line and Tee.md",
+      "sha256": "b8983ceaea122e0a261e702bc26a65b5cd888076dc66f5dfd43246b1e11fe251"
+    },
+    {
+      "path": "Examples/examples/Medley/Two-Port and Four-Port Transformers.md",
+      "sha256": "1aec41693078456a0a76606c220aad1c22a92df0ca37ba46b3647db6285596d1"
+    },
+    {
+      "path": "Examples/examples/nP-examples/3 dB Pad with Parasitics.md",
+      "sha256": "2d82e3a47c1f90122aaaf8d6b349ecf6bfdd335ec4676976c8200a7a52307f79"
+    },
+    {
+      "path": "Examples/examples/nP-examples/Low-Pass Filter Design Application.md",
+      "sha256": "cc818877c69e5603c52f6500fe7ca75097149d6ac51ca142bd78fca297f969b7"
+    },
+    {
+      "path": "Examples/examples/nP-examples/Tee and Nodal Demonstration.md",
+      "sha256": "ed953a26045a1fa7d6cc7e1406860a38294982834958d36ab069d4d8f76a7cb3"
+    },
+    {
+      "path": "Lessons/1 \"Hello, nPort\".md",
+      "sha256": "ed66125b6c2d1b3dc0a87701e321cb1dc10d441a3f9742b1d5770c04b7020c53"
+    },
+    {
+      "path": "Lessons/10 Understanding S-Parameters.md",
+      "sha256": "fae67ddd7afaed4ed0872099e882ec324f1d8bbecfc119644067ac97e531a110"
+    },
+    {
+      "path": "Lessons/100 Hand-loading the plugin into Obsidian.md",
+      "sha256": "e6ec193699a2278471d378410e42b8384413a7c95f51a574719a58d286775d1b"
+    },
+    {
+      "path": "Lessons/11 Complex Numbers.md",
+      "sha256": "7e0f2bd4c50ac7b040bd2072b8c07f002f9dea569b504939633cb1566790b567"
+    },
+    {
+      "path": "Lessons/12 Matrix Operations.md",
+      "sha256": "d0c49bd30ca01bcd1b3d7547c5200410111dddc8bf75f3e9ae6c1c2f334f6eed"
+    },
+    {
+      "path": "Lessons/13 Ideal Transmission Lines.md",
+      "sha256": "2c993ec381118bc4080734e45ecd5acfba37679d4c3ea6ef336a1ef242b91c7c"
+    },
+    {
+      "path": "Lessons/14 A Single Microstrip Line.md",
+      "sha256": "4b4eda106b436c80ec49cd7b7e076f18bf0b3a344f67e9d605eaf1b5e9ffc731"
+    },
+    {
+      "path": "Lessons/15 Microstrip Discontinuities.md",
+      "sha256": "cdbcd824bc57c0b1b3e6278997c81ecb181b000c4fe3b29cc6b4d1607606fd4f"
+    },
+    {
+      "path": "Lessons/16 Multiport Networks.md",
+      "sha256": "17016dddaf11806acc4931b039a8dd87e4c238da38e6f067565bd48edf522edd"
+    },
+    {
+      "path": "Lessons/17 Microstrip Tee Power Divider.md",
+      "sha256": "7035c6e736029c85a31e4b712e63bbf174418f0596dcf3695a4b92e5b07d7905"
+    },
+    {
+      "path": "Lessons/18 Coupled Transmission Lines.md",
+      "sha256": "11d8a0ceffa2da21b4b9df7f809f3907a055d8412b7f5a9d6065566ca7728b48"
+    },
+    {
+      "path": "Lessons/19 Chebyshev Low-Pass Filter Design.md",
+      "sha256": "13a76d550ba2e36a746476c4126478c7b402cc7b95f1af2965636d7717eb8604"
+    },
+    {
+      "path": "Lessons/2 Understanding an npjs Pane.md",
+      "sha256": "b14356d16601d37596f3716cb07467a899601eb03b1b8c85dc312afe4dc853d8"
+    },
+    {
+      "path": "Lessons/20 1N4148 Diode Model.md",
+      "sha256": "28f88b37db59c896c798e3019c7c3c6ec46c8eebae3ee3d3b727a0426176af13"
+    },
+    {
+      "path": "Lessons/200 Complete List of nPort RF Constructors, Complex Numbers, and Matrices.md",
+      "sha256": "7b1eaf09dde262ad2f91498bfe0242321afd37627ca19e6f64e9b071dc4ece56"
+    },
+    {
+      "path": "Lessons/21 Diagnosing an Analysis.md",
+      "sha256": "f92f05031068b1885c31f04331cecf610a75bc5f0bda601767021fe1912cd05b"
+    },
+    {
+      "path": "Lessons/22 Creating Schematics with an Agent.md",
+      "sha256": "ffcc008c18b09f3bb9ceee75e9ce8bb765ad4bb1966162f8490997741de95aa1"
+    },
+    {
+      "path": "Lessons/3 Series RC Example.md",
+      "sha256": "fd1ff499eccbb373b41b326e819c96c1b4b7ddf02732d91ddc988befea29d48d"
+    },
+    {
+      "path": "Lessons/4 Cascading a Series RC Circuit.md",
+      "sha256": "3b92381249c31196222250b51ddb4144bc607001672905d60b275fb23a7a88de"
+    },
+    {
+      "path": "Lessons/5 Nodal Analysis of the Series RC Circuit.md",
+      "sha256": "f0e1f9698c5ed06f1426e243f3f5c3b4fcf46ac7c189f6ef68c0dd72c27efd6d"
+    },
+    {
+      "path": "Lessons/6 Typing in an npjs Block.md",
+      "sha256": "9182919758f8ba5051b23e7ac7b4f353e6b63dad6ed399c5e973e6b861f88ef5"
+    },
+    {
+      "path": "Lessons/7 The Basic Analysis Blocks.md",
+      "sha256": "8c50bab2b8396498608aeea6218ae764d33329b74a98940bbe3acf808ba38131"
+    },
+    {
+      "path": "Lessons/8 Display Input Objects.md",
+      "sha256": "7ca75fbdfd3e2a41d10f7ba5e9cc40cb2764870b67823911e0f1b7a632577e55"
+    },
+    {
+      "path": "Lessons/9 A 3 dB Attenuator.md",
+      "sha256": "f6e5fa190c7f9fe481e91911206c9cd3dbecd6f3f532008945719abd49de9363"
+    },
+    {
+      "path": "Lessons/Images/3-db-pi-attenuator.svg",
+      "sha256": "26b46d52b0f2d247dbb5b5091252eee2844fcf555935722fc162cf5637411e4d"
+    },
+    {
+      "path": "Lessons/Images/chebyshev-low-pass-network.svg",
+      "sha256": "8cafaf03121c92d4f3a45a6df28cacfbacce017bb1e8daa400d95664e6edc7b7"
+    },
+    {
+      "path": "Lessons/Images/coupled-microstrip-line.svg",
+      "sha256": "cafa2e613b0f52dde9da6bf60ee7e459c89189e00326d4dd6fe3970cd2a3f910"
+    },
+    {
+      "path": "Lessons/Images/diode-1n4148-zero-bias.svg",
+      "sha256": "83dc0c3f5215c4168503cafa8bb67b50b8803f1639e388d4a98c351cc7ef4763"
+    },
+    {
+      "path": "Lessons/Images/ideal-transmission-line-comparison.svg",
+      "sha256": "9c30727759537d1c2c642e17f898061d971878f26b39498deb863a633d5a5f54"
+    },
+    {
+      "path": "Lessons/Images/microstrip-step-and-bend.svg",
+      "sha256": "0ee146fa473c9ce9ca23b2ec29ecbfcee62a18181fc5c29b6122efaf2c531897"
+    },
+    {
+      "path": "Lessons/Images/microstrip-tee-power-divider.svg",
+      "sha256": "a0fa53b1a6ed60139dfea7f127f77db9408589ee1c056f4450584c3e2e392878"
+    },
+    {
+      "path": "Lessons/Images/microstrip-tee-three-port.svg",
+      "sha256": "7a3c7e0131cc24ba6eaf91afbae183d6e1bb52e542a8475870b2ac0c2e5387cf"
+    },
+    {
+      "path": "Lessons/Images/npjs-four-panes.svg",
+      "sha256": "1cc149240f29e1aa5a10832074f081f370129bd99b4965c73f2d5114b675ec07"
+    },
+    {
+      "path": "Lessons/Images/series-rc-seserc.svg",
+      "sha256": "ec67f696e458e08dc60eb7d603c25fc0d695b1d4804430978fca19236dccbc0d"
+    },
+    {
+      "path": "Lessons/Images/series-rc.svg",
+      "sha256": "227bf848df99391c3cc23e40928573f34b3402c41c8b5ab4c7bedb782705d622"
+    },
+    {
+      "path": "Lessons/Images/series-rl.svg",
+      "sha256": "95053a9ebea534e648a786be0944f9401871c368e7db587d3ce7f73c7277d7cc"
+    },
+    {
+      "path": "Lessons/Images/single-microstrip-line.svg",
+      "sha256": "37efe5bb923a6400d0749fbd4fb5264afc592442689301253c91b3a5456677bc"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/AGENTS.md",
+      "sha256": "76ee133049a5a1accaa9fc9046bfaf34f78e9be30cf1cb1e7a184dcb77f106c3"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/README.md",
+      "sha256": "cc7efb728728d7c14989279c24b06b33b68f33da0330098dbf51e9fef0e9658f"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/capacitor.svg",
+      "sha256": "81d59c5e38273f9cf2224e9bfe470d3ce724b5b76eb3a51c5af9d869811d24ec"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/coupled-transmission-line.svg",
+      "sha256": "88944e5d7acf438f084002bdbb59114aedd5970c6b86124733adb0485f0a8eba"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/diode-1n4148.svg",
+      "sha256": "9958b6aa370717801f85273b24f164286b0a160f2a29854c994a8a0cd64295b7"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/inductor.svg",
+      "sha256": "b22705f1bded0cd915a008d892b55186b3f288f854ecc04f08fd35119ed289d8"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/load.svg",
+      "sha256": "8a2002842c3162a44480231e0e9efde34d9f2a12335689310cfb1ab931f38f7b"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/low-pass-network.svg",
+      "sha256": "fcf7653d26d58e685fc5062bf600885ae447b488f0a5b51c395ee2f713b9956f"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/microstrip-coupled-line.svg",
+      "sha256": "6be7046971e492e52ffd25fb59123cc65a796995128ee91657429546c8e64086"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/microstrip-cross.svg",
+      "sha256": "559ca51cca1469117f6ab3f34759737e93f0c7af6cc0c08e0b68c3a94990c0ec"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/microstrip-left-bend.svg",
+      "sha256": "adfabd2b62a3f71739a1ea8fa959cd11ab25cf49f59ce6249f737c42bf352b4a"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/microstrip-line.svg",
+      "sha256": "1b424c38f8a314225327af7e5aca1b0e227d2c4d17db59c65db27cb7b452091f"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/microstrip-right-bend.svg",
+      "sha256": "2dfd50b201ce2b7c58d67d11e67bedff961798e93bb909e49239201966f1c502"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/microstrip-step.svg",
+      "sha256": "8288cfea03ff9ec7f48ec426d437bbfb91c9fba97a23c8e878f5a4e8b66cba99"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/microstrip-tee.svg",
+      "sha256": "ed1363954d1428fdd3123b77a79d0a69c2566c271f5d6dacb5ff0016bf457e4d"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/microstrip-thin-film-resistor.svg",
+      "sha256": "02f4ee3da7c53908fb4e42b92552848c0db26ad1a5213d83a35d767540266f6a"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/microstrip-via-to-ground.svg",
+      "sha256": "6a98332057f262e96b5a54e0155bc077ccebf7b93c1663f17d288cd1891f59a5"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/microstrip-via-transition.svg",
+      "sha256": "a54371e7a30ebc7abf9178d83cbf35d930232f07d74f276dec83502071c457a0"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/open.svg",
+      "sha256": "05e22fde4e3d9e7ce9c7bde3e6c09f832db23e9a7e7afb4a6a4c52bd0caba0db"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/pa-parallel-lc.svg",
+      "sha256": "5c916284bdb3b8d27f9184e5e23474b906e77cc0ac5dc7cc09308d8268653740"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/pa-parallel-rc.svg",
+      "sha256": "b4cec7147308a600bb2030d4dfbb41e689036c6b97d64e19f43c695787c12864"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/pa-parallel-rl.svg",
+      "sha256": "bda83fe33d248a95c8d903e14d16fb2b52c8995c40c6ff46bf916ae6bbb622f2"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/pa-parallel-rlc.svg",
+      "sha256": "ce09f3ed4c8b6cf93b41bea9bd7a69b0bcd0b28b2b660a28c20c12f6e6282edd"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/pa-series-lc.svg",
+      "sha256": "9cc9abfd8b17ef02e110fb53e70e6e3a77f998ab7348e53a8a48d257f69fd019"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/pa-series-rc.svg",
+      "sha256": "d3e9679cc18459da2e9c145d601be54a80fe4bb649c27d704e7028edda14d82c"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/pa-series-rl.svg",
+      "sha256": "f257abba2c34de18523dd94635ca80998deadd30831c82d5c0725717048d2fcc"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/pa-series-rlc.svg",
+      "sha256": "cc013b77ef3c26548326b68c2aa3ab29d101529c90a3e530c420402af539ec80"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/parallel-capacitor.svg",
+      "sha256": "ab681d6c3c6ece5c4a9ce5914222ee4f0bdb49a840b458cc863215e4c39778b7"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/parallel-inductor.svg",
+      "sha256": "22e179a66261dffea1daae20bb9514bc5588cebf3640d84bc2ec8949c1b6051e"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/parallel-resistor.svg",
+      "sha256": "f6cd3586124dc2fd097f4c1864f8e3cfe76a9a2bb9ff11c713edc0308558f8cf"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/resistor.svg",
+      "sha256": "2bda48e1d36ff1a9deeaf74d4db28bdde04ff719e61e1c1735836b754734e792"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/se-parallel-lc.svg",
+      "sha256": "b8da552c226be6c1b9aed8bbe2f3d2f69d6a66dae55cf029f7cb390016eeb43e"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/se-parallel-rc.svg",
+      "sha256": "a74c4d9a827d271b23346cb75837f95f44bfc3447982dd412d1d8c3f4d4b28f6"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/se-parallel-rl.svg",
+      "sha256": "b49b05f269c0be8a92591db0c95c1919d508d4eb6af1b250940455fe1f8360bf"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/se-parallel-rlc.svg",
+      "sha256": "b6484970b14415d9a5f774ae3d5012bf5d439f5632da446a0320cc731110123e"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/se-series-lc.svg",
+      "sha256": "8b65d158347db5daeac1e4e1bf2c73bb440a7548e39b27727093cc9e82e28c9e"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/se-series-rc.svg",
+      "sha256": "ee415799e32ecc980fe6d55410918a8c969ae7adcc13d899bf41f13ef0e3b046"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/se-series-rl.svg",
+      "sha256": "961f23231d802dd968c696869ee9bc7f84fc573694b1f8e98bf1793663a6f1f3"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/se-series-rlc.svg",
+      "sha256": "0e0b73caf425b756203ec824d2803265b76572c7daaae9f0a1bc6e19d0255e4b"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/series-tee.svg",
+      "sha256": "fa77722a2e173a86d222a396b60ccfd2f3497052bc5b8839ec8430784f61e3fd"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/shift-90.svg",
+      "sha256": "a7b4adf33d8e0a4aacd0abd243661cac70bc57f1c5432697eb8699881d4d711e"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/short.svg",
+      "sha256": "62fcd7364173fb2cdcf17038aaf20da68ca0ce7f7de45ffd21bc72b846cf106e"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/tee.svg",
+      "sha256": "fc34f38311259fb31bc0a792009ac45f21168b3587817822d0571ab4586f6031"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/tee4.svg",
+      "sha256": "5f0e6a54f9101ae3ef041aecb87faa6968de06731be4e7eb54156231bdae4dd4"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/tee5.svg",
+      "sha256": "067d98770094ed97a2580147bdcfff2a26d9c0bb62d52a184484e61ff4f94419"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/transformer-four-port.svg",
+      "sha256": "49e56a20ce4839f6b0f5924d5ca905bb8404504a0ce73d1b2cb3260231bbd723"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/transformer.svg",
+      "sha256": "b7a92a0a37934f016518b116ecc0a873c3fc52ca3a45f4b867c2c0b209f6e94f"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Symbols/transmission-line.svg",
+      "sha256": "c0cf9c30a93ecfa767dc7ec7f430bf43a85b5813545cecbc5ad7987ed3f78df1"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Tools/compose-schematic.js",
+      "sha256": "667289ed6d0211a21e3eca411a6c8a53ae380a210f7ceeb7d459886e33c62f49"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Tools/symbol-library.js",
+      "sha256": "7eb4c1d5f763c354ab95157a07b06685503b6a2c72ebf77642feb0c72a8c0b78"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Tools/validate-schematic.js",
+      "sha256": "a71cf0a398dee1ec419a5d41cb9e2c1269e6f6b396e0b7be0b12201896ea0b65"
+    },
+    {
+      "path": "Lessons/Schematic Authoring/Tools/validate-symbol-library.js",
+      "sha256": "f2072a06e56aa0cdc0ea73430ead603e8fa9f415b997f4a93225e102e2056455"
+    }
+  ]
+}

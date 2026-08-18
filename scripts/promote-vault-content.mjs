@@ -1,4 +1,4 @@
-// Modified: 2026-08-12
+// Modified: 2026-08-18
 import {createHash} from 'node:crypto';
 import {
     cp,
@@ -17,37 +17,9 @@ import {fileURLToPath} from 'node:url';
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const vaultRoot = path.resolve(repositoryRoot, '../np-rf-analysis-test-vault');
+const educationalSource = path.join(vaultRoot, 'nPort RF Analysis');
 const destinationRoot = path.join(repositoryRoot, 'bundled-content');
 const write = process.argv.includes('--write');
-
-const learningSource = path.join(vaultRoot, '1 Learning nP');
-const examplesSource = path.join(vaultRoot, 'Examples');
-const lessonImagesSource = path.join(vaultRoot, 'Images', '1 Learning nP SVG');
-const exampleImagesSource = path.join(vaultRoot, 'Images', 'Examples SVG');
-const symbolsSource = path.join(vaultRoot, 'Images', 'Symbol Library SVG');
-const toolsSource = path.join(vaultRoot, 'schematics');
-
-function normalizeText(value) {
-    return value.replaceAll('\r\n', '\n');
-}
-
-function transformLearningMarkdown(value) {
-    return normalizeText(value)
-        .replaceAll('Images/1 Learning nP SVG/', 'Getting Started/Images/')
-        .replaceAll(
-            'Images/Symbol Library SVG/',
-            'Getting Started/Schematic Authoring/Symbols/'
-        );
-}
-
-function transformExampleMarkdown(value) {
-    return normalizeText(value)
-        .replaceAll('Images/Examples SVG/', 'Examples/Images/')
-        .replaceAll(
-            'Images/Symbol Library SVG/',
-            'Getting Started/Schematic Authoring/Symbols/'
-        );
-}
 
 async function filesBelow(root, predicate = () => true) {
     const output = [];
@@ -62,84 +34,17 @@ async function filesBelow(root, predicate = () => true) {
     return output.sort();
 }
 
-async function copyFileInto(source, stagingRoot, relative, transform) {
+async function copyFileInto(source, stagingRoot, relative) {
     const destination = path.join(stagingRoot, relative);
     await mkdir(path.dirname(destination), {recursive: true});
-    if (transform) {
-        await writeFile(destination, transform(await readFile(source, 'utf8')), 'utf8');
-    } else {
-        await cp(source, destination, {preserveTimestamps: true});
-    }
+    await cp(source, destination, {preserveTimestamps: true});
 }
 
 async function buildStaging(stagingRoot) {
-    const lessons = await filesBelow(learningSource, file => file.endsWith('.md'));
-    for (const source of lessons) {
-        if (path.basename(source) === 'AGENTS.md') continue;
-        await copyFileInto(
-            source,
-            stagingRoot,
-            path.join('Getting Started', path.relative(learningSource, source)),
-            transformLearningMarkdown
-        );
-    }
-
-    for (const source of await filesBelow(examplesSource, file => file.endsWith('.md'))) {
-        await copyFileInto(
-            source,
-            stagingRoot,
-            path.join('Examples', path.relative(examplesSource, source)),
-            transformExampleMarkdown
-        );
-    }
-
-    for (const source of await filesBelow(lessonImagesSource, file => file.endsWith('.svg'))) {
-        await copyFileInto(
-            source,
-            stagingRoot,
-            path.join('Getting Started', 'Images', path.basename(source))
-        );
-    }
-    for (const source of await filesBelow(exampleImagesSource, file => file.endsWith('.svg'))) {
-        await copyFileInto(
-            source,
-            stagingRoot,
-            path.join('Examples', 'Images', path.basename(source))
-        );
-    }
-    for (const source of await filesBelow(symbolsSource, file => file.endsWith('.svg'))) {
-        await copyFileInto(
-            source,
-            stagingRoot,
-            path.join('Getting Started', 'Schematic Authoring', 'Symbols', path.basename(source))
-        );
-    }
-
-    await copyFileInto(
-        path.join(vaultRoot, 'Images', 'AGENTS.md'),
-        stagingRoot,
-        path.join('Getting Started', 'Schematic Authoring', 'AGENTS.md'),
-        normalizeText
-    );
-    await copyFileInto(
-        path.join(toolsSource, 'README.md'),
-        stagingRoot,
-        path.join('Getting Started', 'Schematic Authoring', 'README.md'),
-        value => normalizeText(value)
-            .replaceAll('Images/Symbol Library SVG/', 'Getting Started/Schematic Authoring/Symbols/')
-            .replaceAll('schematics/', 'Getting Started/Schematic Authoring/Tools/')
-    );
-    for (const filename of [
-        'compose-schematic.js',
-        'symbol-library.js',
-        'validate-schematic.js',
-        'validate-symbol-library.js'
-    ]) {
-        await copyFileInto(
-            path.join(toolsSource, filename),
-            stagingRoot,
-            path.join('Getting Started', 'Schematic Authoring', 'Tools', filename)
-        );
+    for (const source of await filesBelow(educationalSource)) {
+        const relative = path.relative(educationalSource, source);
+        if (relative === 'content-manifest.json') continue;
+        await copyFileInto(source, stagingRoot, relative);
     }
 
     const manifestEntries = [];

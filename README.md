@@ -21,13 +21,12 @@ For a manual installation, download `main.js`, `manifest.json`, and `styles.css`
 
 Restart Obsidian, then enable **nPort RF Analysis** under **Settings → Community plugins**. Plugins are installed and enabled separately for each vault.
 
-To add the bundled lessons and runnable examples, open **Settings → Community plugins → nPort RF Analysis** and select **Create learning guide**. The plugin creates the self-contained `Getting Started` folder in the current vault, adds only missing lesson and SVG diagram files, preserves existing files, and opens the first lesson.
+To add the bundled material, open **Settings → Community plugins → nPort RF Analysis**. Select **Install lessons** or **Install examples** independently. The plugin creates `nPort RF Analysis/Lessons` and `nPort RF Analysis/Examples`, adds only missing files, and preserves existing files. When a collection shows **Installed**, close Settings and open its folder in the Files pane.
 
-The current release provides the smaller `Getting Started` collection. The
-full numbered learning sequence and converted historical Examples collection
-are maintained and tested separately while their repeatable promotion and
-bundle validation are completed; they are not yet created by the released
-plugin.
+The `0.3.2` development source contains the complete numbered lesson sequence,
+converted examples, referenced SVGs, and schematic-authoring files promoted
+from the dedicated authoring vault. Publishing it as an Obsidian update remains
+a separate step.
 
 ## Verbatim JavaScript
 
@@ -137,7 +136,7 @@ Security reports may be submitted through the repository's GitHub issues. Do not
 
 For questions, bug reports, and feature requests, [open an issue in the GitHub repository](https://github.com/JerryWiltz/np-rf-analysis/issues). Do not include private vault contents, credentials, or other sensitive information.
 
-The plugin settings page provides **Create learning guide**, **Open documentation**, and **Report an issue** buttons. Creating the guide writes the disclosed lesson files only inside the current vault. The other two buttons open GitHub in the default browser only after you select them; the plugin makes no background network requests.
+The plugin settings page provides independent installation controls for **Lessons** and **Examples**, plus **Open documentation** and **Report an issue** buttons. The installation controls write their disclosed files only below `nPort RF Analysis` in the current vault and never overwrite existing files. Installed collections are opened from Obsidian's Files pane. The other two buttons open GitHub in the default browser only after you select them; the plugin makes no background network requests.
 
 ## Supported features
 

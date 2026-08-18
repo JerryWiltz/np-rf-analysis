@@ -7,6 +7,7 @@ export default defineConfig(
     globalIgnores([
         'node_modules',
         'vendor',
+        'bundled-content',
         'test',
         'main.js',
         'esbuild.config.mjs',

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 760 520"
+     role="img" aria-labelledby="title description">
+  <title id="title">Ideal and microstrip directional couplers</title>
+  <desc id="description">Two four-port coupled-line models aligned on one vertical center axis with clockwise constructor-port order.</desc>
+  <metadata id="circuit-description">{&quot;title&quot;:&quot;Ideal and microstrip directional couplers&quot;,&quot;description&quot;:&quot;Two four-port coupled-line models aligned on one vertical center axis with clockwise constructor-port order.&quot;,&quot;viewBox&quot;:[0,0,760,520],&quot;layout&quot;:{&quot;centerAxisX&quot;:380,&quot;centerReference&quot;:&quot;shared coupled-line midpoint&quot;},&quot;components&quot;:[{&quot;id&quot;:&quot;CL1&quot;,&quot;symbol&quot;:&quot;coupled-transmission-line.svg&quot;,&quot;at&quot;:[260,120],&quot;sourceAnchor&quot;:[40,100],&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:1,&quot;at&quot;:[260,120],&quot;labelAt&quot;:[260,80]},{&quot;port&quot;:2,&quot;node&quot;:2,&quot;at&quot;:[500,120],&quot;labelAt&quot;:[500,80]},{&quot;port&quot;:3,&quot;node&quot;:3,&quot;at&quot;:[500,160],&quot;labelAt&quot;:[500,200]},{&quot;port&quot;:4,&quot;node&quot;:4,&quot;at&quot;:[260,160],&quot;labelAt&quot;:[260,200]}]},{&quot;id&quot;:&quot;MCL1&quot;,&quot;symbol&quot;:&quot;microstrip-coupled-line.svg&quot;,&quot;at&quot;:[380,360],&quot;sourceAnchor&quot;:[150,100],&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:5,&quot;at&quot;:[310,360],&quot;labelAt&quot;:[310,310]},{&quot;port&quot;:2,&quot;node&quot;:6,&quot;at&quot;:[450,360],&quot;labelAt&quot;:[450,310]},{&quot;port&quot;:3,&quot;node&quot;:7,&quot;at&quot;:[450,380],&quot;labelAt&quot;:[450,430]},{&quot;port&quot;:4,&quot;node&quot;:8,&quot;at&quot;:[310,380],&quot;labelAt&quot;:[310,430]}]}],&quot;wires&quot;:[{&quot;points&quot;:[[240,360],[310,360]]},{&quot;points&quot;:[[450,360],[520,360]]},{&quot;points&quot;:[[240,380],[310,380]]},{&quot;points&quot;:[[450,380],[520,380]]}],&quot;terminals&quot;:[{&quot;at&quot;:[240,360]},{&quot;at&quot;:[520,360]},{&quot;at&quot;:[240,380]},{&quot;at&quot;:[520,380]}],&quot;labels&quot;:[{&quot;text&quot;:&quot;Ideal coupled transmission line, Tclin()&quot;,&quot;at&quot;:[380,40],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Zoe / Zoo, ℓ = 0.295 in&quot;,&quot;at&quot;:[380,230],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 1&quot;,&quot;at&quot;:[200,110],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 2&quot;,&quot;at&quot;:[560,110],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 3&quot;,&quot;at&quot;:[560,170],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 4&quot;,&quot;at&quot;:[200,170],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Microstrip coupled line, mclin()&quot;,&quot;at&quot;:[380,280],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;W = 0.020 in, S = 0.0025 in, H = 0.025 in&quot;,&quot;at&quot;:[380,480],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 1&quot;,&quot;at&quot;:[180,350],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 2&quot;,&quot;at&quot;:[580,350],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 3&quot;,&quot;at&quot;:[580,390],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 4&quot;,&quot;at&quot;:[180,390],&quot;anchor&quot;:&quot;middle&quot;}]}</metadata>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path data-wire="1" d="M240 360 L310 360"/>
+    <path data-wire="2" d="M450 360 L520 360"/>
+    <path data-wire="3" d="M240 380 L310 380"/>
+    <path data-wire="4" d="M450 380 L520 380"/>
+    <circle data-external-terminal="1" cx="240" cy="360" r="4" fill="#202020"/>
+    <circle data-external-terminal="2" cx="520" cy="360" r="4" fill="#202020"/>
+    <circle data-external-terminal="3" cx="240" cy="380" r="4" fill="#202020"/>
+    <circle data-external-terminal="4" cx="520" cy="380" r="4" fill="#202020"/>
+    <!-- CL1 from coupled-transmission-line.svg -->
+    <g data-component-id="CL1" data-symbol-source="coupled-transmission-line.svg" data-symbol-sha256="88944e5d7acf438f084002bdbb59114aedd5970c6b86124733adb0485f0a8eba" data-symbol-geometry-sha256="a27300261cb92f5ef11f2a19bf41a18416399792e90bb7340c06f3ea470ffebf" transform="translate(260 120) rotate(0) translate(-40 -100)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 100 H110 M210 100 H280 M40 140 H110 M210 140 H280"/><rect x="110" y="85" width="100" height="30"/><rect x="110" y="125" width="100" height="30"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- MCL1 from microstrip-coupled-line.svg -->
+    <g data-component-id="MCL1" data-symbol-source="microstrip-coupled-line.svg" data-symbol-sha256="6be7046971e492e52ffd25fb59123cc65a796995128ee91657429546c8e64086" data-symbol-geometry-sha256="4abaf39410b50c5297fc391e18b9bacbc17a02d1a65ad72b4c2b269385a8b318" transform="translate(380 360) rotate(0) translate(-150 -100)">
+      <!-- canonical-geometry-start -->
+<path d="M80 100 H220 M80 120 H220" fill="none" stroke="#b87333" stroke-width="12" stroke-linecap="butt"/>
+      <!-- canonical-geometry-end -->
+    </g>
+    <circle data-node-dot="1" cx="260" cy="120" r="4" fill="#202020"/>
+    <circle data-node-circle="1" cx="260" cy="80" r="12" fill="#ffffff"/>
+    <circle data-node-dot="2" cx="500" cy="120" r="4" fill="#202020"/>
+    <circle data-node-circle="2" cx="500" cy="80" r="12" fill="#ffffff"/>
+    <circle data-node-dot="3" cx="500" cy="160" r="4" fill="#202020"/>
+    <circle data-node-circle="3" cx="500" cy="200" r="12" fill="#ffffff"/>
+    <circle data-node-dot="4" cx="260" cy="160" r="4" fill="#202020"/>
+    <circle data-node-circle="4" cx="260" cy="200" r="12" fill="#ffffff"/>
+    <circle data-node-dot="5" cx="310" cy="360" r="4" fill="#202020"/>
+    <circle data-node-circle="5" cx="310" cy="310" r="12" fill="#ffffff"/>
+    <circle data-node-dot="6" cx="450" cy="360" r="4" fill="#202020"/>
+    <circle data-node-circle="6" cx="450" cy="310" r="12" fill="#ffffff"/>
+    <circle data-node-dot="7" cx="450" cy="380" r="4" fill="#202020"/>
+    <circle data-node-circle="7" cx="450" cy="430" r="12" fill="#ffffff"/>
+    <circle data-node-dot="8" cx="310" cy="380" r="4" fill="#202020"/>
+    <circle data-node-circle="8" cx="310" cy="430" r="12" fill="#ffffff"/>
+  </g>
+  <g fill="#202020" font-family="Arial, Helvetica, sans-serif" font-size="14">
+    <text x="380" y="40" text-anchor="middle">Ideal coupled transmission line, Tclin()</text>
+    <text x="380" y="230" text-anchor="middle">Zoe / Zoo, ℓ = 0.295 in</text>
+    <text x="200" y="110" text-anchor="middle">Port 1</text>
+    <text x="560" y="110" text-anchor="middle">Port 2</text>
+    <text x="560" y="170" text-anchor="middle">Port 3</text>
+    <text x="200" y="170" text-anchor="middle">Port 4</text>
+    <text x="380" y="280" text-anchor="middle">Microstrip coupled line, mclin()</text>
+    <text x="380" y="480" text-anchor="middle">W = 0.020 in, S = 0.0025 in, H = 0.025 in</text>
+    <text x="180" y="350" text-anchor="middle">Port 1</text>
+    <text x="580" y="350" text-anchor="middle">Port 2</text>
+    <text x="580" y="390" text-anchor="middle">Port 3</text>
+    <text x="180" y="390" text-anchor="middle">Port 4</text>
+    <text data-node-label="1" x="260" y="85" text-anchor="middle">1</text>
+    <text data-node-label="2" x="500" y="85" text-anchor="middle">2</text>
+    <text data-node-label="3" x="500" y="205" text-anchor="middle">3</text>
+    <text data-node-label="4" x="260" y="205" text-anchor="middle">4</text>
+    <text data-node-label="5" x="310" y="315" text-anchor="middle">5</text>
+    <text data-node-label="6" x="450" y="315" text-anchor="middle">6</text>
+    <text data-node-label="7" x="450" y="435" text-anchor="middle">7</text>
+    <text data-node-label="8" x="310" y="435" text-anchor="middle">8</text>
+  </g>
+</svg>

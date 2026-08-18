@@ -1,17 +1,12 @@
-// Modified: 2026-07-25
+// Modified: 2026-08-18
 import { App, normalizePath, Notice, PluginSettingTab, Setting, TFile, TFolder } from 'obsidian';
 import type NPortRfAnalysisPlugin from './main';
+import { DOCUMENTATION_URL, ISSUE_TRACKER_URL } from './help-content';
 import {
-    DOCUMENTATION_URL,
-    ISSUE_TRACKER_URL,
-    NP_EXAMPLE,
-    NPJS_EXAMPLE
-} from './help-content';
-import {
-    LEARNING_GUIDE_ASSETS,
-    LEARNING_GUIDE_FOLDER,
-    LEARNING_GUIDE_LESSONS,
-    LEARNING_GUIDE_START
+    EDUCATIONAL_CONTENT_FILES,
+    EDUCATIONAL_CONTENT_ROOT,
+    EXAMPLES_FOLDER,
+    LESSONS_FOLDER
 } from './learning-guide';
 
 function formatBytes(bytes: number): string {
@@ -26,66 +21,100 @@ function boundedNumber(value: string, minimum: number, maximum: number): number 
     return number;
 }
 
-async function copyExample(source: string, label: string): Promise<void> {
-    try {
-        await navigator.clipboard.writeText(source);
-        new Notice(`Copied ${label} example.`);
-    } catch (error) {
-        console.error(`nPort RF Analysis could not copy the ${label} example.`, error);
-        new Notice(`Could not copy the ${label} example.`);
-    }
-}
-
 function openExternalUrl(url: string): void {
     window.open(url, '_blank', 'noopener,noreferrer');
 }
 
-async function createLearningGuide(app: App): Promise<void> {
-    const folderPath = normalizePath(LEARNING_GUIDE_FOLDER);
-    const existingFolder = app.vault.getAbstractFileByPath(folderPath);
-    if (existingFolder && !(existingFolder instanceof TFolder)) {
-        new Notice(`Could not create ${folderPath} because that path is already in use.`);
-        return;
+async function ensureFolder(app: App, folderPath: string): Promise<void> {
+    const segments = normalizePath(folderPath).split('/');
+    for (let index = 1; index <= segments.length; index += 1) {
+        const currentPath = segments.slice(0, index).join('/');
+        const existing = app.vault.getAbstractFileByPath(currentPath);
+        if (existing && !(existing instanceof TFolder)) {
+            throw new Error(`${currentPath} is already in use by a file.`);
+        }
+        if (!existing) await app.vault.createFolder(currentPath);
     }
-    const imagesPath = normalizePath(`${folderPath}/Images`);
-    const existingImages = app.vault.getAbstractFileByPath(imagesPath);
-    if (existingImages && !(existingImages instanceof TFolder)) {
-        new Notice(`Could not create ${imagesPath} because that path is already in use.`);
-        return;
-    }
+}
 
+interface EducationalCollectionStatus {
+    action: string;
+    complete: boolean;
+    description: string;
+}
+
+function educationalCollectionStatus(
+    app: App,
+    collectionFolder: string,
+    pluralLabel: string
+): EducationalCollectionStatus {
+    const collectionPrefix = `${collectionFolder}/`;
+    const relativePaths = Object.keys(EDUCATIONAL_CONTENT_FILES)
+        .filter((relativePath) => relativePath.startsWith(collectionPrefix));
+    const collectionPath = normalizePath(`${EDUCATIONAL_CONTENT_ROOT}/${collectionFolder}`);
+    const collectionExists = app.vault.getAbstractFileByPath(collectionPath) instanceof TFolder;
+    const installed = relativePaths.filter((relativePath) =>
+        app.vault.getAbstractFileByPath(normalizePath(
+            `${EDUCATIONAL_CONTENT_ROOT}/${relativePath}`
+        )) instanceof TFile).length;
+    const total = relativePaths.length;
+
+    if (installed === total && total > 0) {
+        return {
+            action: 'Installed',
+            complete: true,
+            description: `${collectionPath} is complete: ${installed} of ${total} bundled files are installed. Close Settings and open this folder in Files.`
+        };
+    }
+    if (collectionExists) {
+        return {
+            action: 'Add missing files',
+            complete: false,
+            description: `${collectionPath} is incomplete: ${installed} of ${total} bundled files are installed. Existing files will not be overwritten.`
+        };
+    }
+    return {
+        action: `Install ${pluralLabel}`,
+        complete: false,
+        description: `Install ${total} bundled files in ${collectionPath}. Existing files will not be overwritten.`
+    };
+}
+
+async function installEducationalCollection(
+    app: App,
+    collectionFolder: string,
+    label: string
+): Promise<boolean> {
+    const collectionPrefix = `${collectionFolder}/`;
+    const files = Object.entries(EDUCATIONAL_CONTENT_FILES)
+        .filter(([relativePath]) => relativePath.startsWith(collectionPrefix));
+    const collectionPath = normalizePath(`${EDUCATIONAL_CONTENT_ROOT}/${collectionFolder}`);
     try {
-        if (!existingFolder) await app.vault.createFolder(folderPath);
-        if (!existingImages) await app.vault.createFolder(imagesPath);
+        await ensureFolder(app, collectionPath);
+
+        const folders = [...new Set(files.map(([relativePath]) => {
+            const destination = normalizePath(`${EDUCATIONAL_CONTENT_ROOT}/${relativePath}`);
+            return destination.slice(0, destination.lastIndexOf('/'));
+        }))].sort((left, right) => left.split('/').length - right.split('/').length);
+        for (const folder of folders) await ensureFolder(app, folder);
 
         let created = 0;
-        for (const lesson of LEARNING_GUIDE_LESSONS) {
-            const lessonPath = normalizePath(`${folderPath}/${lesson.path}`);
-            if (app.vault.getAbstractFileByPath(lessonPath)) continue;
-            await app.vault.create(lessonPath, lesson.content);
-            created += 1;
-        }
-        for (const [filename, content] of Object.entries(LEARNING_GUIDE_ASSETS)) {
-            const imagePath = normalizePath(`${imagesPath}/${filename}`);
-            if (app.vault.getAbstractFileByPath(imagePath)) continue;
-            await app.vault.create(imagePath, content);
+        for (const [relativePath, content] of files) {
+            const destination = normalizePath(`${EDUCATIONAL_CONTENT_ROOT}/${relativePath}`);
+            if (app.vault.getAbstractFileByPath(destination)) continue;
+            await app.vault.create(destination, content);
             created += 1;
         }
 
-        const startPath = normalizePath(`${folderPath}/${LEARNING_GUIDE_START}`);
-        const start = app.vault.getAbstractFileByPath(startPath);
-        if (!(start instanceof TFile)) {
-            new Notice(`Could not open ${startPath} because that path is already in use.`);
-            return;
-        }
-        await app.workspace.getLeaf(false).openFile(start);
         const result = created === 0
-            ? `Opened the existing ${folderPath} learning guide.`
-            : `Created ${created} learning guide ${created === 1 ? 'file' : 'files'} in ${folderPath}.`;
-        new Notice(`${result} Close settings to view it.`);
+            ? `${collectionPath} is already complete.`
+            : `Created ${created} ${label} ${created === 1 ? 'file' : 'files'} in ${collectionPath}.`;
+        new Notice(result);
+        return true;
     } catch (error) {
-        console.error('nPort RF Analysis could not create the learning guide.', error);
-        new Notice('Could not create the learning guide.');
+        console.error(`nPort RF Analysis could not install ${label}.`, error);
+        new Notice(`Could not install ${label}.`);
+        return false;
     }
 }
 
@@ -114,25 +143,52 @@ export class NPortRfAnalysisSettingTab extends PluginSettingTab {
             .setDesc(quickStart);
 
         new Setting(containerEl)
-            .setName('JavaScript example')
-            .setDesc('Copy a complete npjs example to paste into a Markdown note.')
-            .addButton((button) => button
-                .setButtonText('Copy npjs example')
-                .onClick(() => copyExample(NPJS_EXAMPLE, 'npjs')));
+            .setName('Bundled content')
+            .setHeading();
 
-        new Setting(containerEl)
-            .setName('Declarative JSON example')
-            .setDesc('Copy a complete np example to paste into a Markdown note.')
+        const lessonsStatus = educationalCollectionStatus(
+            this.app, LESSONS_FOLDER, 'lessons'
+        );
+        const lessonsSetting = new Setting(containerEl)
+            .setName('Lessons')
+            .setDesc(lessonsStatus.description)
             .addButton((button) => button
-                .setButtonText('Copy np example')
-                .onClick(() => copyExample(NP_EXAMPLE, 'np')));
+                .setButtonText(lessonsStatus.action)
+                .setDisabled(lessonsStatus.complete)
+                .onClick(async () => {
+                    const installed = await installEducationalCollection(
+                        this.app, LESSONS_FOLDER, 'lesson'
+                    );
+                    if (!installed) return;
+                    const status = educationalCollectionStatus(
+                        this.app, LESSONS_FOLDER, 'lessons'
+                    );
+                    lessonsSetting.setDesc(status.description);
+                    button.setButtonText(status.action);
+                    button.setDisabled(status.complete);
+                }));
 
-        new Setting(containerEl)
-            .setName('Learning guide')
-            .setDesc(`Create ${LEARNING_GUIDE_FOLDER} with self-contained lessons, examples, and diagrams, then open the first lesson. Existing files are preserved.`)
+        const examplesStatus = educationalCollectionStatus(
+            this.app, EXAMPLES_FOLDER, 'examples'
+        );
+        const examplesSetting = new Setting(containerEl)
+            .setName('Examples')
+            .setDesc(examplesStatus.description)
             .addButton((button) => button
-                .setButtonText('Create learning guide')
-                .onClick(() => createLearningGuide(this.app)));
+                .setButtonText(examplesStatus.action)
+                .setDisabled(examplesStatus.complete)
+                .onClick(async () => {
+                    const installed = await installEducationalCollection(
+                        this.app, EXAMPLES_FOLDER, 'example'
+                    );
+                    if (!installed) return;
+                    const status = educationalCollectionStatus(
+                        this.app, EXAMPLES_FOLDER, 'examples'
+                    );
+                    examplesSetting.setDesc(status.description);
+                    button.setButtonText(status.action);
+                    button.setDisabled(status.complete);
+                }));
 
         new Setting(containerEl)
             .setName('Documentation')
