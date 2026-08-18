@@ -1,4 +1,4 @@
-<!-- Modified: 2026-07-22 -->
+<!-- Modified: 2026-08-11 -->
 # Release and Community directory safeguards
 
 This document preserves the release lessons learned while publishing nPort RF Analysis in the Obsidian Community Plugin directory. It supplements the mandatory rules in `AGENTS.md`; current Obsidian policies remain authoritative.
@@ -54,9 +54,15 @@ Before creating a release:
 5. Confirm `package.json` and `manifest.json` versions match and `versions.json` maps that version to the current `minAppVersion`.
 6. Confirm `README.md` and `SECURITY.md` describe the actual execution, persistence, network, and platform behavior.
 7. Confirm `main.js` remains ignored and is not committed. The release assets must be exactly `main.js`, `manifest.json`, and `styles.css`.
-8. Commit and push only with the user's approval. Create a matching tag without a `v` prefix only with explicit release approval.
-9. Verify the GitHub Actions release succeeds, its three assets are downloadable, and the Obsidian automated scan recognizes the new version without a blocking error.
-10. Do not submit repeated manual-review requests. Request review only when the directory asks for it or a blocking/manual-review condition actually requires it.
+8. When bundled educational content changes, verify the intended Learning and
+   Examples Markdown inventories, verify every real SVG reference resolves and
+   is embedded, confirm administrative vault files are excluded, and run every
+   bundled `npjs` example in the dedicated vault's Reading view.
+9. Confirm content creation adds only missing files and preserves existing user
+   edits throughout both bundled directory hierarchies.
+10. Commit and push only with the user's approval. Create a matching tag without a `v` prefix only with explicit release approval.
+11. Verify the GitHub Actions release succeeds, its three assets are downloadable, and the Obsidian automated scan recognizes the new version without a blocking error.
+12. Do not submit repeated manual-review requests. Request review only when the directory asks for it or a blocking/manual-review condition actually requires it.
 
 ## Responding to a future scan failure
 

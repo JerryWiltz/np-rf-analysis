@@ -5818,8 +5818,8 @@ function smithChart(options = {}) {
 	};
 }
 
-// Modified: 2026-07-13
-const version = '0.0.47';
+// Modified: 2026-08-18
+const version = '0.0.48';
 
 function CplxToCell(complexNumber) {
 	return complexNumber.x.toPrecision(4) + (complexNumber.y.toPrecision(4) >= 0 ? " +j" + complexNumber.y.toPrecision(4) : " -j" + (-complexNumber.y).toPrecision(4));
@@ -7002,6 +7002,34 @@ function Tee5() { // a 4-port dummy connection
 	return Tee5;
 }
 
+// Modified: 2026-08-12
+
+// Ideal three-port junction for attaching a one-port network in series.
+// Ports 1 and 2 form the through path; port 3 is the series branch.
+function seriesTee() {
+	var junction = new nPort;
+	var frequencyList = global.fList;
+	var e = 1e-7;
+	var sparsArray = [];
+
+	for (var freqCount = 0; freqCount < frequencyList.length; freqCount++) {
+		var oneThird = complex(e + 1 / 3, 0);
+		var twoThirds = complex(e + 2 / 3, 0);
+		var negativeTwoThirds = complex(e - 2 / 3, 0);
+
+		sparsArray[freqCount] = [
+			frequencyList[freqCount],
+			oneThird, twoThirds, negativeTwoThirds,
+			twoThirds, oneThird, twoThirds,
+			negativeTwoThirds, twoThirds, oneThird
+		];
+	}
+
+	junction.setspars(sparsArray);
+	junction.setglobal(global);
+	return junction;
+}
+
 function nodal( ... nPortsAndNodes) { //nPortsAndNodes = [[nPort1, n1, n2 ...], [nPort2, n1, n2 ...], ... ['out', n1, nn2, ...] ]
 	var i = 0, j = 0, k = 0, row = 0, col = 0, offset = 0, base = 0;
 	var spars = function () { // creates spars table with frequencies only [ [freq1], [freq2], ... [freqN] ]
@@ -7703,9 +7731,12 @@ function mclin(Width = 19.1155 * MIL_TO_METER, Space = 5.82185 * MIL_TO_METER, H
 	return ctlin;
 }
 
-// Modified: 2026-07-08
+// Modified: 2026-08-18
 
 var pi$5 = Math.PI;
+var DEFAULT_WIDTH = 0.023 * INCH_TO_METER;
+var DEFAULT_HEIGHT = 0.025 * INCH_TO_METER;
+var DEFAULT_THICKNESS = 0.0000125 * INCH_TO_METER;
 
 var square$2 = function (x) { return x * x; };
 var cube$2 = function (x) { return x * x * x; };
@@ -7757,17 +7788,30 @@ var microstripLine$2 = function (width, Height, Thickness, er) {
 	};
 };
 
-function mtee({
-	commonWidth = 0.023 * INCH_TO_METER,
-	branch1Width = 0.023 * INCH_TO_METER,
-	branch2Width = 0.023 * INCH_TO_METER,
-	Height = 0.025 * INCH_TO_METER,
-	Thickness = 0.0000125 * INCH_TO_METER,
+function mtee(
+	commonWidth = DEFAULT_WIDTH,
+	branch1Width = DEFAULT_WIDTH,
+	branch2Width = DEFAULT_WIDTH,
+	Height = DEFAULT_HEIGHT,
+	Thickness = DEFAULT_THICKNESS,
 	er = 10,
 	rho = 1,
 	tand = 0.001,
 	roughnessRms = 0
-} = {}) { // microstrip tee nPort object
+) { // microstrip tee nPort object
+	// Preserve the options-object form released before the positional signature.
+	if (commonWidth !== null && typeof commonWidth === 'object' && !Array.isArray(commonWidth)) {
+		var options = commonWidth;
+		commonWidth = options.commonWidth === undefined ? DEFAULT_WIDTH : options.commonWidth;
+		branch1Width = options.branch1Width === undefined ? DEFAULT_WIDTH : options.branch1Width;
+		branch2Width = options.branch2Width === undefined ? DEFAULT_WIDTH : options.branch2Width;
+		Height = options.Height === undefined ? DEFAULT_HEIGHT : options.Height;
+		Thickness = options.Thickness === undefined ? DEFAULT_THICKNESS : options.Thickness;
+		er = options.er === undefined ? 10 : options.er;
+		rho = options.rho === undefined ? 1 : options.rho;
+		tand = options.tand === undefined ? 0.001 : options.tand;
+		roughnessRms = options.roughnessRms === undefined ? 0 : options.roughnessRms;
+	}
 	var mtee = new nPort;
 	var frequencyList = global.fList, Ro = global.Ro;
 	var freqCount = 0, s11, s12, s13, s21, s22, s23, s31, s32, s33, sparsArray = [];
@@ -8861,4 +8905,4 @@ function diode1N4148(options = {}) {
 	return diodePort;
 }
 
-export { C, L, Load, Open, R, Shift90, Short, Tclin, Tee, Tee4, Tee5, Tlin, cascade, chebyLPLCs, chebyLPNsec, chebyLPgk, complex, dim, diode1N4148, dup, global, lineChart, lineTable, log, lpfGen, matrix, mbend, mclin, mcross, mlin, mstep, mtee, mtfr, mvgnd, mvia, nodal, paC, paL, paPaLC, paPaRC, paPaRL, paPaRLC, paR, paSeLC, paSeRC, paSeRL, paSeRLC, seC, seL, sePaLC, sePaRC, sePaRL, sePaRLC, seR, seSeLC, seSeRC, seSeRL, seSeRLC, smithChart, trf, trf4Port, version };
+export { C, L, Load, Open, R, Shift90, Short, Tclin, Tee, Tee4, Tee5, Tlin, cascade, chebyLPLCs, chebyLPNsec, chebyLPgk, complex, dim, diode1N4148, dup, global, lineChart, lineTable, log, lpfGen, matrix, mbend, mclin, mcross, mlin, mstep, mtee, mtfr, mvgnd, mvia, nodal, paC, paL, paPaLC, paPaRC, paPaRL, paPaRLC, paR, paSeLC, paSeRC, paSeRL, paSeRLC, seC, seL, sePaLC, sePaRC, sePaRL, sePaRLC, seR, seSeLC, seSeRC, seSeRL, seSeRLC, seriesTee, smithChart, trf, trf4Port, version };

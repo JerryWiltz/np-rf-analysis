@@ -1,5 +1,5 @@
 # AGENTS.md
-<!-- Modified: 2026-07-26 -->
+<!-- Modified: 2026-08-11 -->
 
 Repository guide for agents working in the `np-rf-analysis` Obsidian plugin repository.
 
@@ -124,6 +124,51 @@ The Obsidian ESLint plugin may introduce new recommendations. Treat warnings as 
 - `developmentDocs/release-and-community-directory.md`: acceptance history, security safeguards, automated checks, and the release checklist.
 - `scripts/verify-release.mjs`: production-bundle, version-alignment, and `npjs` security-boundary regression checks.
 - `main.js`: ignored generated production bundle; never commit it.
+
+## Bundled Educational Content
+
+The dedicated authoring source for bundled educational content is the test
+vault at
+`/home/jerrywiltz/cad-development/np-rf-analysis-test-vault`. Content is
+promoted from there into reviewable source assets in this repository and then
+compiled into `main.js`; the test vault is not a runtime dependency.
+
+The intended complete payload consists of:
+
+- the numbered `1 Learning nP` sequence, including lessons 1 through 22 and
+  reference notes 100 and 200, but excluding its administrative `AGENTS.md`;
+- the complete converted `Examples` hierarchy; and
+- every real SVG referenced by those Markdown files, including lesson
+  schematics, the symbol library, and example-specific drawings.
+
+`Images/1 Learning nP SVG/my-circuit.svg` is example text in lesson 22, not a
+required asset, unless a real file with that name is intentionally added later.
+
+Preserve these content rules:
+
+- Keep Markdown and SVG files as ordinary reviewable source assets. Do not
+  manually maintain escaped lesson, example, or SVG strings in `main.js`.
+- Preserve the promoted directory hierarchy and internal Obsidian links.
+- Generate or import content at build time so the production `main.js` contains
+  the complete Markdown and SVG text and requires no network or external
+  filesystem access.
+- Exclude administrative files and unrelated vault configuration.
+- Fail content verification when a real referenced SVG is missing, when an
+  intended Markdown or SVG asset is omitted from the bundle, or when a bundled
+  path escapes its disclosed destination folders.
+- When creating content in a user's vault, create only missing folders and
+  files by default. Never overwrite, delete, or silently migrate a user's
+  edited learning or example files.
+- Keep the current bundled payload and any planned expansion clearly
+  distinguished in user-facing documentation until the expansion is actually
+  released.
+- Test promoted notes in the dedicated vault in Obsidian Reading view, run all
+  runnable `npjs` blocks, and verify all embedded SVGs before release.
+
+Promotion must be repeatable. Prefer a documented generator or synchronization
+step with tests over a long hand-maintained import list. A content promotion is
+a plugin source change and requires the normal lint, typecheck, test, build,
+release-verification, and dedicated-vault checks.
 
 ## Working Rules
 

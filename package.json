@@ -1,11 +1,13 @@
 {
   "name": "np-rf-analysis",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "RF and microwave network analysis in Obsidian Markdown notes",
   "private": true,
   "scripts": {
     "dev": "node esbuild.config.mjs",
     "build": "node esbuild.config.mjs production",
+    "content:check": "node scripts/promote-vault-content.mjs",
+    "content:promote": "node scripts/promote-vault-content.mjs --write",
     "lint": "eslint .",
     "test": "tsx --test test/*.test.ts",
     "typecheck": "tsc --noEmit",
