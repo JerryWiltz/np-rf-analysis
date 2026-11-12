@@ -47,7 +47,7 @@ nP.schematic(r1);
 
 Before execution, **Run** checks JavaScript syntax, suspicious line continuations, accidental comma expressions, and direct calls to unknown nP API names. Suggestions use the exact nP API bundled with the plugin. These checks show line and column locations; warnings do not block execution. They are static checks and do not run the code. Select **Run** to execute, **Stop** to terminate, or **Reset** to clear the result.
 
-The [nP REPL](https://jerrywiltz.github.io/nP/repl.html) is the source of truth for the ordered example list and current nP guidance. It runs the same starter examples in a browser. The plugin's numbered notes are generated from that ordered list; they are a convenient offline, in-vault copy, not an independently maintained curriculum.
+The [nP website](https://jerrywiltz.github.io/nP/) is the home for nP, and the [nP REPL](https://jerrywiltz.github.io/nP/repl.html) is the source of truth for the ordered example list and current guidance. The REPL runs the starter examples in a browser. The plugin's numbered notes are generated from that ordered list; they are a convenient offline, in-vault copy, not an independently maintained curriculum.
 
 ## Optional declarative blocks
 
