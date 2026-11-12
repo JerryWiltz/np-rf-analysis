@@ -1,4 +1,4 @@
-// Modified: 2026-07-14
+// Modified: 2026-11-09
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { isNpJsWorkerMessage, normalizeMountKey } from '../src/npjs-protocol';
@@ -41,6 +41,16 @@ test('accepts only expected worker messages', () => {
         mount: 'realMatrix',
         text: 'Result'
     }), true);
+    assert.equal(isNpJsWorkerMessage({
+        type: 'schematic',
+        mount: 'circuit',
+        svg: '<svg xmlns="http://www.w3.org/2000/svg"><path d="M0 0 H10"/></svg>'
+    }), true);
+    assert.equal(isNpJsWorkerMessage({
+        type: 'schematic',
+        mount: 'circuit',
+        svg: 'x'.repeat(1_000_001)
+    }), false);
 });
 
 test('builds a closed sandbox runner document without interpolating executable markup', () => {

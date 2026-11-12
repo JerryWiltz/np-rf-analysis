@@ -1,8 +1,9 @@
-// Modified: 2026-07-15
+// Modified: 2026-11-09
 import {
     isNpJsWorkerMessage,
     type NpJsConsoleMessage,
     type NpJsRenderMessage,
+    type NpJsSchematicMessage,
     type NpJsStyleMessage,
     type NpJsTextMessage
 } from './npjs-protocol';
@@ -11,7 +12,8 @@ export type NpJsSnapshotMessage =
     | NpJsRenderMessage
     | NpJsConsoleMessage
     | NpJsStyleMessage
-    | NpJsTextMessage;
+    | NpJsTextMessage
+    | NpJsSchematicMessage;
 
 export interface NpJsSnapshot {
     version: 1;
@@ -231,7 +233,8 @@ function hasValidSnapshotMessages(messages: unknown[]): boolean {
         return message.type === 'render'
             || message.type === 'console'
             || message.type === 'style'
-            || message.type === 'text';
+            || message.type === 'text'
+            || message.type === 'schematic';
     });
 }
 

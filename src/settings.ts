@@ -1,4 +1,4 @@
-// Modified: 2026-08-18
+// Modified: 2026-11-11
 import { App, normalizePath, Notice, PluginSettingTab, Setting, TFile, TFolder } from 'obsidian';
 import type NPortRfAnalysisPlugin from './main';
 import { DOCUMENTATION_URL, ISSUE_TRACKER_URL } from './help-content';
@@ -6,8 +6,8 @@ import {
     EDUCATIONAL_CONTENT_FILES,
     EDUCATIONAL_CONTENT_ROOT,
     EXAMPLES_FOLDER,
-    LESSONS_FOLDER
-} from './learning-guide';
+    RELEASE_NOTES_FOLDER
+} from './bundled-content';
 
 function formatBytes(bytes: number): string {
     if (bytes < 1024) return `${bytes} B`;
@@ -146,24 +146,24 @@ export class NPortRfAnalysisSettingTab extends PluginSettingTab {
             .setName('Bundled content')
             .setHeading();
 
-        const lessonsStatus = educationalCollectionStatus(
-            this.app, LESSONS_FOLDER, 'lessons'
+        const releaseNotesStatus = educationalCollectionStatus(
+            this.app, RELEASE_NOTES_FOLDER, 'release notes'
         );
-        const lessonsSetting = new Setting(containerEl)
-            .setName('Lessons')
-            .setDesc(lessonsStatus.description)
+        const releaseNotesSetting = new Setting(containerEl)
+            .setName("What's new")
+            .setDesc(releaseNotesStatus.description)
             .addButton((button) => button
-                .setButtonText(lessonsStatus.action)
-                .setDisabled(lessonsStatus.complete)
+                .setButtonText(releaseNotesStatus.action)
+                .setDisabled(releaseNotesStatus.complete)
                 .onClick(async () => {
                     const installed = await installEducationalCollection(
-                        this.app, LESSONS_FOLDER, 'lesson'
+                        this.app, RELEASE_NOTES_FOLDER, 'release note'
                     );
                     if (!installed) return;
                     const status = educationalCollectionStatus(
-                        this.app, LESSONS_FOLDER, 'lessons'
+                        this.app, RELEASE_NOTES_FOLDER, 'release notes'
                     );
-                    lessonsSetting.setDesc(status.description);
+                    releaseNotesSetting.setDesc(status.description);
                     button.setButtonText(status.action);
                     button.setDisabled(status.complete);
                 }));

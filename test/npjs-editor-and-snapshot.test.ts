@@ -1,4 +1,4 @@
-// Modified: 2026-07-15
+// Modified: 2026-11-09
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { isInsideNpJsFence } from '../src/npjs-paste';
@@ -190,4 +190,17 @@ test('preserves non-finite RF values through JSON plugin storage', () => {
     const table = message.options.inputTable as unknown[][][];
     assert.equal(table[0]?.[1]?.[1], -Infinity);
     assert.equal(Number.isNaN(table[0]?.[2]?.[1]), true);
+});
+
+test('accepts validated schematic SVG snapshots', () => {
+    const snapshot: NpJsSnapshot = {
+        version: 1,
+        savedAt: '2026-11-09T00:00:00.000Z',
+        messages: [{
+            type: 'schematic',
+            mount: 'circuit',
+            svg: '<svg xmlns="http://www.w3.org/2000/svg"><path d="M0 0 H10"/></svg>'
+        }]
+    };
+    assert.equal(isNpJsSnapshot(snapshot), true);
 });

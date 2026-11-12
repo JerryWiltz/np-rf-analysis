@@ -1,4 +1,4 @@
-// Modified: 2026-08-18
+// Modified: 2026-11-12
 import obsidianmd from 'eslint-plugin-obsidianmd';
 import globals from 'globals';
 import { defineConfig, globalIgnores } from 'eslint/config';
@@ -7,9 +7,9 @@ export default defineConfig(
     globalIgnores([
         'node_modules',
         'vendor',
-        'bundled-content',
+        'nPort-plugin-content',
         'test',
-        'main.js',
+        '**/main.js',
         'esbuild.config.mjs',
         'package.json',
         'package-lock.json',
@@ -25,7 +25,7 @@ export default defineConfig(
                 projectService: {
                     allowDefaultProject: [
                         'eslint.config.mjs',
-                        'scripts/promote-vault-content.mjs',
+                        'scripts/promote-repl-examples.mjs',
                         'scripts/verify-release.mjs',
                         'manifest.json'
                     ]

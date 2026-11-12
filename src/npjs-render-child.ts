@@ -1,4 +1,4 @@
-// Modified: 2026-07-15
+// Modified: 2026-11-09
 import { MarkdownRenderChild } from 'obsidian';
 import * as nP from '../vendor/nP.esm.js';
 import workerSource from 'npjs-worker-source';
@@ -8,6 +8,7 @@ import {
     type NpJsRenderMessage
 } from './npjs-protocol';
 import { createRunnerDocument } from './npjs-runner-document';
+import { createSafeSchematicSvg } from './safe-schematic-svg';
 import {
     type NpJsSnapshotMessage,
     type NpJsSnapshotStore
@@ -44,6 +45,7 @@ export class NpJsRenderChild extends MarkdownRenderChild {
     private stopButton!: HTMLButtonElement;
     private resetButton!: HTMLButtonElement;
     private statusEl!: HTMLSpanElement;
+    private lintEl!: HTMLDivElement;
     private outputEl!: HTMLDivElement;
     private consoleEl!: HTMLPreElement;
     private runnerFrame: HTMLIFrameElement | null = null;
@@ -52,6 +54,7 @@ export class NpJsRenderChild extends MarkdownRenderChild {
     private readonly renderApis = new Map<string, Record<string, unknown>>();
     private readonly textMounts = new Map<string, HTMLPreElement>();
     private snapshotMessages: NpJsSnapshotMessage[] = [];
+    private runId = 0;
 
     constructor(
         containerEl: HTMLElement,
@@ -86,6 +89,11 @@ export class NpJsRenderChild extends MarkdownRenderChild {
             .createEl('pre', { cls: 'np-rf-analysis-source' })
             .createEl('code', { text: this.source });
 
+        this.lintEl = this.containerEl.createDiv({ cls: 'np-rf-analysis-lint' });
+        this.lintEl.hidden = true;
+        this.lintEl.setAttr('role', 'status');
+        this.lintEl.setAttr('aria-live', 'polite');
+
         this.consoleEl = this.containerEl.createEl('pre', { cls: 'np-rf-analysis-console' });
         this.consoleEl.hidden = true;
         this.outputEl = this.containerEl.createDiv({ cls: 'np-rf-analysis-output' });
@@ -99,17 +107,37 @@ export class NpJsRenderChild extends MarkdownRenderChild {
     }
 
     onunload(): void {
+        this.runId += 1;
         this.destroyRunner();
         this.containerEl.empty();
     }
 
-    private run(): void {
+    private async run(): Promise<void> {
+        const runId = ++this.runId;
         this.destroyRunner();
         this.clearOutput();
+        this.showLintMessages([]);
         void this.snapshotStore.remove().catch((error) => this.reportSnapshotError('remove', error));
-        this.token = createToken();
-        this.setStatus('Starting…');
+        this.setStatus('Checking code…');
         this.setRunning(true);
+
+        try {
+            const { lintNpJs } = await import('./npjs-lint');
+            if (runId !== this.runId) return;
+            const messages = lintNpJs(this.source, nP);
+            this.showLintMessages(messages);
+            if (messages.length > 0) {
+                this.setStatus(`Starting with ${messages.length} lint warning${messages.length === 1 ? '' : 's'}…`);
+            }
+        } catch (error) {
+            if (runId !== this.runId) return;
+            console.error('nPort RF Analysis could not lint the npjs block.', error);
+            this.showLintUnavailable();
+            this.setStatus('Lint check unavailable; starting…');
+        }
+
+        if (runId !== this.runId) return;
+        this.token = createToken();
 
         const frame = this.containerEl.createEl('iframe', { cls: 'np-rf-analysis-runner' });
         frame.setAttribute('sandbox', 'allow-scripts');
@@ -128,14 +156,15 @@ export class NpJsRenderChild extends MarkdownRenderChild {
     }
 
     private stop(): void {
-        if (!this.runnerFrame) return;
-        this.runnerFrame.contentWindow?.postMessage({ channel: NPJS_CHANNEL, type: 'stop' }, '*');
+        this.runId += 1;
+        this.runnerFrame?.contentWindow?.postMessage({ channel: NPJS_CHANNEL, type: 'stop' }, '*');
         this.destroyRunner();
         this.setStatus('Stopped');
         this.setRunning(false);
     }
 
     private reset(): void {
+        this.runId += 1;
         this.destroyRunner();
         this.clearOutput();
         void this.snapshotStore.remove().catch((error) => this.reportSnapshotError('remove', error));
@@ -173,6 +202,12 @@ export class NpJsRenderChild extends MarkdownRenderChild {
         }
 
         if (message.type === 'text') {
+            this.applySnapshotMessage(message);
+            this.snapshotMessages.push(message);
+            return;
+        }
+
+        if (message.type === 'schematic') {
             this.applySnapshotMessage(message);
             this.snapshotMessages.push(message);
             return;
@@ -220,6 +255,17 @@ export class NpJsRenderChild extends MarkdownRenderChild {
             const api = this.renderApis.get(message.mount);
             const method = api?.[message.method];
             if (isRenderApiMethod(method)) method(...message.args);
+            return;
+        }
+
+        if (message.type === 'schematic') {
+            let mount = this.mounts.get(message.mount);
+            if (!mount) {
+                mount = this.outputEl.createDiv({ cls: 'np-rf-analysis-render np-rf-analysis-schematic' });
+                this.mounts.set(message.mount, mount);
+            }
+            mount.empty();
+            mount.appendChild(createSafeSchematicSvg(message.svg, document));
             return;
         }
 
@@ -301,6 +347,22 @@ export class NpJsRenderChild extends MarkdownRenderChild {
 
     private setStatus(status: string): void {
         this.statusEl.setText(`Status: ${status}`);
+    }
+
+    private showLintMessages(messages: Array<{ line: number; column: number; message: string }>): void {
+        this.lintEl.empty();
+        this.lintEl.hidden = messages.length === 0;
+        for (const message of messages) {
+            this.lintEl.createDiv({
+                text: `Line ${message.line}, column ${message.column}: ${message.message}`
+            });
+        }
+    }
+
+    private showLintUnavailable(): void {
+        this.lintEl.empty();
+        this.lintEl.createDiv({ text: 'Lint check unavailable; the code will still run.' });
+        this.lintEl.hidden = false;
     }
 
     private reportSnapshotError(action: 'save' | 'remove', error: unknown): void {

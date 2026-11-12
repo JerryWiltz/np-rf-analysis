@@ -1,7 +1,21 @@
 # AGENTS.md
-<!-- Modified: 2026-08-11 -->
+<!-- Modified: 2026-11-12 -->
+
+
+## Repo shorthands
+
+Treat these as user-message shorthands when they reach the agent as text; they are not built-in Codex CLI commands. The `--` prefix avoids the CLI's `/` command menu.
+
+- `--man`: List the repo shorthands in this section.
+- `--stop`: Do not change any files until the user sends `--start`. Read-only inspection and discussion may continue.
+- `--start`: Resume work on changes the user has requested. This does not authorize a commit, push, or deployment.
+- `--screen`: Find and open the latest screenshot in `/mnt/chromeos/MyFiles/Downloads`, then report what it shows.
 
 Repository guide for agents working in the `np-rf-analysis` Obsidian plugin repository.
+
+The repository root is also the canonical Obsidian development/test vault. Open
+this repository itself in Obsidian and test the locally built plugin here; do
+not use either external `np-rf-analysis` test vault for routine plugin testing.
 
 ## Scope
 
@@ -31,6 +45,7 @@ Before creating, editing, moving, or deleting a file:
 
 - `npjs` runs verbatim nP JavaScript only after the user selects **Run**.
 - `np` validates and automatically renders the plugin's optional declarative JSON format.
+- Before `npjs` starts the worker, static lint checks show syntax, suspicious line-continuation, comma-expression, and direct nP API-name warnings against the pinned bundle; warnings do not block explicit execution.
 
 The plugin bundles a pinned nP ESM build from the sibling
 `/home/jerrywiltz/cad-development/nP` repository. Obsidian loads the generated
@@ -70,6 +85,7 @@ The initial 0.3.0 release was submitted for Obsidian Community directory review.
 The `npjs` feature intentionally executes user-authored JavaScript. Preserve all of its security boundaries unless the user explicitly authorizes a reviewed redesign:
 
 - Never execute an `npjs` block automatically. Execution requires the block's **Run** button.
+- Keep linting static and outside the worker; it must never execute, rewrite, or auto-correct user code.
 - Run code in a disposable Web Worker inside a sandboxed iframe.
 - Keep the iframe Content Security Policy closed to network connections and remote resources.
 - Do not expose the Obsidian `app`, vault APIs, the real DOM, Node.js, Electron, `require`, `process`, browser storage, network APIs, or nested workers to user code.
@@ -112,6 +128,7 @@ The Obsidian ESLint plugin may introduce new recommendations. Treat warnings as 
 - `src/npjs-worker.ts`: isolated nP execution worker.
 - `src/npjs-protocol.ts`: validated worker/render message protocol.
 - `src/npjs-snapshot.ts`: saved-result schema, persistence, identity, and limits.
+- `src/npjs-lint.ts`: static JavaScript and pinned nP API checks shown before explicit `npjs` execution.
 - `src/npjs-paste.ts`: plain-text paste behavior inside `npjs` fences.
 - `src/analysis.ts`, `src/schema.ts`, and `src/render-child.ts`: validated declarative `np` analysis path.
 - `src/settings.ts`: plugin settings interface.
@@ -122,53 +139,83 @@ The Obsidian ESLint plugin may introduce new recommendations. Treat warnings as 
 - `.github/workflows/ci.yml`: continuous lint, type, test, and build verification.
 - `.github/workflows/release.yml`: tagged production build and release-asset publication.
 - `developmentDocs/release-and-community-directory.md`: acceptance history, security safeguards, automated checks, and the release checklist.
+- `scripts/promote-repl-examples.mjs`: ordered, checksummed promotion from the nP REPL into flat Obsidian example notes.
 - `scripts/verify-release.mjs`: production-bundle, version-alignment, and `npjs` security-boundary regression checks.
 - `main.js`: ignored generated production bundle; never commit it.
+- `.obsidian/`: Obsidian vault configuration and the local plugin installation
+  used to test this repository as a vault.
+- `nPort RF Analysis/`: notes installed by the plugin into this test vault,
+  including retained copies from previous plugin bundles.
+- `nPort-plugin-content/README.md`: maintainer guide for current distributable
+  notes, promotion, checksums, and historical in-vault copies.
+
+## Repository-as-test-vault
+
+- Treat the repository root as both the plugin source repository and the
+  canonical Obsidian test vault. Install the local production build into
+  `.obsidian/plugins/np-rf-analysis/` and test it from Obsidian Reading view.
+- Keep plugin-generated and user-visible note copies under `nPort RF Analysis/`
+  in Git. Preserve notes from previous bundled versions as historical test
+  content; do not delete, overwrite, or silently migrate them when testing a
+  newer build.
+- The current distributable content source is `nPort-plugin-content/`. Its
+  README is administrative and must remain outside `content-manifest.json`. The
+  installed copies under `nPort RF Analysis/` are vault test artifacts and are
+  not additional build inputs unless explicitly promoted through the content
+  generator.
+- Before installing a build, inspect the target files. The installer skips
+  existing files, so a retained older note at the same path can prevent testing
+  the newer copy. Preserve the older note and report the collision; do not
+  remove or replace it without explicit approval.
+- Keep generated `main.js` out of Git. Do not stage machine-specific Obsidian
+  workspace state or caches. Preserve and review any existing `.obsidian/`
+  configuration before changing it.
 
 ## Bundled Educational Content
 
-The dedicated authoring source for bundled educational content is the test
-vault at
-`/home/jerrywiltz/cad-development/np-rf-analysis-test-vault`. Content is
-promoted from there into reviewable source assets in this repository and then
-compiled into `main.js`; the test vault is not a runtime dependency.
+The nP REPL is the source of truth for bundled examples. Its ordered array is
+`/home/jerrywiltz/cad-development/nP/docs/.vitepress/theme/replExamples.js`.
+Promote every entry, without reordering or changing its JavaScript, into a
+two-digit numbered Markdown note directly inside `nPort-plugin-content/Examples/`.
+The `Examples Home.md` index follows that same order. Do not bundle the older
+vault-authored lesson sequence or its static schematic library as plugin
+learning content. The REPL source remains external to plugin runtime and is
+used only by the deliberate promotion/check command.
 
-The intended complete payload consists of:
-
-- the numbered `1 Learning nP` sequence, including lessons 1 through 22 and
-  reference notes 100 and 200, but excluding its administrative `AGENTS.md`;
-- the complete converted `Examples` hierarchy; and
-- every real SVG referenced by those Markdown files, including lesson
-  schematics, the symbol library, and example-specific drawings.
-
-`Images/1 Learning nP SVG/my-circuit.svg` is example text in lesson 22, not a
-required asset, unless a real file with that name is intentionally added later.
+For a release, include the matching `What's new in version x.y.z` material
+alongside `Examples`; release-note content must match the plugin version and
+must not be inferred from nP's independent library version.
 
 Preserve these content rules:
 
 - Keep Markdown and SVG files as ordinary reviewable source assets. Do not
-  manually maintain escaped lesson, example, or SVG strings in `main.js`.
-- Preserve the promoted directory hierarchy and internal Obsidian links.
-- Generate or import content at build time so the production `main.js` contains
-  the complete Markdown and SVG text and requires no network or external
-  filesystem access.
+  manually maintain escaped example strings in `main.js`.
+- Keep all numbered examples directly inside one `Examples/` folder, in the
+  exact order in the REPL array, with two-digit prefixes such as `01`.
+- Generate the promoted notes from the REPL source with
+  `scripts/promote-repl-examples.mjs`; preserve its IDs, titles, categories,
+  links, and JavaScript verbatim.
+- Record the REPL source checksum and every output-file checksum in
+  `nPort-plugin-content/content-manifest.json`. Verify checksums and reject paths
+  that leave the disclosed `Examples/` or versioned release-note folder during
+  production builds.
+- Generate or import content at build time so production `main.js` contains
+  the complete Markdown text and requires no network or external filesystem
+  access.
 - Exclude administrative files and unrelated vault configuration.
-- Fail content verification when a real referenced SVG is missing, when an
-  intended Markdown or SVG asset is omitted from the bundle, or when a bundled
-  path escapes its disclosed destination folders.
+- Keep `nPort-plugin-content/README.md` out of the payload manifest and user
+  installation.
 - When creating content in a user's vault, create only missing folders and
   files by default. Never overwrite, delete, or silently migrate a user's
-  edited learning or example files.
-- Keep the current bundled payload and any planned expansion clearly
-  distinguished in user-facing documentation until the expansion is actually
-  released.
-- Test promoted notes in the dedicated vault in Obsidian Reading view, run all
-  runnable `npjs` blocks, and verify all embedded SVGs before release.
+  existing lesson, example, or release-note files.
+- Test promoted notes in this repository's Obsidian vault in Reading view, run all
+  46 current REPL `npjs` examples, and resolve unexpected lint warnings before
+  release.
 
 Promotion must be repeatable. Prefer a documented generator or synchronization
 step with tests over a long hand-maintained import list. A content promotion is
 a plugin source change and requires the normal lint, typecheck, test, build,
-release-verification, and dedicated-vault checks.
+release-verification, and repository-vault checks.
 
 ## Working Rules
 
@@ -201,7 +248,7 @@ Requirements:
 - Report ESLint warnings as well as errors.
 - If `tsx` cannot create its local IPC socket in the sandbox, rerun `npm test` with the required permission rather than treating it as a test failure.
 - Confirm `git status --short` after building. `main.js` should remain ignored and untracked.
-- For rendering, iframe, CodeMirror, lifecycle, or CSS changes, also test the built plugin in the dedicated vault at `/home/jerrywiltz/cad-development/np-rf-analysis-test-vault` using Obsidian Reading view and, where relevant, PDF export.
+- For rendering, iframe, CodeMirror, lifecycle, or CSS changes, test the built plugin in this repository's Obsidian vault using Reading view and, where relevant, PDF export.
 - Never develop or test against an important user vault.
 
 Before a release, additionally verify:

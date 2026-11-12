@@ -1,7 +1,8 @@
-// Modified: 2026-08-18
+// Modified: 2026-11-12
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readdir, readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -10,11 +11,12 @@ import {
     NP_EXAMPLE,
     NPJS_EXAMPLE
 } from '../src/help-content';
+import * as nP from '../vendor/nP.esm.js';
+import { lintNpJs } from '../src/npjs-lint';
 
 const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const bundledContentPath = path.join(repositoryRoot, 'bundled-content');
-const lessonsPath = path.join(bundledContentPath, 'Lessons');
-const examplesPath = path.join(bundledContentPath, 'Examples');
+const pluginContentPath = path.join(repositoryRoot, 'nPort-plugin-content');
+const examplesPath = path.join(pluginContentPath, 'Examples');
 
 function fencedBody(source: string, language: string): string {
     const opening = `\`\`\`${language}\n`;
@@ -45,54 +47,73 @@ test('uses fixed HTTPS documentation and issue tracker URLs', () => {
     assert.equal(ISSUE_TRACKER_URL, 'https://github.com/JerryWiltz/np-rf-analysis/issues');
 });
 
-test('bundles the complete lessons and examples without the lesson AGENTS file', async () => {
-    const files = (await readdir(lessonsPath, { withFileTypes: true }))
-        .filter((entry) => entry.isFile())
-        .map((entry) => entry.name)
-        .sort();
-    assert.equal(files.includes('AGENTS.md'), false);
-    assert.equal(files.includes('1 "Hello, nPort".md'), true);
-    assert.equal(files.includes('22 Creating Schematics with an Agent.md'), true);
-    assert.equal(files.includes('200 Complete List of nPort RF Constructors, Complex Numbers, and Matrices.md'), true);
-    assert.equal((await readdir(examplesPath)).includes('Examples Home.md'), true);
+test('bundles every nP REPL example in source order in one flat Examples folder', async () => {
+    const manifest = JSON.parse(await readFile(path.join(pluginContentPath, 'content-manifest.json'), 'utf8')) as {
+        version: number;
+        pluginVersion: string;
+        releaseNotesFolder: string;
+        source: { repository: string; path: string; sha256: string };
+        examples: Array<{ order: number; id: string; title: string; path: string; sha256: string }>;
+        files: Array<{ path: string; sha256: string }>;
+    };
+    assert.equal(manifest.version, 2);
+    assert.equal(manifest.pluginVersion, '0.3.3');
+    assert.equal(manifest.releaseNotesFolder, "What's new in version 0.3.3");
+    assert.equal(manifest.source.repository, 'nP');
+    assert.equal(manifest.source.path, 'docs/.vitepress/theme/replExamples.js');
+    assert.match(manifest.source.sha256, /^[a-f0-9]{64}$/);
+    assert.equal(manifest.examples.length, 46);
+    assert.equal(manifest.files.length, 48);
+    assert.equal(manifest.files.some((entry) => entry.path === 'README.md'), false,
+        'the content README is maintainer documentation, not user payload');
+    assert.deepEqual(manifest.examples.map((example) => example.order),
+        Array.from({ length: 46 }, (_, index) => index + 1));
 
-    const start = await readFile(path.join(lessonsPath, '1 "Hello, nPort".md'), 'utf8');
-    assert.match(start, /```npjs\nconsole\.log\("Hello, nPort!"\);\n```/);
+    const index = await readFile(path.join(examplesPath, 'Examples Home.md'), 'utf8');
+    assert.match(index, /nP REPL examples/);
+    for (const example of manifest.examples) {
+        assert.match(example.path, /^Examples\/\d{2} .+\.md$/);
+        assert.equal(example.path.slice('Examples/'.length).includes('/'), false);
+        const note = await readFile(path.join(pluginContentPath, example.path), 'utf8');
+        assert.match(note, new RegExp(`# ${String(example.order).padStart(2, '0')} ${example.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`));
+        assert.match(note, new RegExp(`Generated from nP REPL example ${example.id}`));
+        assert.equal([...note.matchAll(/```npjs\n/g)].length, 1);
+        assert.match(note, new RegExp(`https://jerrywiltz\\.github\\.io/nP/repl\\.html#example-${example.id}`));
+        const match = note.match(/```npjs\n([\s\S]*?)\n```/);
+        assert.ok(match, `${example.path} must contain a runnable npjs block`);
+        assert.deepEqual(lintNpJs(match[1]!, nP), [], `${example.path} should pass pinned-API lint`);
+    }
+    assert.ok(manifest.files.every((entry) => {
+        const folder = entry.path.split('/')[0];
+        return (folder === 'Examples' || folder === manifest.releaseNotesFolder)
+            && !entry.path.slice(folder.length + 1).includes('/');
+    }));
+    for (const file of manifest.files) {
+        const content = await readFile(path.join(pluginContentPath, file.path));
+        assert.equal(createHash('sha256').update(content).digest('hex'), file.sha256, file.path);
+    }
+    assert.ok(manifest.files.some((entry) => entry.path === "What's new in version 0.3.3/What's new.md"));
+    const releaseNotes = await readFile(path.join(pluginContentPath, manifest.files.find((entry) =>
+        entry.path.startsWith("What's new in version "))!.path), 'utf8');
+    assert.match(releaseNotes, /nP `0\.49\.0`/);
+    assert.match(releaseNotes, /checks for JavaScript syntax/i);
 });
 
-test('creates lessons and examples below the nPort RF Analysis folder', async () => {
-    const source = await readFile(path.join(repositoryRoot, 'src/learning-guide.ts'), 'utf8');
+test('creates versioned release notes and Examples below the nPort RF Analysis folder', async () => {
+    const source = await readFile(path.join(repositoryRoot, 'src/bundled-content.ts'), 'utf8');
     assert.match(source, /EDUCATIONAL_CONTENT_ROOT = 'nPort RF Analysis'/);
-    assert.match(source, /LESSONS_FOLDER = 'Lessons'/);
     assert.match(source, /EXAMPLES_FOLDER = 'Examples'/);
-    assert.doesNotMatch(source, /Getting Started/);
+    assert.match(source, /RELEASE_NOTES_FOLDER/);
+    assert.doesNotMatch(source, /LESSONS_FOLDER|Getting Started/);
 });
 
-test('settings install collections without hidden navigation or clipboard controls', async () => {
+test('settings install release notes and Examples without hidden navigation or clipboard controls', async () => {
     const source = await readFile(path.join(repositoryRoot, 'src/settings.ts'), 'utf8');
     assert.match(source, /action: 'Installed'/);
     assert.match(source, /Close Settings and open this folder in Files/);
+    assert.match(source, /setName\('Examples'\)/);
+    assert.match(source, /setName\("What's new"\)/);
+    assert.doesNotMatch(source, /LESSONS_FOLDER|setName\('Lessons'\)/);
     assert.doesNotMatch(source, /Copy npjs example|Copy np example/);
     assert.doesNotMatch(source, /openFile\(/);
-});
-
-test('bundles every lesson SVG as a safe self-contained asset', async () => {
-    const lessonFiles = (await readdir(lessonsPath))
-        .filter((filename) => filename.endsWith('.md'));
-    const lessonText = (await Promise.all(lessonFiles.map((filename) =>
-        readFile(path.join(lessonsPath, filename), 'utf8')))).join('\n');
-    assert.doesNotMatch(lessonText, /!\[\[Images\//);
-
-    const references = [...lessonText.matchAll(
-        /!\[\[nPort RF Analysis\/Lessons\/Images\/([^|\]]+\.svg)(?:\\?\|[0-9]+)?\]\]/g
-    )].map((match) => match[1]!).filter((filename) => filename !== 'my-circuit.svg');
-    const imagesPath = path.join(lessonsPath, 'Images');
-    const images = (await readdir(imagesPath)).sort();
-    assert.deepEqual([...new Set(references)].sort(), images);
-
-    for (const filename of images) {
-        const svg = await readFile(path.join(imagesPath, filename), 'utf8');
-        assert.match(svg, /<svg\b/);
-        assert.doesNotMatch(svg, /<script\b|<foreignObject\b|on[a-z]+\s*=|<image\b[^>]*href=/i);
-    }
 });

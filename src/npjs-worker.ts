@@ -1,4 +1,4 @@
-// Modified: 2026-07-15
+// Modified: 2026-11-09
 import * as nPModule from '../vendor/nP.esm.js';
 import {
     NPJS_STYLE_METHODS,
@@ -120,24 +120,50 @@ function createTextDocument(): { getElementById(id: string): { textContent: stri
     });
 }
 
+function createSchematicProxy(nextIndex: () => number) {
+    return (circuit: unknown, options: Record<string, unknown> = {}): Record<string, unknown> => {
+        if (typeof options !== 'object' || options === null || Array.isArray(options)) {
+            throw new Error('nP.schematic() requires an options object.');
+        }
+        const index = nextIndex();
+        const mount = normalizeMountKey(options.mount, index);
+        const renderOptions = { ...options };
+        delete renderOptions.mount;
+        const graph = nPModule.schematicGraph(circuit, renderOptions);
+        const topology = nPModule.schematicTopology(circuit, renderOptions);
+        const svg = nPModule.schematicSvg(circuit, renderOptions);
+        send({ type: 'schematic', mount, svg });
+        return {
+            svg,
+            graph,
+            topology,
+            error: null
+        };
+    };
+}
+
 async function execute(source: string): Promise<void> {
     let renderIndex = 0;
     const nextIndex = (): number => ++renderIndex;
-    const nP = {
-        ...nPModule,
-        lineChart: createChartProxy('lineChart', nextIndex),
-        lineTable: createChartProxy('lineTable', nextIndex),
-        smithChart: createChartProxy('smithChart', nextIndex)
-    };
-    const previousGlobal = {
-        fList: nPModule.global.fList,
-        Ro: nPModule.global.Ro,
-        Temp: nPModule.global.Temp
-    };
     const safeConsole = {
         log: (...values: unknown[]) => send({ type: 'console', level: 'log', text: consoleText(values) }),
         warn: (...values: unknown[]) => send({ type: 'console', level: 'warn', text: consoleText(values) }),
         error: (...values: unknown[]) => send({ type: 'console', level: 'error', text: consoleText(values) })
+    };
+    const nP = {
+        ...nPModule,
+        log: (...values: unknown[]): void => safeConsole.log(...values),
+        lineChart: createChartProxy('lineChart', nextIndex),
+        lineTable: createChartProxy('lineTable', nextIndex),
+        smithChart: createChartProxy('smithChart', nextIndex),
+        schematic: createSchematicProxy(nextIndex)
+    };
+    const previousGlobal = {
+        fList: nPModule.global.fList,
+        tList: nPModule.global.tList,
+        twoTone: nPModule.global.twoTone,
+        Ro: nPModule.global.Ro,
+        Temp: nPModule.global.Temp
     };
     const blockedConstructor = (): never => {
         throw new Error('Dynamic code constructors are disabled inside npjs blocks.');
@@ -156,6 +182,8 @@ async function execute(source: string): Promise<void> {
         );
     } finally {
         nPModule.global.fList = previousGlobal.fList;
+        nPModule.global.tList = previousGlobal.tList;
+        nPModule.global.twoTone = previousGlobal.twoTone;
         nPModule.global.Ro = previousGlobal.Ro;
         nPModule.global.Temp = previousGlobal.Temp;
     }

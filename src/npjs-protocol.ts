@@ -1,4 +1,4 @@
-// Modified: 2026-07-14
+// Modified: 2026-11-09
 export const NPJS_CHANNEL = 'np-rf-analysis-npjs';
 
 export type NpJsRenderer = 'lineChart' | 'lineTable' | 'smithChart';
@@ -49,13 +49,20 @@ export interface NpJsTextMessage {
     text: string;
 }
 
+export interface NpJsSchematicMessage {
+    type: 'schematic';
+    mount: string;
+    svg: string;
+}
+
 export type NpJsWorkerMessage =
     | NpJsRenderMessage
     | NpJsStatusMessage
     | NpJsConsoleMessage
     | NpJsErrorMessage
     | NpJsStyleMessage
-    | NpJsTextMessage;
+    | NpJsTextMessage
+    | NpJsSchematicMessage;
 
 function isRecord(value: unknown): value is Record<string, unknown> {
     return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -108,6 +115,13 @@ export function isNpJsWorkerMessage(value: unknown): value is NpJsWorkerMessage 
             && value.mount.length <= 256
             && typeof value.text === 'string'
             && value.text.length <= 200000;
+    }
+
+    if (value.type === 'schematic') {
+        return typeof value.mount === 'string'
+            && value.mount.length <= 256
+            && typeof value.svg === 'string'
+            && value.svg.length <= 1_000_000;
     }
 
     return false;

@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 180" role="img" aria-labelledby="title description">
-  <title id="title">nP lpfGen synthesized low-pass network block</title>
-  <desc id="description">A two-port block representing the complete low-pass network synthesized by lpfGen.</desc>
-  <rect width="100%" height="100%" fill="#ffffff"/>
-  <g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 90 H90 M190 90 H240"/><rect x="90" y="50" width="100" height="80"/><path d="M105 75 H135 C145 75 145 105 160 105 H175"/></g>
-  <g fill="#202020" font-family="Arial, Helvetica, sans-serif" font-size="13" text-anchor="middle">
-    <text x="140" y="30">lpfGen()</text><text x="140" y="150">low-pass filter network</text><text x="40" y="125">Port 1</text><text x="240" y="125">Port 2</text><circle cx="40" cy="90" r="4"/><circle cx="240" cy="90" r="4"/>
-  </g>
-</svg>

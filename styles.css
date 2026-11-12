@@ -37,6 +37,7 @@
     white-space: pre-wrap;
 }
 
+/* Modified: 2026-11-11 */
 .np-rf-analysis-warning {
     margin-block: var(--size-4-2);
     padding: var(--size-4-2) var(--size-4-3);
@@ -69,6 +70,15 @@
 
 .np-rf-analysis-source {
     margin-block: var(--size-4-2);
+}
+
+.np-rf-analysis-lint {
+    margin-block: var(--size-4-2);
+    padding: var(--size-4-2) var(--size-4-3);
+    color: var(--text-warning);
+    background-color: var(--background-modifier-warning);
+    border-radius: var(--radius-s);
+    font-family: var(--font-interface);
 }
 
 .np-rf-analysis-source,

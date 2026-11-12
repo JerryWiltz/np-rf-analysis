@@ -1,4 +1,4 @@
-// Modified: 2026-08-18
+// Modified: 2026-11-09
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as nP from '../vendor/nP.esm.js';
@@ -62,7 +62,7 @@ test('rejects unknown nodal component references without leaking globals', () =>
     assert.equal(nP.global.fList, previousFrequencyList);
 });
 
-test('vendored nP 0.0.48 exposes seriesTee and both mtee call forms', () => {
+test('vendored nP 0.49.0 exposes seriesTee and options-only mtee', () => {
     const previousFrequencyList = nP.global.fList;
     const previousReferenceImpedance = nP.global.Ro;
 
@@ -70,7 +70,7 @@ test('vendored nP 0.0.48 exposes seriesTee and both mtee call forms', () => {
         nP.global.fList = [1e9];
         nP.global.Ro = 50;
 
-        assert.equal(nP.version, '0.0.48');
+        assert.equal(nP.version, '0.49.0');
         assert.equal(nP.seriesTee().out('s11mag')[1]?.[0], 1e9);
 
         const parameters = [
@@ -84,7 +84,6 @@ test('vendored nP 0.0.48 exposes seriesTee and both mtee call forms', () => {
             0,
             0
         ] as const;
-        const positional = nP.mtee(...parameters).out('s11Re', 's11Im');
         const optionsObject = nP.mtee({
             commonWidth: parameters[0],
             branch1Width: parameters[1],
@@ -97,7 +96,9 @@ test('vendored nP 0.0.48 exposes seriesTee and both mtee call forms', () => {
             roughnessRms: parameters[8]
         }).out('s11Re', 's11Im');
 
-        assert.deepEqual(optionsObject, positional);
+        assert.equal(optionsObject.length, 2);
+        const positionalMtee = nP.mtee as unknown as (...args: number[]) => unknown;
+        assert.throws(() => positionalMtee(...parameters), /accepts one options object/);
     } finally {
         nP.global.fList = previousFrequencyList;
         nP.global.Ro = previousReferenceImpedance;

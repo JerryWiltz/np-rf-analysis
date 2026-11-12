@@ -1,22 +1,13 @@
-// Modified: 2026-08-18
+// Modified: 2026-11-12
+import {createHash} from 'node:crypto';
 import * as esbuild from 'esbuild';
-import { readdir, readFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const production = process.argv[2] === 'production';
 const root = path.dirname(fileURLToPath(import.meta.url));
-const bundledContentDirectory = path.join(root, 'bundled-content');
-
-async function filesBelow(directory) {
-    const files = [];
-    for (const entry of await readdir(directory, { withFileTypes: true })) {
-        const absolute = path.join(directory, entry.name);
-        if (entry.isDirectory()) files.push(...await filesBelow(absolute));
-        else if (entry.isFile()) files.push(absolute);
-    }
-    return files.sort();
-}
+const bundledContentDirectory = path.join(root, 'nPort-plugin-content');
 
 const bundledEducationalContentPlugin = {
     name: 'bundled-educational-content',
@@ -26,16 +17,39 @@ const bundledEducationalContentPlugin = {
             namespace: 'bundled-educational-content'
         }));
         build.onLoad({ filter: /.*/, namespace: 'bundled-educational-content' }, async () => {
-            const files = (await filesBelow(bundledContentDirectory))
-                .filter((file) => path.basename(file) !== 'content-manifest.json');
-            const entries = await Promise.all(files.map(async (file) => [
-                path.relative(bundledContentDirectory, file).split(path.sep).join('/'),
-                await readFile(file, 'utf8')
-            ]));
+            const manifestPath = path.join(bundledContentDirectory, 'content-manifest.json');
+            const manifest = JSON.parse(await readFile(manifestPath, 'utf8'));
+            if (manifest.version !== 2 || !Array.isArray(manifest.files)
+                || typeof manifest.pluginVersion !== 'string'
+                || manifest.releaseNotesFolder !== `What's new in version ${manifest.pluginVersion}`) {
+                throw new Error('Bundled educational-content manifest is invalid.');
+            }
+            const entries = await Promise.all(manifest.files.map(async (entry) => {
+                const isExample = typeof entry.path === 'string'
+                    && entry.path.startsWith('Examples/')
+                    && !entry.path.slice('Examples/'.length).includes('/');
+                const releasePrefix = `${manifest.releaseNotesFolder}/`;
+                const isReleaseNote = typeof entry.path === 'string'
+                    && entry.path.startsWith(releasePrefix)
+                    && !entry.path.slice(releasePrefix.length).includes('/');
+                if (!isExample && !isReleaseNote) {
+                    throw new Error(`Bundled content is outside the flat Examples and release-note folders: ${entry.path}`);
+                }
+                const absolute = path.resolve(bundledContentDirectory, entry.path);
+                if (!absolute.startsWith(`${bundledContentDirectory}${path.sep}`)) {
+                    throw new Error(`Bundled content path escapes its source directory: ${entry.path}`);
+                }
+                const content = await readFile(absolute, 'utf8');
+                if (createHash('sha256').update(content).digest('hex') !== entry.sha256) {
+                    throw new Error(`Bundled content checksum mismatch: ${entry.path}`);
+                }
+                return [entry.path, content];
+            }));
             return {
                 contents: `export default ${JSON.stringify(Object.fromEntries(entries))};`,
                 loader: 'js',
-                watchFiles: files
+                watchFiles: [manifestPath, ...manifest.files.map((entry) =>
+                    path.join(bundledContentDirectory, entry.path))]
             };
         });
     }

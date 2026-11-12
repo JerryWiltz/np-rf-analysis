@@ -1,0 +1,574 @@
+{
+  "version": 2,
+  "pluginVersion": "0.3.3",
+  "releaseNotesFolder": "What's new in version 0.3.3",
+  "source": {
+    "repository": "nP",
+    "path": "docs/.vitepress/theme/replExamples.js",
+    "sha256": "8b69b5b31424f85cd5d1e99160c6d2fe3d7e831668af6ffed5e984ff31ca8463"
+  },
+  "examples": [
+    {
+      "order": 1,
+      "id": "frequency-sweep",
+      "title": "Frequency sweep",
+      "category": "getting-started",
+      "path": "Examples/01 Frequency sweep.md",
+      "sha256": "05177c86ad07aab96c9089dfaa40ca75629baf46952a1af5f1bfe87dacf652f9"
+    },
+    {
+      "order": 2,
+      "id": "rc-low-pass",
+      "title": "RC low-pass",
+      "category": "getting-started",
+      "path": "Examples/02 RC low-pass.md",
+      "sha256": "9ef9aef2c61e7204d48cacc03ad19cf7ee56ba4a9eb2820df46446ba0f8aab5e"
+    },
+    {
+      "order": 3,
+      "id": "schematic-shape-detection",
+      "title": "Schematic shape detection",
+      "category": "getting-started",
+      "path": "Examples/03 Schematic shape detection.md",
+      "sha256": "4dbe8194e611602c13e4e238625a20f09f8008a5fdc63dac517b4d799278b3b8"
+    },
+    {
+      "order": 4,
+      "id": "schematic-groups-and-dots",
+      "title": "Schematic groups and dots",
+      "category": "rf-circuits",
+      "path": "Examples/04 Schematic groups and dots.md",
+      "sha256": "ad63b0e13d1da798c056f203849dd83d28414ea3f94ff7f81ae5e6c13508733a"
+    },
+    {
+      "order": 5,
+      "id": "rlc-ladder",
+      "title": "RLC ladder",
+      "category": "rf-circuits",
+      "path": "Examples/05 RLC ladder.md",
+      "sha256": "6f847a1df0f8038d3754956e6453eafad0635df1a678d49048b8813cbbc4b2ce"
+    },
+    {
+      "order": 6,
+      "id": "method-chaining-nport",
+      "title": "Method chaining in nPort",
+      "category": "rf-circuits",
+      "path": "Examples/06 Method chaining in nPort.md",
+      "sha256": "4eb285b22ac2f360e4b963899838a4dc6041e5312cde09257fb889e85b3f9b07"
+    },
+    {
+      "order": 7,
+      "id": "vna-port1",
+      "title": "VNA inductor S-parameters",
+      "category": "rf-circuits",
+      "path": "Examples/07 VNA inductor S-parameters.md",
+      "sha256": "47aedba8537c9a4c4e803b7599ea0c466b0713ba425ec03f84908e3a34be9c59"
+    },
+    {
+      "order": 8,
+      "id": "vna-inductor-time",
+      "title": "VNA inductor impulse response",
+      "category": "rf-circuits",
+      "path": "Examples/08 VNA inductor impulse response.md",
+      "sha256": "2d487d727549491d2e222199b743d58032eda083139b4413270a5b57f546760e"
+    },
+    {
+      "order": 9,
+      "id": "vna-short-reflection",
+      "title": "VNA cable fault location",
+      "category": "rf-circuits",
+      "path": "Examples/09 VNA cable fault location.md",
+      "sha256": "d8739080f7b035d264a72de6016d4f719e0152785e2fd6aa7a6e979cb51fd7ca"
+    },
+    {
+      "order": 10,
+      "id": "wilkinson-power-divider",
+      "title": "Wilkinson power divider",
+      "category": "rf-circuits",
+      "path": "Examples/10 Wilkinson power divider.md",
+      "sha256": "d56c7a145038e6f1d030181eef5815d876574a2aba3771108dcc09191f8bacbc"
+    },
+    {
+      "order": 11,
+      "id": "pi-attenuator",
+      "title": "Pi attenuator",
+      "category": "rf-circuits",
+      "path": "Examples/11 Pi attenuator.md",
+      "sha256": "11531781a299047e3b17483c000dc4faadd729247c2506df8eaff3bc1dcb86f2"
+    },
+    {
+      "order": 12,
+      "id": "tee-power-divider",
+      "title": "Tee power divider",
+      "category": "rf-circuits",
+      "path": "Examples/12 Tee power divider.md",
+      "sha256": "45f26c0a33d1dd4b00418ef5edeb137708030d137d46f52c907ce780e61c49c2"
+    },
+    {
+      "order": 13,
+      "id": "series-stub",
+      "title": "Series branch with seriesTee",
+      "category": "rf-circuits",
+      "path": "Examples/13 Series branch with seriesTee.md",
+      "sha256": "5415eb52b47754a0d08d9b5cf9811f89cadcfaae08dc3e62eb305cac2beb1110"
+    },
+    {
+      "order": 14,
+      "id": "coupled-line",
+      "title": "Ideal coupled line",
+      "category": "rf-circuits",
+      "path": "Examples/14 Ideal coupled line.md",
+      "sha256": "a8b39e2104f24f7de6e29a594e229d37bbb3536a0d75ebb8a1ef2f477d694c5c"
+    },
+    {
+      "order": 15,
+      "id": "line-chart",
+      "title": "Line chart",
+      "category": "charts-tables",
+      "path": "Examples/15 Line chart.md",
+      "sha256": "b3ddfda4c57cec68a63161e6f3211518276407dc6e643fd93c04a12f661b2a56"
+    },
+    {
+      "order": 16,
+      "id": "series-rc-smith-chart",
+      "title": "Series RC Smith chart",
+      "category": "charts-tables",
+      "path": "Examples/16 Series RC Smith chart.md",
+      "sha256": "361e99528911f45140bc7dcfe693f0648f1a536be6ab0946258891303d89a0a2"
+    },
+    {
+      "order": 17,
+      "id": "line-table",
+      "title": "Line table",
+      "category": "charts-tables",
+      "path": "Examples/17 Line table.md",
+      "sha256": "b8a1bb1ac2b2ba987ddc74ca40ceb1978c586ea4cbd2ab127d45c3fedd3e5943"
+    },
+    {
+      "order": 18,
+      "id": "complex-arithmetic",
+      "title": "Complex arithmetic",
+      "category": "math",
+      "path": "Examples/18 Complex arithmetic.md",
+      "sha256": "234e44a255ec346b8f6b4aea0c9798127452997d518ec730dc5d22a16f1ef290"
+    },
+    {
+      "order": 19,
+      "id": "matrix-arithmetic",
+      "title": "Matrix arithmetic",
+      "category": "math",
+      "path": "Examples/19 Matrix arithmetic.md",
+      "sha256": "8615ade1918b3127f896d04daa76a8a8bd3284a7b52a91dd19e40cb17154cc3c"
+    },
+    {
+      "order": 20,
+      "id": "math-method-chaining",
+      "title": "Method chaining with math objects",
+      "category": "math",
+      "path": "Examples/20 Method chaining with math objects.md",
+      "sha256": "90edd409cb1d193881cdd3a61eab1016f76bd2498c2dc73a04d3a48b5a1d9877"
+    },
+    {
+      "order": 21,
+      "id": "full-wave-rectified-sine-fft",
+      "title": "Full-wave rectified sine and FFT",
+      "category": "math",
+      "path": "Examples/21 Full-wave rectified sine and FFT.md",
+      "sha256": "7736df9a7cbd0acd2fd335feb7e7e02796e2ed83f63e0752aa6cc317a34d4895"
+    },
+    {
+      "order": 22,
+      "id": "square-wave-fft",
+      "title": "Square wave and FFT",
+      "category": "math",
+      "path": "Examples/22 Square wave and FFT.md",
+      "sha256": "73668ee585b839e79005b046e4ea6189de1125698a902537776ecd16d0aba4c6"
+    },
+    {
+      "order": 23,
+      "id": "trapezoid-fft-round-trip",
+      "title": "Trapezoid, FFT, and inverse FFT",
+      "category": "math",
+      "path": "Examples/23 Trapezoid, FFT, and inverse FFT.md",
+      "sha256": "a1ec6aaa6861d4123fbe793b6b151225ec879e040267f06a3aa8e4da7b339d55"
+    },
+    {
+      "order": 24,
+      "id": "low-pass-cas",
+      "title": "Low-pass with .cas()",
+      "category": "filters",
+      "path": "Examples/24 Low-pass with .cas().md",
+      "sha256": "ba190ac4926ab5b0c80f00cc4eac91ea7d28b14759b82e4944c0e0b1fa919d51"
+    },
+    {
+      "order": 25,
+      "id": "low-pass-cascade",
+      "title": "Low-pass with nP.cascade()",
+      "category": "filters",
+      "path": "Examples/25 Low-pass with nP.cascade().md",
+      "sha256": "445e9f8a5545cf7991cc5859486aa256123360f6df7de2e4a9c68d817de77cfb"
+    },
+    {
+      "order": 26,
+      "id": "low-pass-nodal",
+      "title": "Low-pass with nP.nodal()",
+      "category": "filters",
+      "path": "Examples/26 Low-pass with nP.nodal().md",
+      "sha256": "38236f6563c5d068f5680e12b0cb76835d720a8f404ec95aa622547f20948c4b"
+    },
+    {
+      "order": 27,
+      "id": "low-pass-lpfgen",
+      "title": "Low-pass with nP.lpfGen()",
+      "category": "filters",
+      "path": "Examples/27 Low-pass with nP.lpfGen().md",
+      "sha256": "63629ac0a297ed67d8ee02724135b5eac5f81984a26e49929b0e6e3ab3c71763"
+    },
+    {
+      "order": 28,
+      "id": "edge-coupled-bandpass-filter",
+      "title": "Edge-coupled bandpass filter",
+      "category": "filters",
+      "path": "Examples/28 Edge-coupled bandpass filter.md",
+      "sha256": "4333a86f304a77ec08cff000fd6724bffece9462e82c4c2933aebfcbc4648c63"
+    },
+    {
+      "order": 29,
+      "id": "chebyshev-ladder",
+      "title": "Chebyshev filter ladder",
+      "category": "filters",
+      "path": "Examples/29 Chebyshev filter ladder.md",
+      "sha256": "499b1949ac429c9e36bc520534b7c1147dcaa91053e049d38991b78eb5e8d8a4"
+    },
+    {
+      "order": 30,
+      "id": "microstrip-line",
+      "title": "Microstrip line",
+      "category": "microstrip",
+      "path": "Examples/30 Microstrip line.md",
+      "sha256": "50255ec9587f2960a623617b74580aed718db6b7c38e7c5d767ece1dc80a67fc"
+    },
+    {
+      "order": 31,
+      "id": "microstrip-coupler",
+      "title": "Microstrip coupled line",
+      "category": "microstrip",
+      "path": "Examples/31 Microstrip coupled line.md",
+      "sha256": "65f67bdb4297224f58539bb265943ce7dc22fcb60600621c2225b226f3ce2d1c"
+    },
+    {
+      "order": 32,
+      "id": "microstrip-tee",
+      "title": "Microstrip Tee",
+      "category": "microstrip",
+      "path": "Examples/32 Microstrip Tee.md",
+      "sha256": "fec764de4836a375466b23cce420f8694dfb602037c2762a5b23abc1331b648f"
+    },
+    {
+      "order": 33,
+      "id": "microstrip-layout",
+      "title": "Step, bend, and via",
+      "category": "microstrip",
+      "path": "Examples/33 Step, bend, and via.md",
+      "sha256": "ab3cbc8d595b000b1c537d395d51bd8d6adfd96b87dcb4de8a62f3176dee7843"
+    },
+    {
+      "order": 34,
+      "id": "microstrip-film-resistor",
+      "title": "Thin-film resistor",
+      "category": "microstrip",
+      "path": "Examples/34 Thin-film resistor.md",
+      "sha256": "d8dd9d29b7daa66f2617577ebb318669d63e36e104a379ae8fe288c0d47dd4e0"
+    },
+    {
+      "order": 35,
+      "id": "amplifier-noise",
+      "title": "Amplifier noise figure",
+      "category": "noise",
+      "path": "Examples/35 Amplifier noise figure.md",
+      "sha256": "945920b1f845c0d5532d4540c3d0733143a8fe11983bf25cde4b543d5142702e"
+    },
+    {
+      "order": 36,
+      "id": "noise-order",
+      "title": "Amplifier versus attenuator order",
+      "category": "noise",
+      "path": "Examples/36 Amplifier versus attenuator order.md",
+      "sha256": "49d3a509c017e213fe359ef0d4ec3265f51b7aa9ddec408da08a0c7bb7557aea"
+    },
+    {
+      "order": 37,
+      "id": "two-tone-ip3",
+      "title": "Two-tone IM3 and OIP3",
+      "category": "intermodulation",
+      "path": "Examples/37 Two-tone IM3 and OIP3.md",
+      "sha256": "db66bad8f53e422e533e11d25afd2036424dafdfc23d960e7ca6b165cd14ee3f"
+    },
+    {
+      "order": 38,
+      "id": "diode-dc-rf",
+      "title": "1N4148 DC and RF",
+      "category": "nonlinear",
+      "path": "Examples/38 1N4148 DC and RF.md",
+      "sha256": "590dabacfc95fd901ebdec662a712ef7cd304ea995ed73cf58f949e8beabb118"
+    },
+    {
+      "order": 39,
+      "id": "am-envelope",
+      "title": "AM sidebands and envelope",
+      "category": "analog-modulation",
+      "path": "Examples/39 AM sidebands and envelope.md",
+      "sha256": "ff09582687df1b71aa9342d4b089d086f44aa924a7d8d8249baea2f314c48474"
+    },
+    {
+      "order": 40,
+      "id": "fm-pm-sidebands",
+      "title": "FM and PM sidebands",
+      "category": "analog-modulation",
+      "path": "Examples/40 FM and PM sidebands.md",
+      "sha256": "340ee0814a4e0b845a76afee13751761f1a508cfc73a052562a08609c7d7bf35"
+    },
+    {
+      "order": 41,
+      "id": "ssb-dsb-sidebands",
+      "title": "SSB versus DSB-SC",
+      "category": "analog-modulation",
+      "path": "Examples/41 SSB versus DSB-SC.md",
+      "sha256": "b37714889d4e0cc6bcd2ac49e422824bb9af19fac58276efb50e3b5966b76724"
+    },
+    {
+      "order": 42,
+      "id": "ascii-through-circuit",
+      "title": "ASCII through a circuit",
+      "category": "digital-signals",
+      "path": "Examples/42 ASCII through a circuit.md",
+      "sha256": "28b8db25024789f3f6507ce04f0ddb20ecf66acc6b63e686ff18703b9e354b77"
+    },
+    {
+      "order": 43,
+      "id": "pn7-waveform",
+      "title": "PN7 clocked waveform",
+      "category": "digital-signals",
+      "path": "Examples/43 PN7 clocked waveform.md",
+      "sha256": "e4ae248edac88cf6fca849aebdd745185608727ade4947f0653a3a093394c14a"
+    },
+    {
+      "order": 44,
+      "id": "psk-receiver",
+      "title": "PSK receiver",
+      "category": "digital-signals",
+      "path": "Examples/44 PSK receiver.md",
+      "sha256": "c0014b5ea107c7d66c70a8b203d9cd35f20cb3bb58211feaad2e17a460623acb"
+    },
+    {
+      "order": 45,
+      "id": "ber-attenuation",
+      "title": "BER through an attenuator",
+      "category": "digital-signals",
+      "path": "Examples/45 BER through an attenuator.md",
+      "sha256": "97546b0c0a17b971ef079849785531a19befdc7afb4ff35508385e4ab3e31cae"
+    },
+    {
+      "order": 46,
+      "id": "qam-ofdm",
+      "title": "QAM and OFDM reception",
+      "category": "digital-signals",
+      "path": "Examples/46 QAM and OFDM reception.md",
+      "sha256": "a1444a14d69cf7b4cdcc259adaf89f5610844531b6211536aa04893facfbba71"
+    }
+  ],
+  "files": [
+    {
+      "path": "Examples/01 Frequency sweep.md",
+      "sha256": "05177c86ad07aab96c9089dfaa40ca75629baf46952a1af5f1bfe87dacf652f9"
+    },
+    {
+      "path": "Examples/02 RC low-pass.md",
+      "sha256": "9ef9aef2c61e7204d48cacc03ad19cf7ee56ba4a9eb2820df46446ba0f8aab5e"
+    },
+    {
+      "path": "Examples/03 Schematic shape detection.md",
+      "sha256": "4dbe8194e611602c13e4e238625a20f09f8008a5fdc63dac517b4d799278b3b8"
+    },
+    {
+      "path": "Examples/04 Schematic groups and dots.md",
+      "sha256": "ad63b0e13d1da798c056f203849dd83d28414ea3f94ff7f81ae5e6c13508733a"
+    },
+    {
+      "path": "Examples/05 RLC ladder.md",
+      "sha256": "6f847a1df0f8038d3754956e6453eafad0635df1a678d49048b8813cbbc4b2ce"
+    },
+    {
+      "path": "Examples/06 Method chaining in nPort.md",
+      "sha256": "4eb285b22ac2f360e4b963899838a4dc6041e5312cde09257fb889e85b3f9b07"
+    },
+    {
+      "path": "Examples/07 VNA inductor S-parameters.md",
+      "sha256": "47aedba8537c9a4c4e803b7599ea0c466b0713ba425ec03f84908e3a34be9c59"
+    },
+    {
+      "path": "Examples/08 VNA inductor impulse response.md",
+      "sha256": "2d487d727549491d2e222199b743d58032eda083139b4413270a5b57f546760e"
+    },
+    {
+      "path": "Examples/09 VNA cable fault location.md",
+      "sha256": "d8739080f7b035d264a72de6016d4f719e0152785e2fd6aa7a6e979cb51fd7ca"
+    },
+    {
+      "path": "Examples/10 Wilkinson power divider.md",
+      "sha256": "d56c7a145038e6f1d030181eef5815d876574a2aba3771108dcc09191f8bacbc"
+    },
+    {
+      "path": "Examples/11 Pi attenuator.md",
+      "sha256": "11531781a299047e3b17483c000dc4faadd729247c2506df8eaff3bc1dcb86f2"
+    },
+    {
+      "path": "Examples/12 Tee power divider.md",
+      "sha256": "45f26c0a33d1dd4b00418ef5edeb137708030d137d46f52c907ce780e61c49c2"
+    },
+    {
+      "path": "Examples/13 Series branch with seriesTee.md",
+      "sha256": "5415eb52b47754a0d08d9b5cf9811f89cadcfaae08dc3e62eb305cac2beb1110"
+    },
+    {
+      "path": "Examples/14 Ideal coupled line.md",
+      "sha256": "a8b39e2104f24f7de6e29a594e229d37bbb3536a0d75ebb8a1ef2f477d694c5c"
+    },
+    {
+      "path": "Examples/15 Line chart.md",
+      "sha256": "b3ddfda4c57cec68a63161e6f3211518276407dc6e643fd93c04a12f661b2a56"
+    },
+    {
+      "path": "Examples/16 Series RC Smith chart.md",
+      "sha256": "361e99528911f45140bc7dcfe693f0648f1a536be6ab0946258891303d89a0a2"
+    },
+    {
+      "path": "Examples/17 Line table.md",
+      "sha256": "b8a1bb1ac2b2ba987ddc74ca40ceb1978c586ea4cbd2ab127d45c3fedd3e5943"
+    },
+    {
+      "path": "Examples/18 Complex arithmetic.md",
+      "sha256": "234e44a255ec346b8f6b4aea0c9798127452997d518ec730dc5d22a16f1ef290"
+    },
+    {
+      "path": "Examples/19 Matrix arithmetic.md",
+      "sha256": "8615ade1918b3127f896d04daa76a8a8bd3284a7b52a91dd19e40cb17154cc3c"
+    },
+    {
+      "path": "Examples/20 Method chaining with math objects.md",
+      "sha256": "90edd409cb1d193881cdd3a61eab1016f76bd2498c2dc73a04d3a48b5a1d9877"
+    },
+    {
+      "path": "Examples/21 Full-wave rectified sine and FFT.md",
+      "sha256": "7736df9a7cbd0acd2fd335feb7e7e02796e2ed83f63e0752aa6cc317a34d4895"
+    },
+    {
+      "path": "Examples/22 Square wave and FFT.md",
+      "sha256": "73668ee585b839e79005b046e4ea6189de1125698a902537776ecd16d0aba4c6"
+    },
+    {
+      "path": "Examples/23 Trapezoid, FFT, and inverse FFT.md",
+      "sha256": "a1ec6aaa6861d4123fbe793b6b151225ec879e040267f06a3aa8e4da7b339d55"
+    },
+    {
+      "path": "Examples/24 Low-pass with .cas().md",
+      "sha256": "ba190ac4926ab5b0c80f00cc4eac91ea7d28b14759b82e4944c0e0b1fa919d51"
+    },
+    {
+      "path": "Examples/25 Low-pass with nP.cascade().md",
+      "sha256": "445e9f8a5545cf7991cc5859486aa256123360f6df7de2e4a9c68d817de77cfb"
+    },
+    {
+      "path": "Examples/26 Low-pass with nP.nodal().md",
+      "sha256": "38236f6563c5d068f5680e12b0cb76835d720a8f404ec95aa622547f20948c4b"
+    },
+    {
+      "path": "Examples/27 Low-pass with nP.lpfGen().md",
+      "sha256": "63629ac0a297ed67d8ee02724135b5eac5f81984a26e49929b0e6e3ab3c71763"
+    },
+    {
+      "path": "Examples/28 Edge-coupled bandpass filter.md",
+      "sha256": "4333a86f304a77ec08cff000fd6724bffece9462e82c4c2933aebfcbc4648c63"
+    },
+    {
+      "path": "Examples/29 Chebyshev filter ladder.md",
+      "sha256": "499b1949ac429c9e36bc520534b7c1147dcaa91053e049d38991b78eb5e8d8a4"
+    },
+    {
+      "path": "Examples/30 Microstrip line.md",
+      "sha256": "50255ec9587f2960a623617b74580aed718db6b7c38e7c5d767ece1dc80a67fc"
+    },
+    {
+      "path": "Examples/31 Microstrip coupled line.md",
+      "sha256": "65f67bdb4297224f58539bb265943ce7dc22fcb60600621c2225b226f3ce2d1c"
+    },
+    {
+      "path": "Examples/32 Microstrip Tee.md",
+      "sha256": "fec764de4836a375466b23cce420f8694dfb602037c2762a5b23abc1331b648f"
+    },
+    {
+      "path": "Examples/33 Step, bend, and via.md",
+      "sha256": "ab3cbc8d595b000b1c537d395d51bd8d6adfd96b87dcb4de8a62f3176dee7843"
+    },
+    {
+      "path": "Examples/34 Thin-film resistor.md",
+      "sha256": "d8dd9d29b7daa66f2617577ebb318669d63e36e104a379ae8fe288c0d47dd4e0"
+    },
+    {
+      "path": "Examples/35 Amplifier noise figure.md",
+      "sha256": "945920b1f845c0d5532d4540c3d0733143a8fe11983bf25cde4b543d5142702e"
+    },
+    {
+      "path": "Examples/36 Amplifier versus attenuator order.md",
+      "sha256": "49d3a509c017e213fe359ef0d4ec3265f51b7aa9ddec408da08a0c7bb7557aea"
+    },
+    {
+      "path": "Examples/37 Two-tone IM3 and OIP3.md",
+      "sha256": "db66bad8f53e422e533e11d25afd2036424dafdfc23d960e7ca6b165cd14ee3f"
+    },
+    {
+      "path": "Examples/38 1N4148 DC and RF.md",
+      "sha256": "590dabacfc95fd901ebdec662a712ef7cd304ea995ed73cf58f949e8beabb118"
+    },
+    {
+      "path": "Examples/39 AM sidebands and envelope.md",
+      "sha256": "ff09582687df1b71aa9342d4b089d086f44aa924a7d8d8249baea2f314c48474"
+    },
+    {
+      "path": "Examples/40 FM and PM sidebands.md",
+      "sha256": "340ee0814a4e0b845a76afee13751761f1a508cfc73a052562a08609c7d7bf35"
+    },
+    {
+      "path": "Examples/41 SSB versus DSB-SC.md",
+      "sha256": "b37714889d4e0cc6bcd2ac49e422824bb9af19fac58276efb50e3b5966b76724"
+    },
+    {
+      "path": "Examples/42 ASCII through a circuit.md",
+      "sha256": "28b8db25024789f3f6507ce04f0ddb20ecf66acc6b63e686ff18703b9e354b77"
+    },
+    {
+      "path": "Examples/43 PN7 clocked waveform.md",
+      "sha256": "e4ae248edac88cf6fca849aebdd745185608727ade4947f0653a3a093394c14a"
+    },
+    {
+      "path": "Examples/44 PSK receiver.md",
+      "sha256": "c0014b5ea107c7d66c70a8b203d9cd35f20cb3bb58211feaad2e17a460623acb"
+    },
+    {
+      "path": "Examples/45 BER through an attenuator.md",
+      "sha256": "97546b0c0a17b971ef079849785531a19befdc7afb4ff35508385e4ab3e31cae"
+    },
+    {
+      "path": "Examples/46 QAM and OFDM reception.md",
+      "sha256": "a1444a14d69cf7b4cdcc259adaf89f5610844531b6211536aa04893facfbba71"
+    },
+    {
+      "path": "Examples/Examples Home.md",
+      "sha256": "b3158734e3f9dd9f1ea5c44a45a6f04524eb68a81bec3ff7a708b621aa5528fd"
+    },
+    {
+      "path": "What's new in version 0.3.3/What's new.md",
+      "sha256": "b8658d99f642172705441306764c39c86a39e92af935a9dbd18e232f8b7dfa90"
+    }
+  ]
+}
