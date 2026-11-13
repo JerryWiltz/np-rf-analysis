@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 280 280"
+     role="img"
+     aria-labelledby="title description">
+  <title id="title">Physical microstrip tee as a three-port</title>
+  <desc id="description">A physical microstrip tee with common port 1 at node 1 on the left, branch port 2 at node 2 on top, and branch port 3 at node 3 on the bottom.</desc>
+  <metadata id="layout-centering">{&quot;centerAxisX&quot;:140,&quot;centerReference&quot;:&quot;microstrip Tee body center&quot;}</metadata>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- External wires from the three circuit ports to the compact Tee. -->
+  <g fill="none"
+     stroke="#202020"
+     stroke-width="2"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+    <path d="M80 130 H127 M140 80 V117 M140 143 V180"/>
+  </g>
+
+  <!-- MT1: 14-unit center with 6-unit extensions at its three ports. -->
+  <g fill="#b87333">
+    <rect x="133" y="123" width="14" height="14"/>
+    <rect x="127" y="123" width="6" height="14"/>
+    <rect x="133" y="117" width="14" height="6"/>
+    <rect x="133" y="137" width="14" height="6"/>
+  </g>
+
+  <!-- Public component terminals, external terminals, and common-port marker. -->
+  <g fill="#202020">
+    <circle cx="127" cy="130" r="4"/>
+    <circle cx="140" cy="117" r="4"/>
+    <circle cx="140" cy="143" r="4"/>
+    <circle cx="80" cy="130" r="4"/>
+    <circle cx="140" cy="80" r="4"/>
+    <circle cx="140" cy="180" r="4"/>
+    <circle cx="136" cy="130" r="3"/>
+  </g>
+
+  <!-- Component, external-port, and nP-node labels. -->
+  <g fill="#202020"
+     font-family="Arial, Helvetica, sans-serif"
+     text-anchor="middle">
+    <g font-size="16" font-weight="bold">
+      <text x="140" y="30">MT1 = nP.mtee()</text>
+      <text x="140" y="55">all arm widths = 23 mil</text>
+    </g>
+    <g font-size="16">
+      <text x="45" y="135">Port 1</text>
+      <text x="90" y="85">Port 2</text>
+      <text x="140" y="220">Port 3</text>
+    </g>
+  </g>
+
+  <g fill="#ffffff"
+     stroke="#202020"
+     stroke-width="2">
+    <circle cx="50" cy="180" r="10"/>
+    <circle cx="180" cy="80" r="10"/>
+    <circle cx="180" cy="180" r="10"/>
+  </g>
+  <g fill="#202020"
+     font-family="Arial, Helvetica, sans-serif"
+     font-size="14"
+     text-anchor="middle">
+    <text x="50" y="185">1</text>
+    <text x="180" y="85">2</text>
+    <text x="180" y="185">3</text>
+  </g>
+</svg>

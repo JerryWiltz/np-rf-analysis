@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="-100 0 840 380"
+     role="img" aria-labelledby="title description">
+  <title id="title">Diplexer low-pass branch</title>
+  <desc id="description">The low-pass branch from the COMPACT page 27 diplexer, with local nP nodes 1 through 8.</desc>
+  <metadata id="circuit-description">{&quot;title&quot;:&quot;Diplexer low-pass branch&quot;,&quot;description&quot;:&quot;The low-pass branch from the COMPACT page 27 diplexer, with local nP nodes 1 through 8.&quot;,&quot;viewBox&quot;:[-100,0,840,380],&quot;components&quot;:[{&quot;id&quot;:&quot;R2&quot;,&quot;symbol&quot;:&quot;resistor.svg&quot;,&quot;at&quot;:[80,140],&quot;sourceAnchor&quot;:[60,80],&quot;rotation&quot;:0,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:1,&quot;at&quot;:[80,140],&quot;labelAt&quot;:[80,110]},{&quot;port&quot;:2,&quot;node&quot;:2,&quot;at&quot;:[180,140],&quot;labelAt&quot;:[180,110]}]},{&quot;id&quot;:&quot;L2&quot;,&quot;symbol&quot;:&quot;inductor.svg&quot;,&quot;at&quot;:[180,140],&quot;sourceAnchor&quot;:[60,80],&quot;rotation&quot;:0,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:2,&quot;at&quot;:[180,140],&quot;labelAt&quot;:[180,110]},{&quot;port&quot;:2,&quot;node&quot;:3,&quot;at&quot;:[280,140],&quot;labelAt&quot;:[280,100]}]},{&quot;id&quot;:&quot;T1&quot;,&quot;symbol&quot;:&quot;tee.svg&quot;,&quot;at&quot;:[320,180],&quot;sourceAnchor&quot;:[120,140],&quot;rotation&quot;:0,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:7,&quot;at&quot;:[320,180],&quot;labelAt&quot;:[290,190]},{&quot;port&quot;:2,&quot;node&quot;:3,&quot;at&quot;:[280,140],&quot;labelAt&quot;:[280,100]},{&quot;port&quot;:3,&quot;node&quot;:4,&quot;at&quot;:[360,140],&quot;labelAt&quot;:[360,100]}]},{&quot;id&quot;:&quot;R3&quot;,&quot;symbol&quot;:&quot;resistor.svg&quot;,&quot;at&quot;:[360,140],&quot;sourceAnchor&quot;:[60,80],&quot;rotation&quot;:0,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:4,&quot;at&quot;:[360,140],&quot;labelAt&quot;:[360,100]},{&quot;port&quot;:2,&quot;node&quot;:5,&quot;at&quot;:[460,140],&quot;labelAt&quot;:[460,100]}]},{&quot;id&quot;:&quot;L3&quot;,&quot;symbol&quot;:&quot;inductor.svg&quot;,&quot;at&quot;:[460,140],&quot;sourceAnchor&quot;:[60,80],&quot;rotation&quot;:0,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:5,&quot;at&quot;:[460,140],&quot;labelAt&quot;:[460,100]},{&quot;port&quot;:2,&quot;node&quot;:6,&quot;at&quot;:[560,140],&quot;labelAt&quot;:[560,100]}]},{&quot;id&quot;:&quot;C3&quot;,&quot;symbol&quot;:&quot;capacitor.svg&quot;,&quot;at&quot;:[320,180],&quot;sourceAnchor&quot;:[80,80],&quot;rotation&quot;:90,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:7,&quot;at&quot;:[320,180],&quot;labelAt&quot;:[290,190]},{&quot;port&quot;:2,&quot;node&quot;:8,&quot;at&quot;:[320,240],&quot;labelAt&quot;:[290,250]}]},{&quot;id&quot;:&quot;S1&quot;,&quot;symbol&quot;:&quot;short.svg&quot;,&quot;at&quot;:[320,240],&quot;sourceAnchor&quot;:[40,80],&quot;rotation&quot;:90,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:8,&quot;at&quot;:[320,240],&quot;labelAt&quot;:[290,250]}]}],&quot;wires&quot;:[],&quot;labels&quot;:[{&quot;text&quot;:&quot;Low-pass branch&quot;,&quot;at&quot;:[420,40],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;R2 = 0.3 Ω&quot;,&quot;at&quot;:[130,60],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;L2 = 32.4 nH&quot;,&quot;at&quot;:[230,60],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;T1&quot;,&quot;at&quot;:[320,60],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;R3 = 0.1 Ω&quot;,&quot;at&quot;:[410,60],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;L3 = 33.5 nH&quot;,&quot;at&quot;:[510,60],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;C3 = 7.15 pF&quot;,&quot;at&quot;:[400,240],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Short&quot;,&quot;at&quot;:[380,330],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 1&quot;,&quot;at&quot;:[30,150],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 2&quot;,&quot;at&quot;:[610,150],&quot;anchor&quot;:&quot;middle&quot;}],&quot;layout&quot;:{&quot;centerAxisX&quot;:320,&quot;centerReference&quot;:&quot;T1 and principal-path midpoint&quot;}}</metadata>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- R2 from resistor.svg -->
+    <g data-component-id="R2" data-symbol-source="resistor.svg" data-symbol-sha256="2bda48e1d36ff1a9deeaf74d4db28bdde04ff719e61e1c1735836b754734e792" data-symbol-geometry-sha256="03a4d1e2b62f5889e5e4879e43d361f7054157ab860b5a69ed6e786357844eaa" transform="translate(80 140) rotate(0) translate(-60 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 80 H80 L85 70 L95 90 L105 70 L115 90 L125 70 L135 90 L140 80 H160"/>
+  </g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- L2 from inductor.svg -->
+    <g data-component-id="L2" data-symbol-source="inductor.svg" data-symbol-sha256="b22705f1bded0cd915a008d892b55186b3f288f854ecc04f08fd35119ed289d8" data-symbol-geometry-sha256="de2cb6d1f87dc9e8db63663e093a0a9502c2471f1753447b09aecec228355792" transform="translate(180 140) rotate(0) translate(-60 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 80 H80 C80 60 95 60 95 80 C95 60 110 60 110 80 C110 60 125 60 125 80 C125 60 140 60 140 80 H160"/>
+  </g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- T1 from tee.svg -->
+    <g data-component-id="T1" data-symbol-source="tee.svg" data-symbol-sha256="fc34f38311259fb31bc0a792009ac45f21168b3587817822d0571ab4586f6031" data-symbol-geometry-sha256="cab2ff2d4707d7fcea2eb3d05be2892f8d2b68546834d8242b4b8f0a4ad13660" transform="translate(320 180) rotate(0) translate(-120 -140)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M80 100 H100 M140 100 H160 M120 120 V140"/><rect x="100" y="80" width="40" height="40"/><circle cx="120" cy="110" r="3" fill="#202020" stroke="none"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- R3 from resistor.svg -->
+    <g data-component-id="R3" data-symbol-source="resistor.svg" data-symbol-sha256="2bda48e1d36ff1a9deeaf74d4db28bdde04ff719e61e1c1735836b754734e792" data-symbol-geometry-sha256="03a4d1e2b62f5889e5e4879e43d361f7054157ab860b5a69ed6e786357844eaa" transform="translate(360 140) rotate(0) translate(-60 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 80 H80 L85 70 L95 90 L105 70 L115 90 L125 70 L135 90 L140 80 H160"/>
+  </g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- L3 from inductor.svg -->
+    <g data-component-id="L3" data-symbol-source="inductor.svg" data-symbol-sha256="b22705f1bded0cd915a008d892b55186b3f288f854ecc04f08fd35119ed289d8" data-symbol-geometry-sha256="de2cb6d1f87dc9e8db63663e093a0a9502c2471f1753447b09aecec228355792" transform="translate(460 140) rotate(0) translate(-60 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 80 H80 C80 60 95 60 95 80 C95 60 110 60 110 80 C110 60 125 60 125 80 C125 60 140 60 140 80 H160"/>
+  </g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- C3 from capacitor.svg -->
+    <g data-component-id="C3" data-symbol-source="capacitor.svg" data-symbol-sha256="81d59c5e38273f9cf2224e9bfe470d3ce724b5b76eb3a51c5af9d869811d24ec" data-symbol-geometry-sha256="162b6ec98b0777fedb7f5e6fedab285aa0440cdf0903a6281833716e278df6b0" transform="translate(320 180) rotate(90) translate(-80 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round">
+    <path d="M80 80 H105 M115 80 H140 M105 70 V90 M115 70 V90"/>
+  </g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- S1 from short.svg -->
+    <g data-component-id="S1" data-symbol-source="short.svg" data-symbol-sha256="62fcd7364173fb2cdcf17038aaf20da68ca0ce7f7de45ffd21bc72b846cf106e" data-symbol-geometry-sha256="4f26bdf7a787636ee75140bddfabcad396643897da924c284f5cac55c8da8a7f" transform="translate(320 240) rotate(90) translate(-40 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 80 H100"/><rect x="100" y="60" width="40" height="40"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <circle data-node-dot="1" cx="80" cy="140" r="4" fill="#202020"/>
+    <circle data-node-circle="1" cx="80" cy="110" r="12" fill="#ffffff"/>
+    <circle data-node-dot="2" cx="180" cy="140" r="4" fill="#202020"/>
+    <circle data-node-circle="2" cx="180" cy="110" r="12" fill="#ffffff"/>
+    <circle data-node-dot="3" cx="280" cy="140" r="4" fill="#202020"/>
+    <circle data-node-circle="3" cx="280" cy="100" r="12" fill="#ffffff"/>
+    <circle data-node-dot="7" cx="320" cy="180" r="4" fill="#202020"/>
+    <circle data-node-circle="7" cx="290" cy="190" r="12" fill="#ffffff"/>
+    <circle data-node-dot="4" cx="360" cy="140" r="4" fill="#202020"/>
+    <circle data-node-circle="4" cx="360" cy="100" r="12" fill="#ffffff"/>
+    <circle data-node-dot="5" cx="460" cy="140" r="4" fill="#202020"/>
+    <circle data-node-circle="5" cx="460" cy="100" r="12" fill="#ffffff"/>
+    <circle data-node-dot="6" cx="560" cy="140" r="4" fill="#202020"/>
+    <circle data-node-circle="6" cx="560" cy="100" r="12" fill="#ffffff"/>
+    <circle data-node-dot="8" cx="320" cy="240" r="4" fill="#202020"/>
+    <circle data-node-circle="8" cx="290" cy="250" r="12" fill="#ffffff"/>
+  </g>
+  <g fill="#202020" font-family="Arial, Helvetica, sans-serif" font-size="14">
+    <text x="420" y="40" text-anchor="middle">Low-pass branch</text>
+    <text x="130" y="60" text-anchor="middle">R2 = 0.3 Ω</text>
+    <text x="230" y="60" text-anchor="middle">L2 = 32.4 nH</text>
+    <text x="320" y="60" text-anchor="middle">T1</text>
+    <text x="410" y="60" text-anchor="middle">R3 = 0.1 Ω</text>
+    <text x="510" y="60" text-anchor="middle">L3 = 33.5 nH</text>
+    <text x="400" y="240" text-anchor="middle">C3 = 7.15 pF</text>
+    <text x="380" y="330" text-anchor="middle">Short</text>
+    <text x="30" y="150" text-anchor="middle">Port 1</text>
+    <text x="610" y="150" text-anchor="middle">Port 2</text>
+    <text data-node-label="1" x="80" y="115" text-anchor="middle">1</text>
+    <text data-node-label="2" x="180" y="115" text-anchor="middle">2</text>
+    <text data-node-label="3" x="280" y="105" text-anchor="middle">3</text>
+    <text data-node-label="7" x="290" y="195" text-anchor="middle">7</text>
+    <text data-node-label="4" x="360" y="105" text-anchor="middle">4</text>
+    <text data-node-label="5" x="460" y="105" text-anchor="middle">5</text>
+    <text data-node-label="6" x="560" y="105" text-anchor="middle">6</text>
+    <text data-node-label="8" x="290" y="255" text-anchor="middle">8</text>
+  </g>
+</svg>

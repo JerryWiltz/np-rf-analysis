@@ -1,4 +1,4 @@
-<!-- Modified: 2026-11-12 -->
+<!-- Modified: 2026-11-13 -->
 # nPort plugin content
 
 This folder holds the reviewable Markdown source for the content bundled with
@@ -61,4 +61,6 @@ npm run verify:release
 ```
 
 For content changes, also run all 46 bundled `npjs` examples in this repository
-vault's Reading view. Do not use the other test vaults for routine plugin tests.
+vault's Reading view. The external test vaults have been retired; preserved
+lessons and selected legacy examples are documented in
+`developmentDocs/legacy-learning/README.md` and are not part of this payload.

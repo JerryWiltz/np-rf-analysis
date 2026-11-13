@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 280" role="img" aria-labelledby="title description">
+  <title id="title">Ideal transmission-line comparison</title>
+  <desc id="description">Separate 50 ohm and 75 ohm ideal transmission lines, each 25 millimeters long between ports 1 and 2.</desc>
+  <metadata id="layout-centering">{&quot;centerAxisX&quot;:220,&quot;centerReference&quot;:&quot;shared transmission-line midpoint&quot;}</metadata>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M120 100 H170 M270 100 H320"/>
+    <rect x="170" y="85" width="100" height="30"/>
+    <path d="M120 220 H170 M270 220 H320"/>
+    <rect x="170" y="205" width="100" height="30"/>
+  </g>
+  <g fill="#202020" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <g font-size="16" font-weight="bold"><text x="220" y="35">Ideal Tlin() comparison</text><text x="220" y="60">TL1: Z = 50 Ω, length = 25 mm</text><text x="220" y="180">TL2: Z = 75 Ω, length = 25 mm</text></g>
+    <g font-size="14"><text x="120" y="135">Port 1</text><text x="320" y="135">Port 2</text><text x="120" y="255">Port 1</text><text x="320" y="255">Port 2</text></g>
+    <circle cx="120" cy="100" r="4"/><circle cx="320" cy="100" r="4"/><circle cx="120" cy="220" r="4"/><circle cx="320" cy="220" r="4"/>
+  </g>
+</svg>

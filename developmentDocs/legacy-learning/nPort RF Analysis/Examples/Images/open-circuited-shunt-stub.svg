@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="10 0 700 540"
+     role="img" aria-labelledby="title description">
+  <title id="title">Open-circuited shunt stub</title>
+  <desc id="description">Tee port 1 feeds a transmission line terminated by Open; Tee ports 2 and 3 are the external ports.</desc>
+  <metadata id="circuit-description">{&quot;title&quot;:&quot;Open-circuited shunt stub&quot;,&quot;description&quot;:&quot;Tee port 1 feeds a transmission line terminated by Open; Tee ports 2 and 3 are the external ports.&quot;,&quot;viewBox&quot;:[10,0,700,540],&quot;components&quot;:[{&quot;id&quot;:&quot;T1&quot;,&quot;symbol&quot;:&quot;tee.svg&quot;,&quot;at&quot;:[360,200],&quot;sourceAnchor&quot;:[120,140],&quot;rotation&quot;:0,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:2,&quot;at&quot;:[360,200],&quot;labelAt&quot;:[320,220]},{&quot;port&quot;:2,&quot;node&quot;:1,&quot;at&quot;:[320,160],&quot;labelAt&quot;:[280,130]},{&quot;port&quot;:3,&quot;node&quot;:3,&quot;at&quot;:[400,160],&quot;labelAt&quot;:[440,130]}]},{&quot;id&quot;:&quot;TL1&quot;,&quot;symbol&quot;:&quot;transmission-line.svg&quot;,&quot;at&quot;:[360,200],&quot;sourceAnchor&quot;:[40,90],&quot;rotation&quot;:90,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:2,&quot;at&quot;:[360,200],&quot;labelAt&quot;:[320,220]},{&quot;port&quot;:2,&quot;node&quot;:4,&quot;at&quot;:[360,400],&quot;labelAt&quot;:[320,400]}]},{&quot;id&quot;:&quot;O1&quot;,&quot;symbol&quot;:&quot;open.svg&quot;,&quot;at&quot;:[360,400],&quot;sourceAnchor&quot;:[40,80],&quot;rotation&quot;:90,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:4,&quot;at&quot;:[360,400],&quot;labelAt&quot;:[320,400]}]}],&quot;wires&quot;:[],&quot;labels&quot;:[{&quot;text&quot;:&quot;Open-circuited shunt stub&quot;,&quot;at&quot;:[350,40],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;T1 = Tee()&quot;,&quot;at&quot;:[500,210],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;TL1 = Tlin()&quot;,&quot;at&quot;:[480,300],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;O1 = Open()&quot;,&quot;at&quot;:[460,500],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 1&quot;,&quot;at&quot;:[220,160],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 2&quot;,&quot;at&quot;:[480,160],&quot;anchor&quot;:&quot;middle&quot;}],&quot;layout&quot;:{&quot;centerAxisX&quot;:360,&quot;centerReference&quot;:&quot;Tee branch axis&quot;}}</metadata>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- T1 from tee.svg -->
+    <g data-component-id="T1" data-symbol-source="tee.svg" data-symbol-sha256="fc34f38311259fb31bc0a792009ac45f21168b3587817822d0571ab4586f6031" data-symbol-geometry-sha256="cab2ff2d4707d7fcea2eb3d05be2892f8d2b68546834d8242b4b8f0a4ad13660" transform="translate(360 200) rotate(0) translate(-120 -140)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M80 100 H100 M140 100 H160 M120 120 V140"/><rect x="100" y="80" width="40" height="40"/><circle cx="120" cy="110" r="3" fill="#202020" stroke="none"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- TL1 from transmission-line.svg -->
+    <g data-component-id="TL1" data-symbol-source="transmission-line.svg" data-symbol-sha256="c0cf9c30a93ecfa767dc7ec7f430bf43a85b5813545cecbc5ad7987ed3f78df1" data-symbol-geometry-sha256="0407a346c5385b77fba2bbd23f75924a73154fd0922940e5059359e9d5a5b28d" transform="translate(360 200) rotate(90) translate(-40 -90)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 90 H90 M190 90 H240"/><rect x="90" y="75" width="100" height="30"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- O1 from open.svg -->
+    <g data-component-id="O1" data-symbol-source="open.svg" data-symbol-sha256="05e22fde4e3d9e7ce9c7bde3e6c09f832db23e9a7e7afb4a6a4c52bd0caba0db" data-symbol-geometry-sha256="7f7a58517c14efa36dff4f2722930b9cf589e205315e0a3c3bb4f3348874e6c9" transform="translate(360 400) rotate(90) translate(-40 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round"><path d="M40 80 H140"/><circle cx="150" cy="80" r="10"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <circle data-node-dot="2" cx="360" cy="200" r="4" fill="#202020"/>
+    <circle data-node-circle="2" cx="320" cy="220" r="12" fill="#ffffff"/>
+    <circle data-node-dot="1" cx="320" cy="160" r="4" fill="#202020"/>
+    <circle data-node-circle="1" cx="280" cy="130" r="12" fill="#ffffff"/>
+    <circle data-node-dot="3" cx="400" cy="160" r="4" fill="#202020"/>
+    <circle data-node-circle="3" cx="440" cy="130" r="12" fill="#ffffff"/>
+    <circle data-node-dot="4" cx="360" cy="400" r="4" fill="#202020"/>
+    <circle data-node-circle="4" cx="320" cy="400" r="12" fill="#ffffff"/>
+  </g>
+  <g fill="#202020" font-family="Arial, Helvetica, sans-serif" font-size="14">
+    <text x="350" y="40" text-anchor="middle">Open-circuited shunt stub</text>
+    <text x="500" y="210" text-anchor="middle">T1 = Tee()</text>
+    <text x="480" y="300" text-anchor="middle">TL1 = Tlin()</text>
+    <text x="460" y="500" text-anchor="middle">O1 = Open()</text>
+    <text x="220" y="160" text-anchor="middle">Port 1</text>
+    <text x="480" y="160" text-anchor="middle">Port 2</text>
+    <text data-node-label="2" x="320" y="225" text-anchor="middle">2</text>
+    <text data-node-label="1" x="280" y="135" text-anchor="middle">1</text>
+    <text data-node-label="3" x="440" y="135" text-anchor="middle">3</text>
+    <text data-node-label="4" x="320" y="405" text-anchor="middle">4</text>
+  </g>
+</svg>

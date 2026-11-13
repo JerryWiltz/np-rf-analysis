@@ -1,0 +1,406 @@
+{
+  "schemaVersion": 1,
+  "preservedOn": "2026-11-13",
+  "sourceVault": "/home/jerrywiltz/cad-development/np-rf-analysis-test-vault",
+  "sourceGitHead": "2eaeb8e416a938a8949d76444b0232a199ff0f77",
+  "sourceGitCommitCount": 12,
+  "fullArchive": {
+    "path": ".local-archives/np-rf-analysis-test-vault-2026-11-13.tar.gz",
+    "sha256": "0dd2e1d5c18215aa1e8f7dffcdf8ada30ec97f31ca4b59d9b3cdd02e107772e3",
+    "inventory": ".local-archives/np-rf-analysis-test-vault-2026-11-13.inventory.json",
+    "localOnly": true
+  },
+  "counts": {
+    "lessonNotes": 24,
+    "selectedExampleNotes": 13,
+    "illustrations": 37
+  },
+  "archiveOnly": [
+    "0.3.1/",
+    "AGENTS.md",
+    "nPort RF Analysis/Lessons/Schematic Authoring/AGENTS.md",
+    "nPort RF Analysis/Examples/examples/GistHTMLs/",
+    "nPort RF Analysis/Examples/examples/nP-examples/Low-Pass Filter Design Application.md",
+    "schematicTest.md",
+    ".git/",
+    ".obsidian/",
+    ".agents/",
+    ".codex/"
+  ],
+  "duplicateCurrentExamples": {
+    "count": 46,
+    "canonicalDirectory": "nPort-plugin-content/Examples/"
+  },
+  "files": [
+    {
+      "path": "nPort RF Analysis/Examples/Images/attenuator-with-parasitics.svg",
+      "sha256": "ffc02d697000d918c7dc9c03f5d384a640ccf54da491fd79f0035e321e5d569a",
+      "bytes": 19763
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/attenuator-without-parasitics.svg",
+      "sha256": "d56fa5b0eb501e221f9700dd3a965193fa45c40fc30633cd4589484062faae97",
+      "bytes": 11463
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/bare-transmission-line.svg",
+      "sha256": "8cd475294cef5bfd1c3b73f7e94de1d3fa2f3c34e617e653ed0764c576e1b395",
+      "bytes": 3046
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/branchline-coupler.svg",
+      "sha256": "8fdc750216306b7a68b299b5672f2a0dbbe9c99308c66313d80771f7258e9d38",
+      "bytes": 14533
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/diplexer-combined.svg",
+      "sha256": "d956bb51a9731fe77af0410b12aff1d064a0f9d7d99441c422ac9026867491cc",
+      "bytes": 5741
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/diplexer-high-pass-branch.svg",
+      "sha256": "7df3574cb1f88cef594998bbbe32a36134c1a35f551a7eaf43371e09403dc445",
+      "bytes": 9986
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/diplexer-low-pass-branch.svg",
+      "sha256": "2145f77a2201d686cfe81be50ed09caa8b9c1826308899f4b92b223b7d13f933",
+      "bytes": 11421
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/directional-coupler-comparison.svg",
+      "sha256": "8f4522cf9bb11bdc5dee0672cbca59b4039aa132a9c78597d78a85350980c2c9",
+      "bytes": 8234
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/edge-coupled-filter.svg",
+      "sha256": "45cde0033f291eacb713ceaa09b09f64628a9fca559d8bc4e15809c2ba967fc6",
+      "bytes": 14276
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/five-repeated-rlc-sections.svg",
+      "sha256": "0caf938b68e06864e1ce79b725f5d0e8002109362d706d090929d0db9efeba60",
+      "bytes": 22364
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/mcap-pi-attenuator.svg",
+      "sha256": "1d0835917fafef7f09b33fd80cdf05d16b8f9fbb1e60d7a7f2432733045f2794",
+      "bytes": 11448
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/open-circuited-series-stub.svg",
+      "sha256": "e76e473327fcd00c31ebf41a309074f5b48180ce513e7aa300af88a7239db068",
+      "bytes": 6274
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/open-circuited-shunt-stub.svg",
+      "sha256": "a30102c7a87db3f29b857ba02ffa65f1781669a58b54a1084df62ee8aa1dc3cb",
+      "bytes": 5917
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/pad-with-parasitics.svg",
+      "sha256": "ef9db5e4ffda9a5bf2676b9408de250fa9ffb321c2051573a1a8370358afce88",
+      "bytes": 19765
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/rat-race-divider.svg",
+      "sha256": "413685206555ee6bd19481c237f92ac7a8c87d50a17f3af8ad4675267345c2fb",
+      "bytes": 14528
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/short-circuited-series-stub.svg",
+      "sha256": "d7edb18d5b5fa794efac312d5250e91cd220ef00527c26cec05233864b36e6ba",
+      "bytes": 6321
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/short-circuited-shunt-stub.svg",
+      "sha256": "a1926f31d55082b572a03fcbc1eae995ead7ec36c841adf0b6c23bf405bcd3aa",
+      "bytes": 5964
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/tee-alternate-shunt-network.svg",
+      "sha256": "bd2180aeee9552e8c39e0054f22f5802ac5e469fc9e1b0b2c88c812e62ee5ab7",
+      "bytes": 7262
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/tee-parallel-network.svg",
+      "sha256": "a1dd3382893ac0c6475929568305616d92df7f0f85b788e971f3dd2015b16961",
+      "bytes": 12925
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/tee-shunt-branch-network.svg",
+      "sha256": "90c873562aaee2eaee830480ba11b872625f98ecea69ef548e4fe23b8cc52a28",
+      "bytes": 7368
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/tee-test-1-back-to-back.svg",
+      "sha256": "1a0a0f6ec0488add391129a356b74e072390fb9826ce490ab5c640f6dc3e0c2b",
+      "bytes": 5024
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/tee-test-2-parallel-resistors.svg",
+      "sha256": "71b2bfacfff0e0f10f5d2f38c6cc16585af8b944ecb941921e69728d9937db8b",
+      "bytes": 7764
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/tee-test-3-parallel-rl.svg",
+      "sha256": "87c4558d2d255113ed1ab59ad0bcbb402e7aa75307c93e7613550fe7e9fba905",
+      "bytes": 7808
+    },
+    {
+      "path": "nPort RF Analysis/Examples/Images/transformer-comparison.svg",
+      "sha256": "940f47405e55ac0faeae66c592ff3c3e8d651c9801afe12681e59672c4efaa17",
+      "bytes": 8510
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/Compact/Diplexer Example.md",
+      "sha256": "94ed666f4d867b545e4152eb4022a16eedf91da10199f15626859d94f08dd362",
+      "bytes": 4779
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/Gupta/3 GHz Rat-Race Divider.md",
+      "sha256": "41fdcb9de7d58ba419bcca12fbf7fa1ef3b32e4ef4fe67cf0524b2a4cd672b26",
+      "bytes": 6708
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/Gupta/Cascaded and Nodal Repeated RLC Sections.md",
+      "sha256": "acaf84361033c07f99ab31b314c6d18a3e0dd2a7f763ea509af5c8a73852a824",
+      "bytes": 3080
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/Huelsman/DC Resistor Analysis 1.md",
+      "sha256": "f967e78e4aeb0eae8ac86f9ce4cc390cb541293d93a9e380505b96bb9aaead91",
+      "bytes": 2170
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/Huelsman/DC Resistor Analysis Example 2.md",
+      "sha256": "483bab5176d0ef06c78b2c816b12072960fb957996c8f313c69f6355664da4d1",
+      "bytes": 3091
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/MWs101/Microwaves101 Branchline Coupler.md",
+      "sha256": "a3323bb8ef1b3ce82ec7c23b8ec78ef37ab1340806f489fb8f3db5c1d28a7443",
+      "bytes": 3159
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/MWs101/Microwaves101 Directional Coupler.md",
+      "sha256": "eca97a83792ac3ead0fb0d08ecc130c3763a5ce46601934b37ac1399b75b8ed9",
+      "bytes": 4002
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/Medley/Edge-Coupled Filter Design.md",
+      "sha256": "8ea0fc102f1cf0e644cf2e94f7d33825b0a940fb5f46fc57edb0797b54c8c449",
+      "bytes": 4244
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/Medley/RLC Elements Examples.md",
+      "sha256": "1227e2bec3588760d4fb7ca0fbe73cdf6400d0ed522069696f6ad0c538928cfd",
+      "bytes": 13305
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/Medley/Transmission Line and Tee.md",
+      "sha256": "c0dd2761a2b7e4dc08a1738e46255c0762193a257ecaf568321c1da8dfea1328",
+      "bytes": 5559
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/Medley/Two-Port and Four-Port Transformers.md",
+      "sha256": "2d5eecec89bc9336f63126713e96fa35ed314ea2fb1db4054912b8af488e2df0",
+      "bytes": 2701
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/nP-examples/3 dB Pad with Parasitics.md",
+      "sha256": "eeff803681c6c6c2b1d62247be5433bcc32150ac1c8aa6c4ab3685b0a82a06f1",
+      "bytes": 2960
+    },
+    {
+      "path": "nPort RF Analysis/Examples/examples/nP-examples/Tee and Nodal Demonstration.md",
+      "sha256": "a3fffb6b6f54c2580c0a842e45590c2cfe4ac5c1f50200dc9d28920e5c62cb27",
+      "bytes": 7211
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/1 \"Hello, nPort\".md",
+      "sha256": "ed66125b6c2d1b3dc0a87701e321cb1dc10d441a3f9742b1d5770c04b7020c53",
+      "bytes": 9203
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/10 Understanding S-Parameters.md",
+      "sha256": "fae67ddd7afaed4ed0872099e882ec324f1d8bbecfc119644067ac97e531a110",
+      "bytes": 2258
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/100 Hand-loading the plugin into Obsidian.md",
+      "sha256": "e6ec193699a2278471d378410e42b8384413a7c95f51a574719a58d286775d1b",
+      "bytes": 2459
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/11 Complex Numbers.md",
+      "sha256": "7e0f2bd4c50ac7b040bd2072b8c07f002f9dea569b504939633cb1566790b567",
+      "bytes": 1989
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/12 Matrix Operations.md",
+      "sha256": "d0c49bd30ca01bcd1b3d7547c5200410111dddc8bf75f3e9ae6c1c2f334f6eed",
+      "bytes": 1468
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/13 Ideal Transmission Lines.md",
+      "sha256": "2c993ec381118bc4080734e45ecd5acfba37679d4c3ea6ef336a1ef242b91c7c",
+      "bytes": 3042
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/14 A Single Microstrip Line.md",
+      "sha256": "4b4eda106b436c80ec49cd7b7e076f18bf0b3a344f67e9d605eaf1b5e9ffc731",
+      "bytes": 2960
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/15 Microstrip Discontinuities.md",
+      "sha256": "6e2450d277ae92cd311d356a295c1b4999404a252a34ea806ce117f0bc3d3d87",
+      "bytes": 2988
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/16 Multiport Networks.md",
+      "sha256": "8fc314410917d362d4a0cb9c739b4a09c4ce8fc70d6d9c997774d94608f181c4",
+      "bytes": 3069
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/17 Microstrip Tee Power Divider.md",
+      "sha256": "d171e08eb8550fe9660bbfd6b2e0901d515c7142dc0c44b785e191fe6c96b8a0",
+      "bytes": 9119
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/18 Coupled Transmission Lines.md",
+      "sha256": "12f4edc142be1f0dedca80e3628be609a28c442664f94365bd04b2786706b0f5",
+      "bytes": 2783
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/19 Chebyshev Low-Pass Filter Design.md",
+      "sha256": "13a76d550ba2e36a746476c4126478c7b402cc7b95f1af2965636d7717eb8604",
+      "bytes": 2971
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/2 Understanding an npjs Pane.md",
+      "sha256": "b14356d16601d37596f3716cb07467a899601eb03b1b8c85dc312afe4dc853d8",
+      "bytes": 3572
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/20 1N4148 Diode Model.md",
+      "sha256": "28f88b37db59c896c798e3019c7c3c6ec46c8eebae3ee3d3b727a0426176af13",
+      "bytes": 2764
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/200 Complete List of nPort RF Constructors, Complex Numbers, and Matrices.md",
+      "sha256": "edcdb38cec3b271f34f59d4198dae256fea91365fefefd468cfdbb0a1795a4ed",
+      "bytes": 46394
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/21 Diagnosing an Analysis.md",
+      "sha256": "f92f05031068b1885c31f04331cecf610a75bc5f0bda601767021fe1912cd05b",
+      "bytes": 3009
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/22 Creating Schematics with an Agent.md",
+      "sha256": "ef977bf57e600c722ba5a21ac2ace98f3899013381d68c3e9d962ca2b3e07032",
+      "bytes": 5734
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/3 Series RC Example.md",
+      "sha256": "fd1ff499eccbb373b41b326e819c96c1b4b7ddf02732d91ddc988befea29d48d",
+      "bytes": 4577
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/4 Cascading a Series RC Circuit.md",
+      "sha256": "7eb4b90199721001fcc4a37a8aa6fb6bb0d6ac023e73749b7b5a19db7b728364",
+      "bytes": 3824
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/5 Nodal Analysis of the Series RC Circuit.md",
+      "sha256": "288b049b1d9a5bc31199d494833f808c621aef5538d811e9f41da54ef95a86a9",
+      "bytes": 4096
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/6 Typing in an npjs Block.md",
+      "sha256": "9182919758f8ba5051b23e7ac7b4f353e6b63dad6ed399c5e973e6b861f88ef5",
+      "bytes": 3733
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/7 The Basic Analysis Blocks.md",
+      "sha256": "032e658bea6c49e330d741bde14f06d857e74ec1b8e3c5e391017506a94a900c",
+      "bytes": 5320
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/8 Display Input Objects.md",
+      "sha256": "7ca75fbdfd3e2a41d10f7ba5e9cc40cb2764870b67823911e0f1b7a632577e55",
+      "bytes": 7824
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/9 A 3 dB Attenuator.md",
+      "sha256": "a8d8673cc4f66418ddbb143d7aba534d728ba47ed8a709f5ab357b66aa948e67",
+      "bytes": 3675
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/3-db-pi-attenuator.svg",
+      "sha256": "26b46d52b0f2d247dbb5b5091252eee2844fcf555935722fc162cf5637411e4d",
+      "bytes": 4611
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/chebyshev-low-pass-network.svg",
+      "sha256": "8cafaf03121c92d4f3a45a6df28cacfbacce017bb1e8daa400d95664e6edc7b7",
+      "bytes": 1234
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/coupled-microstrip-line.svg",
+      "sha256": "cafa2e613b0f52dde9da6bf60ee7e459c89189e00326d4dd6fe3970cd2a3f910",
+      "bytes": 1439
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/diode-1n4148-zero-bias.svg",
+      "sha256": "83dc0c3f5215c4168503cafa8bb67b50b8803f1639e388d4a98c351cc7ef4763",
+      "bytes": 1155
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/ideal-transmission-line-comparison.svg",
+      "sha256": "9c30727759537d1c2c642e17f898061d971878f26b39498deb863a633d5a5f54",
+      "bytes": 1421
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/microstrip-step-and-bend.svg",
+      "sha256": "0ee146fa473c9ce9ca23b2ec29ecbfcee62a18181fc5c29b6122efaf2c531897",
+      "bytes": 2072
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/microstrip-tee-power-divider.svg",
+      "sha256": "a0fa53b1a6ed60139dfea7f127f77db9408589ee1c056f4450584c3e2e392878",
+      "bytes": 5089
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/microstrip-tee-three-port.svg",
+      "sha256": "7a3c7e0131cc24ba6eaf91afbae183d6e1bb52e542a8475870b2ac0c2e5387cf",
+      "bytes": 2394
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/npjs-four-panes.svg",
+      "sha256": "1cc149240f29e1aa5a10832074f081f370129bd99b4965c73f2d5114b675ec07",
+      "bytes": 3274
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/series-rc-seserc.svg",
+      "sha256": "ec67f696e458e08dc60eb7d603c25fc0d695b1d4804430978fca19236dccbc0d",
+      "bytes": 1816
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/series-rc.svg",
+      "sha256": "227bf848df99391c3cc23e40928573f34b3402c41c8b5ab4c7bedb782705d622",
+      "bytes": 2212
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/series-rl.svg",
+      "sha256": "95053a9ebea534e648a786be0944f9401871c368e7db587d3ce7f73c7277d7cc",
+      "bytes": 2304
+    },
+    {
+      "path": "nPort RF Analysis/Lessons/Images/single-microstrip-line.svg",
+      "sha256": "37efe5bb923a6400d0749fbd4fb5264afc592442689301253c91b3a5456677bc",
+      "bytes": 1208
+    }
+  ]
+}

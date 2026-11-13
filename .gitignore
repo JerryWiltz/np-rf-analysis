@@ -1,7 +1,8 @@
-# Modified: 2026-11-12
+# Modified: 2026-11-13
 node_modules/
 main.js
 main.js.map
 *.log
 Discord.txt
 .obsidian/
+.local-archives/

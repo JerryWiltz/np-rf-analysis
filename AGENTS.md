@@ -1,5 +1,5 @@
 # AGENTS.md
-<!-- Modified: 2026-11-12 -->
+<!-- Modified: 2026-11-13 -->
 
 
 ## Repo shorthands
@@ -14,12 +14,41 @@ Treat these as user-message shorthands when they reach the agent as text; they a
 Repository guide for agents working in the `np-rf-analysis` Obsidian plugin repository.
 
 The repository root is also the canonical Obsidian development/test vault. Open
-this repository itself in Obsidian and test the locally built plugin here; do
-not use either external `np-rf-analysis` test vault for routine plugin testing.
+this repository itself in Obsidian and test the locally built plugin here.
+The external test vaults have been retired. Preserved educational material is
+documented in `developmentDocs/legacy-learning/README.md`; it is historical
+source material, not bundled plugin content or current authoring instructions.
 
 ## Scope
 
 These instructions apply to the entire repository rooted at `/home/jerrywiltz/cad-development/np-rf-analysis`.
+
+## Screenshot-guided Obsidian troubleshooting
+
+The November 13, 2026 directory investigation used repeated `--screen` turns:
+Jerry navigated Obsidian, the Community directory, and Discord, then supplied
+a new screenshot for the agent to read before giving the next instruction.
+
+- Open the newest screenshot in Downloads by modification time; exclude Trash
+  and older captures. Describe the visible result and give one concrete next
+  step. Request another screenshot when the relevant menu or result is not
+  visible, rather than guessing which controls are available.
+- Read Discord's pinned "before creating a thread" instructions, their linked
+  official documentation, and the relevant FAQ before recommending a post.
+- For the 0.3.3 listing, the gray **Add to Obsidian** button did nothing and
+  searching **nPort** in Obsidian's Community plugins browser returned no
+  results. Later the button changed to blue/accent-colored, and Jerry confirmed
+  that he could create a vault and install the plugin. Record that color change
+  as the observed transition to download availability for this listing.
+- Do not dismiss the gray button as ordinary styling or declare installation
+  enabled solely because the page contains an `obsidian://` link. A published
+  GitHub release, **Completed** scan, or **Satisfactory** scorecard does not by
+  itself establish that users can install the plugin. Check actual availability.
+- The cause of this delay was not established. Do not attribute it to a
+  particular warning, browser problem, administrator action, or standard review
+  deadline without evidence. An administrator help request was submitted through
+  the directory website and later updated when installation worked; replies
+  should be checked under **Your Help Requests** on the management page.
 
 ## Write-Target Validation
 
@@ -63,6 +92,18 @@ Before changing submission, security, release, manifest, settings, or user-inter
 - [Manifest reference](https://docs.obsidian.md/Reference/Manifest)
 
 Treat the developer policies and submission requirements as mandatory. Treat plugin guidelines as expected review guidance; reviewers may require recommendations to be addressed depending on severity.
+
+On November 13, 2026, the official Community directory guide, developer
+policies, plugin submission requirements, plugin guidelines, theme guidelines,
+and linked directory FAQ and management guide were read during the
+screenshot-guided investigation. The current directory documentation is linked
+from [Community directory](https://docs.obsidian.md/community-directory),
+including [management](https://docs.obsidian.md/community-directory/manage-entry)
+and [FAQ](https://docs.obsidian.md/community-directory/faq). It states that
+warnings do not block submission, routine updates do not require resubmission,
+and archiving prevents new installations. This dated reading records the work
+done; it does not replace rereading current requirements for future changes or
+certify that every plugin behavior has passed review.
 
 Preserve these submission rules:
 

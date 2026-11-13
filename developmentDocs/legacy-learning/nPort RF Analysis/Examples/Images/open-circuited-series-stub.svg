@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="-30 0 700 540"
+     role="img" aria-labelledby="title description">
+  <title id="title">Open-circuited series stub</title>
+  <desc id="description">seriesTee ports 1 and 2 form the external through path; port 3 feeds a transmission line terminated by Open.</desc>
+  <metadata id="circuit-description">{&quot;title&quot;:&quot;Open-circuited series stub&quot;,&quot;description&quot;:&quot;seriesTee ports 1 and 2 form the external through path; port 3 feeds a transmission line terminated by Open.&quot;,&quot;viewBox&quot;:[-30,0,700,540],&quot;components&quot;:[{&quot;id&quot;:&quot;ST1&quot;,&quot;symbol&quot;:&quot;series-tee.svg&quot;,&quot;at&quot;:[280,160],&quot;sourceAnchor&quot;:[80,100],&quot;rotation&quot;:0,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:1,&quot;at&quot;:[280,160],&quot;labelAt&quot;:[280,120]},{&quot;port&quot;:2,&quot;node&quot;:2,&quot;at&quot;:[360,160],&quot;labelAt&quot;:[360,120]},{&quot;port&quot;:3,&quot;node&quot;:3,&quot;at&quot;:[320,200],&quot;labelAt&quot;:[280,220]}]},{&quot;id&quot;:&quot;TL1&quot;,&quot;symbol&quot;:&quot;transmission-line.svg&quot;,&quot;at&quot;:[320,200],&quot;sourceAnchor&quot;:[40,90],&quot;rotation&quot;:90,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:3,&quot;at&quot;:[320,200],&quot;labelAt&quot;:[280,220]},{&quot;port&quot;:2,&quot;node&quot;:4,&quot;at&quot;:[320,400],&quot;labelAt&quot;:[280,400]}]},{&quot;id&quot;:&quot;O1&quot;,&quot;symbol&quot;:&quot;open.svg&quot;,&quot;at&quot;:[320,400],&quot;sourceAnchor&quot;:[40,80],&quot;rotation&quot;:90,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:4,&quot;at&quot;:[320,400],&quot;labelAt&quot;:[280,400]}]}],&quot;wires&quot;:[],&quot;labels&quot;:[{&quot;text&quot;:&quot;Open-circuited series stub&quot;,&quot;at&quot;:[350,40],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;ST1 = seriesTee()&quot;,&quot;at&quot;:[500,190],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;TL1 = Tlin()&quot;,&quot;at&quot;:[480,300],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;O1 = Open()&quot;,&quot;at&quot;:[460,500],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 1&quot;,&quot;at&quot;:[220,160],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 2&quot;,&quot;at&quot;:[420,160],&quot;anchor&quot;:&quot;middle&quot;}],&quot;layout&quot;:{&quot;centerAxisX&quot;:320,&quot;centerReference&quot;:&quot;seriesTee branch axis&quot;}}</metadata>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+
+    <!-- ST1 from series-tee.svg -->
+    <g data-component-id="ST1" data-symbol-source="series-tee.svg" data-symbol-sha256="fa77722a2e173a86d222a396b60ccfd2f3497052bc5b8839ec8430784f61e3fd" data-symbol-geometry-sha256="07cd374e7a5492bceed77545c940893cfc8ee608f63607db49ce9b9fe0a48fb7" transform="translate(280 160) rotate(0) translate(-80 -100)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- External leads and square component body. -->
+    <path d="M80 100 H100 M140 100 H160 M120 120 V140"/>
+    <rect x="100" y="80" width="40" height="40"/>
+
+    <!-- Hand-drawn source: separated series path with port 3 directed into its gap. -->
+    <path d="M105 100 H115 M125 100 H135 M120 116 V105 M116 109 L120 105 L124 109"/>
+
+    <!-- Port-1 orientation marker. -->
+    <circle cx="108" cy="90" r="3" fill="#202020" stroke="none"/>
+  </g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- TL1 from transmission-line.svg -->
+    <g data-component-id="TL1" data-symbol-source="transmission-line.svg" data-symbol-sha256="c0cf9c30a93ecfa767dc7ec7f430bf43a85b5813545cecbc5ad7987ed3f78df1" data-symbol-geometry-sha256="0407a346c5385b77fba2bbd23f75924a73154fd0922940e5059359e9d5a5b28d" transform="translate(320 200) rotate(90) translate(-40 -90)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 90 H90 M190 90 H240"/><rect x="90" y="75" width="100" height="30"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <!-- O1 from open.svg -->
+    <g data-component-id="O1" data-symbol-source="open.svg" data-symbol-sha256="05e22fde4e3d9e7ce9c7bde3e6c09f832db23e9a7e7afb4a6a4c52bd0caba0db" data-symbol-geometry-sha256="7f7a58517c14efa36dff4f2722930b9cf589e205315e0a3c3bb4f3348874e6c9" transform="translate(320 400) rotate(90) translate(-40 -80)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round"><path d="M40 80 H140"/><circle cx="150" cy="80" r="10"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <circle data-node-dot="1" cx="280" cy="160" r="4" fill="#202020"/>
+    <circle data-node-circle="1" cx="280" cy="120" r="12" fill="#ffffff"/>
+    <circle data-node-dot="2" cx="360" cy="160" r="4" fill="#202020"/>
+    <circle data-node-circle="2" cx="360" cy="120" r="12" fill="#ffffff"/>
+    <circle data-node-dot="3" cx="320" cy="200" r="4" fill="#202020"/>
+    <circle data-node-circle="3" cx="280" cy="220" r="12" fill="#ffffff"/>
+    <circle data-node-dot="4" cx="320" cy="400" r="4" fill="#202020"/>
+    <circle data-node-circle="4" cx="280" cy="400" r="12" fill="#ffffff"/>
+  </g>
+  <g fill="#202020" font-family="Arial, Helvetica, sans-serif" font-size="14">
+    <text x="350" y="40" text-anchor="middle">Open-circuited series stub</text>
+    <text x="500" y="190" text-anchor="middle">ST1 = seriesTee()</text>
+    <text x="480" y="300" text-anchor="middle">TL1 = Tlin()</text>
+    <text x="460" y="500" text-anchor="middle">O1 = Open()</text>
+    <text x="220" y="160" text-anchor="middle">Port 1</text>
+    <text x="420" y="160" text-anchor="middle">Port 2</text>
+    <text data-node-label="1" x="280" y="125" text-anchor="middle">1</text>
+    <text data-node-label="2" x="360" y="125" text-anchor="middle">2</text>
+    <text data-node-label="3" x="280" y="225" text-anchor="middle">3</text>
+    <text data-node-label="4" x="280" y="405" text-anchor="middle">4</text>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 220" role="img" aria-labelledby="title description">
+  <title id="title">Single physical microstrip line</title>
+  <desc id="description">A 23 mil wide and 500 mil long microstrip line between ports 1 and 2 over a 25 mil substrate.</desc>
+  <metadata id="layout-centering">{&quot;centerAxisX&quot;:220,&quot;centerReference&quot;:&quot;microstrip-line midpoint&quot;}</metadata>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round">
+    <path d="M80 120 H150 M290 120 H360"/>
+  </g>
+  <path d="M150 120 H290" fill="none" stroke="#b87333" stroke-width="12" stroke-linecap="butt"/>
+  <g fill="#202020" font-family="Arial, Helvetica, sans-serif" text-anchor="middle">
+    <g font-size="16" font-weight="bold"><text x="220" y="45">ML1 = nP.mlin()</text><text x="220" y="80">W = 23 mil, L = 500 mil, H = 25 mil, εr = 10</text></g>
+    <g font-size="16"><text x="80" y="165">Port 1</text><text x="360" y="165">Port 2</text></g>
+    <circle cx="150" cy="120" r="4"/><circle cx="290" cy="120" r="4"/>
+    <circle cx="80" cy="120" r="4"/><circle cx="360" cy="120" r="4"/>
+  </g>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 220"
+     role="img" aria-labelledby="title description">
+  <title id="title">Bare transmission line</title>
+  <desc id="description">One two-port transmission line, matching Tlin.out().</desc>
+  <metadata id="circuit-description">{&quot;title&quot;:&quot;Bare transmission line&quot;,&quot;description&quot;:&quot;One two-port transmission line, matching Tlin.out().&quot;,&quot;viewBox&quot;:[0,0,600,220],&quot;components&quot;:[{&quot;id&quot;:&quot;TL1&quot;,&quot;symbol&quot;:&quot;transmission-line.svg&quot;,&quot;at&quot;:[200,120],&quot;sourceAnchor&quot;:[40,90],&quot;rotation&quot;:0,&quot;connections&quot;:[{&quot;port&quot;:1,&quot;node&quot;:1,&quot;at&quot;:[200,120],&quot;labelAt&quot;:[200,170]},{&quot;port&quot;:2,&quot;node&quot;:2,&quot;at&quot;:[400,120],&quot;labelAt&quot;:[400,170]}]}],&quot;wires&quot;:[],&quot;labels&quot;:[{&quot;text&quot;:&quot;Bare transmission line&quot;,&quot;at&quot;:[300,40],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;TL1 = Tlin()&quot;,&quot;at&quot;:[300,80],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 1&quot;,&quot;at&quot;:[120,120],&quot;anchor&quot;:&quot;middle&quot;},{&quot;text&quot;:&quot;Port 2&quot;,&quot;at&quot;:[480,120],&quot;anchor&quot;:&quot;middle&quot;}],&quot;layout&quot;:{&quot;centerAxisX&quot;:300,&quot;centerReference&quot;:&quot;TL1 midpoint&quot;}}</metadata>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- TL1 from transmission-line.svg -->
+    <g data-component-id="TL1" data-symbol-source="transmission-line.svg" data-symbol-sha256="c0cf9c30a93ecfa767dc7ec7f430bf43a85b5813545cecbc5ad7987ed3f78df1" data-symbol-geometry-sha256="0407a346c5385b77fba2bbd23f75924a73154fd0922940e5059359e9d5a5b28d" transform="translate(200 120) rotate(0) translate(-40 -90)">
+      <!-- canonical-geometry-start -->
+<g fill="none" stroke="#202020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 90 H90 M190 90 H240"/><rect x="90" y="75" width="100" height="30"/></g>
+      <!-- canonical-geometry-end -->
+    </g>
+    <circle data-node-dot="1" cx="200" cy="120" r="4" fill="#202020"/>
+    <circle data-node-circle="1" cx="200" cy="170" r="12" fill="#ffffff"/>
+    <circle data-node-dot="2" cx="400" cy="120" r="4" fill="#202020"/>
+    <circle data-node-circle="2" cx="400" cy="170" r="12" fill="#ffffff"/>
+  </g>
+  <g fill="#202020" font-family="Arial, Helvetica, sans-serif" font-size="14">
+    <text x="300" y="40" text-anchor="middle">Bare transmission line</text>
+    <text x="300" y="80" text-anchor="middle">TL1 = Tlin()</text>
+    <text x="120" y="120" text-anchor="middle">Port 1</text>
+    <text x="480" y="120" text-anchor="middle">Port 2</text>
+    <text data-node-label="1" x="200" y="175" text-anchor="middle">1</text>
+    <text data-node-label="2" x="400" y="175" text-anchor="middle">2</text>
+  </g>
+</svg>
