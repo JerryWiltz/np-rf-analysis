@@ -11,7 +11,9 @@
     "lint": "eslint .",
     "test": "tsx --test test/*.test.ts",
     "typecheck": "tsc --noEmit",
-    "verify:release": "node scripts/verify-release.mjs"
+    "verify:release": "node scripts/verify-release.mjs",
+    "agent:check": "node scripts/sync-agent.mjs",
+    "agent:sync": "node scripts/sync-agent.mjs --write"
   },
   "devDependencies": {
     "@codemirror/state": "6.5.0",
@@ -30,5 +32,6 @@
   "license": "MIT",
   "dependencies": {
     "eslint-linter-browserify": "10.13.0"
-  }
+  },
+  "_modified": "2026-11-18"
 }

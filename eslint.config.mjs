@@ -1,4 +1,4 @@
-// Modified: 2026-11-12
+// Modified: 2026-11-18
 import obsidianmd from 'eslint-plugin-obsidianmd';
 import globals from 'globals';
 import { defineConfig, globalIgnores } from 'eslint/config';
@@ -27,6 +27,8 @@ export default defineConfig(
                         'eslint.config.mjs',
                         'scripts/promote-repl-examples.mjs',
                         'scripts/verify-release.mjs',
+                        'scripts/sync-agent.mjs',
+                        'scripts/verify-bundled-agent.mjs',
                         'manifest.json'
                     ]
                 },

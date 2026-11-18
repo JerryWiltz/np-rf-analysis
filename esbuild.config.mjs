@@ -1,9 +1,10 @@
-// Modified: 2026-11-12
+// Modified: 2026-11-18
 import {createHash} from 'node:crypto';
 import * as esbuild from 'esbuild';
 import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readBundledAgent } from './scripts/sync-agent.mjs';
 
 const production = process.argv[2] === 'production';
 const root = path.dirname(fileURLToPath(import.meta.url));
@@ -50,6 +51,23 @@ const bundledEducationalContentPlugin = {
                 loader: 'js',
                 watchFiles: [manifestPath, ...manifest.files.map((entry) =>
                     path.join(bundledContentDirectory, entry.path))]
+            };
+        });
+    }
+};
+
+const bundledAgentPlugin = {
+    name: 'bundled-agent-instructions',
+    setup(build) {
+        build.onResolve({filter: /^bundled-agent-instructions$/}, () => ({
+            path: 'bundled-agent-instructions', namespace: 'bundled-agent-instructions'
+        }));
+        build.onLoad({filter: /.*/, namespace: 'bundled-agent-instructions'}, async () => {
+            const agent = await readBundledAgent(root);
+            return {
+                contents: `export default ${JSON.stringify(agent.content)}; export const sha256 = ${JSON.stringify(agent.sha256)};`,
+                loader: 'js',
+                watchFiles: [path.join(root, 'bundled-agent/AGENTS.md'), path.join(root, 'bundled-agent/manifest.json')]
             };
         });
     }
@@ -108,7 +126,7 @@ const options = {
     minify: production,
     sourcemap: production ? false : 'inline',
     treeShaking: true,
-    plugins: [bundledEducationalContentPlugin, workerSourcePlugin],
+    plugins: [bundledEducationalContentPlugin, bundledAgentPlugin, workerSourcePlugin],
     logLevel: 'info'
 };
 

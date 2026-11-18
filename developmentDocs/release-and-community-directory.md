@@ -1,4 +1,4 @@
-<!-- Modified: 2026-11-12 -->
+<!-- Modified: 2026-11-18 -->
 # Release and Community directory safeguards
 
 This document preserves the release lessons learned while publishing nPort RF Analysis in the Obsidian Community Plugin directory. It supplements the mandatory rules in `AGENTS.md`; current Obsidian policies remain authoritative.
@@ -42,6 +42,29 @@ Any proposal that relaxes one of these constraints is a security-model change, n
 - key Run gating, iframe sandbox, CSP, worker cleanup, and API-blocking safeguards disappear.
 
 Both CI and the tagged-release workflow build the production bundle and run this verification. These checks are deliberately narrow guardrails, not proof that arbitrary code is safe and not a substitute for review.
+
+## Bundled code-writing agent
+
+The canonical Obsidian agent is `nP/nP-agents/obsidian/AGENTS.md`. Run
+`npm run agent:sync` in this repository after an intentional canonical update;
+`npm run agent:check` compares it with the vendored Markdown. Review and commit
+`bundled-agent/AGENTS.md` and its generated `manifest.json` together. Do not
+edit the copy independently or replace this repository's contributor AGENTS.md.
+Ordinary builds use only the vendored copy, verifying its SHA-256 and byte count,
+so a clean release checkout needs no sibling repository. No release attachment
+is added: the complete text is embedded in `main.js`.
+
+On load, the plugin installs the text as `AGENTS.md` in its own directory. Its
+`AGENTS.sha256` records the installed text for safe updates. Missing copies are
+created, matching copies avoid rewrites, previously installed unedited copies
+are updated, and differing user copies are preserved. Installation errors are
+reported without disabling RF analysis. The vault root and other plugins are
+not installation targets. Users explicitly direct their external Codex/Claude
+session to read the file; the plugin does not launch an agent.
+
+`verify:release` runs the production plugin's startup using a vault stub,
+checking the full installed text, reload behavior, managed updates, custom-copy
+preservation, custom configuration directories and file-access failures.
 
 ## Release checklist
 

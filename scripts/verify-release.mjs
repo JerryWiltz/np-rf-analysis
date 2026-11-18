@@ -1,7 +1,9 @@
-// Modified: 2026-11-11
+// Modified: 2026-11-18
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFile } from 'node:fs/promises';
+import { readBundledAgent } from './sync-agent.mjs';
+import { verifyBundledAgent } from './verify-bundled-agent.mjs';
 
 async function read(path) {
     return readFile(new URL(`../${path}`, import.meta.url), 'utf8');
@@ -85,5 +87,8 @@ for (const name of [
 for (const name of ['require', 'process', 'app', 'window', 'document', 'Function', 'eval']) {
     assert.match(worker, new RegExp(`['"]${name}['"]`), `the executor boundary must account for ${name}`);
 }
+
+const agent = await readBundledAgent();
+await verifyBundledAgent(main, agent.content, agent.sha256);
 
 process.stdout.write(`Release verification passed for nPort RF Analysis ${manifest.version}.\n`);

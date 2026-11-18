@@ -1,5 +1,7 @@
-// Modified: 2026-07-15
-import { Notice, Plugin, TFile } from 'obsidian';
+// Modified: 2026-11-18
+import { Notice, Plugin, TFile, normalizePath } from 'obsidian';
+import bundledAgentInstructions, { sha256 as bundledAgentChecksum } from 'bundled-agent-instructions';
+import { installAgentInstructions } from './agent-instructions';
 import { npJsPlainTextPasteExtension } from './npjs-paste';
 import { NpJsRenderChild } from './npjs-render-child';
 import {
@@ -45,6 +47,7 @@ export default class NPortRfAnalysisPlugin extends Plugin {
 
     async onload(): Promise<void> {
         this.pluginData = parsePluginData(await this.loadData());
+        await this.installBundledAgent();
 
         this.registerEditorExtension(npJsPlainTextPasteExtension);
         this.addSettingTab(new NPortRfAnalysisSettingTab(this.app, this));
@@ -107,6 +110,22 @@ export default class NPortRfAnalysisPlugin extends Plugin {
             for (const timer of this.pruneTimers.values()) window.clearTimeout(timer);
             this.pruneTimers.clear();
         });
+    }
+
+    private async installBundledAgent(): Promise<void> {
+        try {
+            const directory = normalizePath(this.manifest.dir
+                ?? `${this.app.vault.configDir}/plugins/${this.manifest.id}`);
+            const result = await installAgentInstructions(
+                this.app.vault.adapter, directory, bundledAgentInstructions, bundledAgentChecksum
+            );
+            if (result === 'preserved') {
+                new Notice('Existing AGENTS.md differs from the bundled agent and was preserved in the plugin folder.');
+            }
+        } catch (error) {
+            console.error('Could not install bundled agent instructions.', error);
+            new Notice('Could not install agent instructions; circuit analysis remains available.');
+        }
     }
 
     getSnapshotStorageSummary(): SnapshotStorageSummary {

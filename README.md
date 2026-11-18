@@ -1,4 +1,4 @@
-<!-- Modified: 2026-11-12 -->
+<!-- Modified: 2026-11-18 -->
 # nPort RF Analysis
 
 nPort RF Analysis brings the nP RF and microwave analysis library into Obsidian. Its primary workflow is JavaScript: write or copy an `npjs` block, inspect the lint feedback, then select **Run** to calculate and render results in the note.
@@ -23,6 +23,30 @@ For manual installation, download `main.js`, `manifest.json`, and `styles.css` f
 ```
 
 Restart Obsidian and enable the plugin in that vault. A manual installation is separate for each vault.
+
+## Write notes with Codex or Claude
+
+The compiled plugin includes a self-contained nP code-writing agent. When the
+plugin loads, it creates `AGENTS.md` in its own installation folder, normally
+`.obsidian/plugins/np-rf-analysis/`. A different vault configuration folder is
+supported. `AGENTS.sha256` tracks the last installed copy: future builds update
+unchanged installed copies and preserve files that were edited or supplied by
+the user. No vault-root `AGENTS.md` or `CLAUDE.md` is created or changed.
+
+Start Codex or Claude at the vault root and explicitly ask it to read
+`.obsidian/plugins/np-rf-analysis/AGENTS.md`, then describe the circuit or provide
+a schematic image. The agent writes minimal Markdown `npjs` blocks. It does
+not run code unless asked. Open the note in Reading view and select **Run**.
+This file provides instructions; the plugin does not include or launch an AI
+service, send vault content to one, or require one for RF analysis.
+
+Maintainers synchronize the canonical `nP/nP-agents/obsidian/AGENTS.md` with
+`npm run agent:sync`, then use `npm run agent:check` to compare the copies.
+An alternate source can be passed with `-- --source /path/to/AGENTS.md`.
+The checked copy and checksum in `bundled-agent/` must be committed together.
+Normal builds and CI use that copy without the nP repository or network access.
+The production build rejects a missing or mismatched copy; release verification
+executes the built plugin against a vault stub and compares the installed text.
 
 ## Run nP JavaScript
 
